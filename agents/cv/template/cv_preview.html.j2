@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ content.full_name }} - CV</title>
+    <style>{{ css }}</style>
+  </head>
+  <body>
+    <article class="page">
+      <aside class="sidebar">
+        {% if content.sidebar.focus_areas %}
+        <section class="section">
+          <h2 class="section-title">Fokus</h2>
+          <ul class="compact-list sidebar-copy">
+            {% for item in content.sidebar.focus_areas %}
+            <li>{{ item }}</li>
+            {% endfor %}
+          </ul>
+        </section>
+        {% endif %}
+
+        {% if content.sidebar.work_preferences %}
+        <section class="section">
+          <h2 class="section-title">Arbeitsmodell</h2>
+          <p class="sidebar-copy">{{ content.sidebar.work_preferences }}</p>
+        </section>
+        {% endif %}
+
+        {% if content.sidebar.standards %}
+        <section class="section">
+          <h2 class="section-title">Standards</h2>
+          <p class="sidebar-copy">{{ content.sidebar.standards | join(" · ") }}</p>
+        </section>
+        {% endif %}
+
+        <section class="section">
+          <h2 class="section-title">Technologien</h2>
+          {% for group in content.sidebar.technology_groups %}
+          <div class="sidebar-group">
+            <p class="sidebar-label">{{ group["name"] }}</p>
+            <p class="sidebar-items">{{ group["items"] | join(", ") }}</p>
+          </div>
+          {% endfor %}
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">Zertifizierungen</h2>
+          {% for group in content.sidebar.certification_groups %}
+          <div class="sidebar-group">
+            <p class="sidebar-label">{{ group["name"] }}</p>
+            <ul class="compact-list sidebar-items">
+              {% for item in group["items"] %}
+              <li>{{ item["label"] }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+          {% endfor %}
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">Ausbildung</h2>
+          <ul class="compact-list sidebar-copy">
+            {% for item in content.sidebar.education %}
+            <li>
+              <strong>{{ item["institution"] }}</strong><br />
+              {{ item["program"] }}<br />
+              {{ item["period"] }}
+            </li>
+            {% endfor %}
+          </ul>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">Ausgewaehlte Kunden</h2>
+          <p class="sidebar-copy">{{ content.sidebar.clients | join(" · ") }}</p>
+        </section>
+      </aside>
+
+      <main class="main">
+        <header class="hero">
+          <div class="hero-copy">
+            <h1 class="name">{{ content.full_name }}</h1>
+            <p class="headline">{{ content.headline }}</p>
+            <div class="chip-row">
+              {% for strength in content.profile.strengths %}
+              <span class="chip">{{ strength }}</span>
+              {% endfor %}
+            </div>
+            <p class="contact">{{ content.contact_line }}</p>
+            <p class="links">
+              {% for item in content.links %}
+              <a href="{{ item["url"] }}">{{ item["label"] }}</a>{% if not loop.last %} | {% endif %}
+              {% endfor %}
+            </p>
+            <div class="hero-profile">
+              <h2 class="section-title">Profil</h2>
+              <p class="profile-copy">{{ content.profile.summary }}</p>
+              <p class="goal-block">{{ content.profile.goal }}</p>
+              <div class="profile-facts">
+                <p class="fact-line"><span class="fact-label">Branchen</span>{{ content.profile.industries | join(" · ") }}</p>
+              </div>
+            </div>
+          </div>
+          <div class="hero-media">
+            <img class="portrait" src="{{ content.portrait_path }}" alt="{{ content.full_name }}" />
+            {% if content.sidebar.availability %}
+            <p class="availability-card">
+              <span class="availability-label">Verfuegbar ab</span>
+              <span class="availability-value">{{ content.sidebar.availability }}</span>
+            </p>
+            {% endif %}
+          </div>
+        </header>
+
+        {% if content.featured_projects %}
+        <section class="section">
+          <h2 class="section-title">Ausgewaehlte Projekte</h2>
+          <div class="project-grid">
+            {% for item in content.featured_projects %}
+            <article class="project-card">
+              <p class="project-name">{{ item["name"] }}</p>
+              <p class="project-meta">
+                {{ item["client"] }}{% if item["role"] %} | {{ item["role"] }}{% endif %}{% if item["period"] %} | {{ item["period"] }}{% endif %}
+              </p>
+              {% if item["context"] %}
+              <p class="project-context">{{ item["context"] }}</p>
+              {% endif %}
+              <p class="project-copy">{{ item["summary"] }}</p>
+              {% if item["detail_points"] %}
+              <ul class="compact-list project-details">
+                {% for detail in item["detail_points"] %}
+                <li>{{ detail }}</li>
+                {% endfor %}
+              </ul>
+              {% endif %}
+              {% if item["tools"] %}
+              <p class="project-tools">{{ item["tools"] }}</p>
+              {% endif %}
+            </article>
+            {% endfor %}
+          </div>
+        </section>
+        {% endif %}
+
+        <section class="section">
+          <h2 class="section-title">Berufserfahrung</h2>
+          {% for item in content.experiences %}
+          <article class="experience">
+            <div class="experience-heading">
+              <p class="experience-company-title">{{ item["company"] }}</p>
+              <p class="experience-period">{{ item["period"] }}</p>
+            </div>
+            <p class="experience-role">{{ item["role"] }}</p>
+            {% if item["roles_held"] %}
+            <p class="experience-line"><span class="experience-label">Projektrollen</span>{{ item["roles_held"] | join(" · ") }}</p>
+            {% endif %}
+            {% if item["project_names"] %}
+            <p class="experience-line"><span class="experience-label">Projekte</span>{{ item["project_names"] | join(" · ") }}</p>
+            {% endif %}
+            {% if item["focus_text"] %}
+            <p class="experience-line"><span class="experience-label">Schwerpunkte</span>{{ item["focus_text"] }}</p>
+            {% endif %}
+          </article>
+          {% endfor %}
+        </section>
+      </main>
+    </article>
+  </body>
+</html>

@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Toni Gansel - CV</title>
+    <style>:root {
+  --page-bg: #ffffff;
+  --sidebar-bg: #dbe3eb;
+  --accent: #2d5f9d;
+  --accent-strong: #1f4476;
+  --text: #20262d;
+  --muted: #59646f;
+  --line: #d7dde4;
+  --badge-dark: #2a2d31;
+  --badge-green: #5b8648;
+  --badge-blue: #2d5f9d;
+  --badge-slate: #5f6c7d;
+  --badge-fg: #ffffff;
+  --font-base: "Avenir Next", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 20px 0;
+  background: #0f1114;
+  color: var(--text);
+  font-family: var(--font-base);
+}
+
+.cv-page {
+  width: 210mm;
+  height: 297mm;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 54mm 1fr;
+  overflow: hidden;
+  background: var(--page-bg);
+  box-shadow: 0 16px 42px rgba(0, 0, 0, 0.28);
+}
+
+.cv-sidebar {
+  background: var(--sidebar-bg);
+  padding: 10mm 6mm 8mm 7mm;
+}
+
+.cv-main {
+  padding: 9mm 10mm 8mm;
+}
+
+.sidebar-section {
+  margin-bottom: 5.5mm;
+}
+
+.sidebar-title,
+.main-title {
+  margin: 0 0 1.4mm;
+  color: var(--accent);
+  font-size: 7pt;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.sidebar-title {
+  padding-bottom: 0.8mm;
+  border-bottom: 1px solid var(--line);
+}
+
+.main-title {
+  display: flex;
+  align-items: center;
+  gap: 2mm;
+}
+
+.main-title::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+
+.sidebar-group {
+  margin-bottom: 2.5mm;
+}
+
+.sidebar-label {
+  margin: 0 0 0.6mm;
+  color: var(--accent-strong);
+  font-size: 5.85pt;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.sidebar-copy,
+.sidebar-items,
+.education-copy {
+  margin: 0;
+  color: var(--text);
+  font-size: 5.65pt;
+  line-height: 1.42;
+}
+
+.sidebar-items {
+  color: var(--muted);
+}
+
+.compact-list {
+  margin: 0;
+  padding-left: 0;
+}
+
+.compact-list li {
+  margin: 0 0 0.8mm;
+  color: var(--muted);
+  font-size: 5.55pt;
+  line-height: 1.38;
+}
+
+.education-item {
+  margin-bottom: 2.2mm;
+}
+
+.education-copy strong {
+  color: var(--text);
+}
+
+.masthead {
+  display: grid;
+  grid-template-columns: 1fr 26mm;
+  gap: 6mm;
+  align-items: start;
+  padding-bottom: 2.5mm;
+  border-bottom: 1px solid var(--line);
+}
+
+.name {
+  margin: 0 0 1mm;
+  color: var(--text);
+  font-size: 18.5pt;
+  line-height: 0.96;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.headline {
+  margin: 0 0 1.3mm;
+  color: var(--accent);
+  font-size: 7.5pt;
+  line-height: 1.25;
+  font-weight: 700;
+}
+
+.contact-line,
+.link-line {
+  margin: 0;
+  color: var(--muted);
+  font-size: 5.95pt;
+  line-height: 1.38;
+}
+
+.link-line {
+  margin-top: 0.55mm;
+}
+
+.link-line a {
+  color: var(--accent-strong);
+  text-decoration: none;
+}
+
+.portrait {
+  width: 26mm;
+  height: 32mm;
+  object-fit: cover;
+  border-radius: 1.6mm;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+}
+
+.main-section {
+  margin-top: 4.5mm;
+}
+
+.profile-copy,
+.entry-copy,
+.experience-copy {
+  margin: 0 0 1mm;
+  color: var(--text);
+  font-size: 6.05pt;
+  line-height: 1.45;
+}
+
+.profile-copy.secondary {
+  color: var(--muted);
+}
+
+.project-entry,
+.experience-entry {
+  padding-bottom: 1.5mm;
+  margin-bottom: 1.5mm;
+  border-bottom: 1px solid rgba(45, 95, 157, 0.14);
+}
+
+.project-entry:last-child,
+.experience-entry:last-child {
+  margin-bottom: 0;
+  border-bottom: 0;
+}
+
+.entry-head {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2.2mm;
+  align-items: start;
+}
+
+.entry-name {
+  margin: 0;
+  color: var(--text);
+  font-size: 6.45pt;
+  line-height: 1.22;
+  font-weight: 800;
+}
+
+.entry-meta {
+  margin: 0.45mm 0 0;
+  color: var(--muted);
+  font-size: 5.55pt;
+  line-height: 1.3;
+}
+
+.entry-side {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.6mm;
+}
+
+.entry-period {
+  margin: 0;
+  color: var(--accent);
+  font-size: 5.35pt;
+  line-height: 1.2;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.project-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 15mm;
+  padding: 0.65mm 1.8mm;
+  border-radius: 0.8mm;
+  color: var(--badge-fg);
+  font-size: 4.9pt;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-badge.badge-security {
+  background: var(--badge-dark);
+}
+
+.project-badge.badge-automation {
+  background: var(--badge-green);
+}
+
+.project-badge.badge-ai {
+  background: var(--badge-blue);
+}
+
+.project-badge.badge-performance,
+.project-badge.badge-neutral {
+  background: var(--badge-slate);
+}
+
+.entry-list {
+  margin: 0.75mm 0 0;
+  padding-left: 2.4mm;
+}
+
+.entry-list li {
+  margin: 0 0 0.55mm;
+  color: var(--text);
+  font-size: 5.75pt;
+  line-height: 1.34;
+}
+
+.tools-line {
+  margin: 0.5mm 0 0;
+  color: var(--accent);
+  font-size: 5.3pt;
+  line-height: 1.25;
+  font-weight: 700;
+}
+
+.experience-copy {
+  margin-top: 0.6mm;
+  color: var(--muted);
+}
+
+.experience-compact {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 2mm;
+  margin: 0 0 0.85mm;
+}
+
+.experience-compact-roles {
+  color: var(--muted);
+  font-size: 5.75pt;
+  line-height: 1.3;
+}
+
+.experience-compact-roles strong {
+  color: var(--text);
+}
+
+.cv-footer {
+  grid-column: 1 / -1;
+  padding: 2mm 10mm 3mm;
+  text-align: center;
+}
+
+.footer-keywords {
+  margin: 0;
+  color: var(--muted);
+  font-size: 5.5pt;
+  line-height: 1.45;
+}
+
+@media (max-width: 1000px) {
+  body {
+    padding: 0;
+    background: #f2f4f7;
+  }
+
+  .cv-page {
+    width: 100%;
+    height: auto;
+    min-height: 297mm;
+    box-shadow: none;
+  }
+}
+</style>
+  </head>
+  <body>
+    <article class="cv-page">
+      <aside class="cv-sidebar">
+        <section class="sidebar-section">
+          <h2 class="sidebar-title">Technologien</h2>
+          <div class="sidebar-group">
+            <p class="sidebar-label">Offensive Security</p>
+            <p class="sidebar-items">Nmap, Kali Linux, Nessus, OWASP ZAP, Burp Suite, SonarQube</p>
+          </div>
+          <div class="sidebar-group">
+            <p class="sidebar-label">Scripting & Automation</p>
+            <p class="sidebar-items">Java, Python, SQL, JavaScript, Groovy</p>
+          </div>
+          <div class="sidebar-group">
+            <p class="sidebar-label">Cloud & Infra</p>
+            <p class="sidebar-items">Git, SVN, Jenkins, Docker, Kubernetes</p>
+          </div>
+          <div class="sidebar-group">
+            <p class="sidebar-label">Standards & Compliance</p>
+            <p class="sidebar-items">Agile (Scrum), DevSecOps, Risikobasiertes Testen, ISTQB, OWASP, BSI</p>
+          </div>
+          <div class="sidebar-group">
+            <p class="sidebar-label">Tools & Collaboration</p>
+            <p class="sidebar-items">JMeter, Selenium, Ranorex, JUnit, Jira, Microsoft Teams</p>
+          </div>
+        </section>
+
+        <section class="sidebar-section">
+          <h2 class="sidebar-title">Zertifizierungen</h2>
+          <div class="sidebar-group">
+            <p class="sidebar-label">Security & Ethical Hacking</p>
+            <ul class="compact-list">
+              <li>Google Cybersecurity Specialization (2023)</li>
+              <li>Introduction to Cybersecurity for Business (2019)</li>
+              <li>Certified Ethical Hacker (CEH) (2017)</li>
+              <li>Certified Professional for Secure Software Engineering (2014)</li>
+            </ul>
+          </div>
+          <div class="sidebar-group">
+            <p class="sidebar-label">AI Red Teaming & Cloud</p>
+            <ul class="compact-list">
+              <li>Applied ChatGPT for Cybersecurity (2024)</li>
+              <li>Red Teaming LLM Applications (2025)</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="sidebar-section">
+          <h2 class="sidebar-title">Ausbildung</h2>
+          <div class="education-item">
+            <p class="education-copy"><strong>Universität Hamburg</strong></p>
+            <p class="education-copy">Studium der Sozialökonomie</p>
+            <p class="education-copy">2007 - 2012</p>
+          </div>
+          <div class="education-item">
+            <p class="education-copy"><strong>Logica CMG</strong></p>
+            <p class="education-copy">Ausbildung zum Fachinformatiker AE</p>
+            <p class="education-copy">2001 - 2004</p>
+          </div>
+        </section>
+        <section class="sidebar-section">
+          <h2 class="sidebar-title">Sprachen</h2>
+          <p class="sidebar-items">Deutsch – Muttersprache</p>
+          <p class="sidebar-items">Englisch – Verhandlungssicher</p>
+        </section>
+      </aside>
+
+      <main class="cv-main">
+        <header class="masthead">
+          <div class="masthead-copy">
+            <h1 class="name">Toni Gansel</h1>
+            <p class="headline">Security Testing / AppSec mit Fokus auf OWASP, Teststrategie und Automatisierung</p>
+            <p class="contact-line">Am Kirchbrunnen 18, 38446, Wolfsburg | +49 156 797 434 06 | toni.gansel@gmail.com</p>
+            <p class="link-line">
+              <a href="https://www.linkedin.com/in/toni-gansel-814813245/">LinkedIn</a> |               <a href="https://github.com/tonileet">GitHub</a>            </p>
+          </div>
+          <img class="portrait" src="/Users/tonigansel/workspace/worxcrew/agents/cv/data/portrait.jpeg" alt="Toni Gansel" />
+        </header>
+
+        <section class="main-section">
+          <h2 class="main-title">Profil</h2>
+          <p class="profile-copy">Security- und Testingenieur mit rund 22+ Jahren Erfahrung in Application Security, OWASP-orientiertem Testing und CI/CD-naher Qualitaetssicherung. Fokus auf Application Security Testing, OWASP. Referenzen: school-SH, Pentest.</p>
+        </section>
+
+        <section class="main-section">
+          <h2 class="main-title">Projekte — Auszug</h2>
+          <article class="project-entry">
+            <div class="entry-head">
+              <div>
+                <p class="entry-name">school-SH</p>
+                <p class="entry-meta">
+                  Dataport | Security Tester / Test Manager                </p>
+              </div>
+              <div class="entry-side">
+                <p class="entry-period">07/2019 - 06/2022</p>
+                <span class="project-badge badge-neutral">White-Box</span>
+              </div>
+            </div>
+            <ul class="entry-list">
+              <li>Sicherheits-, Last- und Regressionstests mit OWASP ZAP, JMeter und Selenium</li>
+              <li>Projektbegleitende Schulungen zu Security und Testing</li>
+              <li>Aufbau einer automatisierten Testpipeline in Jenkins</li>
+            </ul>
+            <p class="tools-line">Jira, Jenkins, SonarQube, Tomcat</p>
+          </article>
+          <article class="project-entry">
+            <div class="entry-head">
+              <div>
+                <p class="entry-name">Pentest</p>
+                <p class="entry-meta">
+                  Sogeti NL | Security Tester                </p>
+              </div>
+              <div class="entry-side">
+                <p class="entry-period">02/2015 - 03/2015</p>
+                <span class="project-badge badge-security">Black-Box</span>
+              </div>
+            </div>
+            <ul class="entry-list">
+              <li>Durchführung von Penetrationstests nach OWASP Top 10</li>
+              <li>Reporting und Klassifizierung von Schwachstellen</li>
+            </ul>
+            <p class="tools-line">OWASP ZAP, Burp Suite, Nmap, Nessus</p>
+          </article>
+          <article class="project-entry">
+            <div class="entry-head">
+              <div>
+                <p class="entry-name">HSMS</p>
+                <p class="entry-meta">
+                  Hamburger Schulbehörde | Test Manager                </p>
+              </div>
+              <div class="entry-side">
+                <p class="entry-period">06/2015 - 07/2017</p>
+                <span class="project-badge badge-security">Security</span>
+              </div>
+            </div>
+            <ul class="entry-list">
+              <li>Planung und Administration der Testinfrastruktur</li>
+              <li>Sicherheits-, Regressions-, Last- und Performancetests sowie Codeanalysen</li>
+              <li>Konzeption und Durchführung einer projektweiten Teststrategie</li>
+            </ul>
+            <p class="tools-line">Jira, Jenkins, SonarQube, JMeter</p>
+          </article>
+          <article class="project-entry">
+            <div class="entry-head">
+              <div>
+                <p class="entry-name">DiViS</p>
+                <p class="entry-meta">
+                  Hamburger Schulbehörde | Security Tester / Test Manager                </p>
+              </div>
+              <div class="entry-side">
+                <p class="entry-period">10/2017 - 12/2018</p>
+                <span class="project-badge badge-neutral">White-Box</span>
+              </div>
+            </div>
+            <ul class="entry-list">
+              <li>Planung und Durchführung von Sicherheits- und Lasttests</li>
+              <li>Beratung der Projektleitung in Qualitäts- und Testfragen</li>
+              <li>Weiterentwicklung der automatisierten Regressionstests</li>
+            </ul>
+            <p class="tools-line">Jira, Jenkins, SonarQube, Tomcat</p>
+          </article>
+          <article class="project-entry">
+            <div class="entry-head">
+              <div>
+                <p class="entry-name">SAST Integration</p>
+                <p class="entry-meta">
+                  Volkswagen | Security Consultant                </p>
+              </div>
+              <div class="entry-side">
+                <p class="entry-period">01/2015 - 05/2015</p>
+                <span class="project-badge badge-neutral">White-Box</span>
+              </div>
+            </div>
+            <ul class="entry-list">
+              <li>Entwicklung eines konzernweiten Standardregelsatzes für PMD und SonarQube</li>
+              <li>Implementierung eines SAST-Prototyps mit PMD und SonarQube</li>
+            </ul>
+            <p class="tools-line">SonarQube, PMD</p>
+          </article>
+          <article class="project-entry">
+            <div class="entry-head">
+              <div>
+                <p class="entry-name">TI-Portal</p>
+                <p class="entry-meta">
+                  RISE | Test Automation Engineer                </p>
+              </div>
+              <div class="entry-side">
+                <p class="entry-period">02/2024 - 05/2024</p>
+                <span class="project-badge badge-security">Security</span>
+              </div>
+            </div>
+            <ul class="entry-list">
+              <li>Aufbau einer automatisierten Testpipeline mit GitLab CI/CD</li>
+              <li>Integration der Tests in Testpipeline und Zephyr Scale</li>
+              <li>Mentoring und Einarbeitung mehrerer Junior Tester</li>
+            </ul>
+            <p class="tools-line">Selenium, Cypress, Cucumber, GitLab</p>
+          </article>
+        </section>
+
+        <section class="main-section">
+          <h2 class="main-title">Frühere Tätigkeiten</h2>
+          <div class="experience-compact">
+            <span class="experience-compact-roles">
+Test Automation Engineer · Performance Tester | <strong>RISE GmbH</strong>
+            </span>
+            <span class="entry-period">02/2024 - 02/2026</span>
+          </div>
+          <div class="experience-compact">
+            <span class="experience-compact-roles">
+Security Tester · Test Manager | <strong>Freiberufler</strong>
+            </span>
+            <span class="entry-period">04/2018 - 02/2024</span>
+          </div>
+          <div class="experience-compact">
+            <span class="experience-compact-roles">
+Security Tester · Security Consultant | <strong>Sogeti Deutschland</strong>
+            </span>
+            <span class="entry-period">05/2013 - 02/2018</span>
+          </div>
+          <div class="experience-compact">
+            <span class="experience-compact-roles">
+Softwareentwickler | <strong>ITC Automotive</strong>
+            </span>
+            <span class="entry-period">06/2012 - 05/2013</span>
+          </div>
+          <div class="experience-compact">
+            <span class="experience-compact-roles">
+Test Engineer | <strong>Corporate Planning</strong>
+            </span>
+            <span class="entry-period">04/2011 - 05/2012</span>
+          </div>
+          <div class="experience-compact">
+            <span class="experience-compact-roles">
+Softwareentwickler | <strong>Logica CMG</strong>
+            </span>
+            <span class="entry-period">07/2004 - 12/2006</span>
+          </div>
+        </section>
+      </main>
+      <footer class="cv-footer">
+        <p class="footer-keywords">#Application Security Testing · #OWASP · #Threat Modeling · #Security Testing · #DevSecOps · #CI/CD · #Nmap · #Kali Linux · #Nessus · #OWASP ZAP · #Burp Suite · #SonarQube · #Java · #Python · #SQL</p>
+      </footer>
+    </article>
+  </body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ content.full_name }} - CV</title>
+    <style>{{ css }}</style>
+  </head>
+  <body>
+    <article class="cv-page">
+      <aside class="cv-sidebar">
+        <section class="sidebar-section">
+          <h2 class="sidebar-title">Technologien</h2>
+          {% for group in content.sidebar.technology_groups %}
+          <div class="sidebar-group">
+            <p class="sidebar-label">{{ group["name"] }}</p>
+            <p class="sidebar-items">{{ group["items"] | join(", ") }}</p>
+          </div>
+          {% endfor %}
+        </section>
+
+        <section class="sidebar-section">
+          <h2 class="sidebar-title">Zertifizierungen</h2>
+          {% for group in content.sidebar.certification_groups %}
+          <div class="sidebar-group">
+            <p class="sidebar-label">{{ group["name"] }}</p>
+            <ul class="compact-list">
+              {% for item in group["items"] %}
+              <li>{{ item["label"] }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+          {% endfor %}
+        </section>
+
+        <section class="sidebar-section">
+          <h2 class="sidebar-title">Ausbildung</h2>
+          {% for item in content.sidebar.education %}
+          <div class="education-item">
+            <p class="education-copy"><strong>{{ item["institution"] }}</strong></p>
+            <p class="education-copy">{{ item["program"] }}</p>
+            <p class="education-copy">{{ item["period"] }}</p>
+          </div>
+          {% endfor %}
+        </section>
+        {% if content.sidebar.languages %}
+        <section class="sidebar-section">
+          <h2 class="sidebar-title">Sprachen</h2>
+          {% for item in content.sidebar.languages %}
+          <p class="sidebar-items">{{ item["name"] }} – {{ item["level"] }}</p>
+          {% endfor %}
+        </section>
+        {% endif %}
+      </aside>
+
+      <main class="cv-main">
+        <header class="masthead">
+          <div class="masthead-copy">
+            <h1 class="name">{{ content.full_name }}</h1>
+            <p class="headline">{{ content.headline }}</p>
+            <p class="contact-line">{{ content.contact_line }}</p>
+            <p class="link-line">
+              {% for item in content.links %}
+              <a href="{{ item["url"] }}">{{ item["label"] }}</a>{% if not loop.last %} | {% endif %}
+              {% endfor %}
+            </p>
+          </div>
+          <img class="portrait" src="{{ content.portrait_path }}" alt="{{ content.full_name }}" />
+        </header>
+
+        <section class="main-section">
+          <h2 class="main-title">Profil</h2>
+          <p class="profile-copy">{{ content.profile.summary }}</p>
+        </section>
+
+        {% if content.featured_projects %}
+        <section class="main-section">
+          <h2 class="main-title">Projekte — Auszug</h2>
+          {% for item in content.featured_projects %}
+          <article class="project-entry">
+            <div class="entry-head">
+              <div>
+                <p class="entry-name">{{ item["name"] }}</p>
+                <p class="entry-meta">
+                  {{ item["client"] }}{% if item["role"] %} | {{ item["role"] }}{% endif %}
+                </p>
+              </div>
+              <div class="entry-side">
+                {% if item["period"] %}
+                <p class="entry-period">{{ item["period"] }}</p>
+                {% endif %}
+                {% if item["badge_label"] %}
+                <span class="project-badge {{ item["badge_tone"] }}">{{ item["badge_label"] }}</span>
+                {% endif %}
+              </div>
+            </div>
+            {% if item["detail_points"] %}
+            <ul class="entry-list">
+              {% for detail in item["detail_points"][:3] %}
+              <li>{{ detail }}</li>
+              {% endfor %}
+            </ul>
+            {% else %}
+            <p class="entry-copy">{{ item["summary"] }}</p>
+            {% endif %}
+            {% if item["tools"] %}
+            <p class="tools-line">{{ item["tools"] }}</p>
+            {% endif %}
+          </article>
+          {% endfor %}
+        </section>
+        {% endif %}
+
+        <section class="main-section">
+          <h2 class="main-title">Frühere Tätigkeiten</h2>
+          {% for item in content.experiences %}
+          <div class="experience-compact">
+            <span class="experience-compact-roles">
+              {% if item["roles_held"] %}{{ item["roles_held"] | join(" · ") }}{% elif item["role"] %}{{ item["role"] }}{% endif %}{% if item["roles_held"] or item["role"] %} | {% endif %}<strong>{{ item["company"] }}</strong>
+            </span>
+            <span class="entry-period">{{ item["period"] }}</span>
+          </div>
+          {% endfor %}
+        </section>
+      </main>
+      {% if content.footer_keywords %}
+      <footer class="cv-footer">
+        <p class="footer-keywords">{{ content.footer_keywords | join(" · ") }}</p>
+      </footer>
+      {% endif %}
+    </article>
+  </body>
+</html>

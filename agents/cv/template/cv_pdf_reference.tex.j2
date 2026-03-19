@@ -1,0 +1,174 @@
+\documentclass[9pt,a4paper]{article}
+\usepackage[paperwidth=210mm,paperheight=297mm,margin=7mm]{geometry}
+\usepackage{eso-pic}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{ragged2e}
+\usepackage{fontspec}
+\setmainfont[BoldFont=Lato-Bold,ItalicFont=Lato-Italic,BoldItalicFont=Lato-BoldItalic]{Lato-Regular}
+\setsansfont[BoldFont=Lato-Bold,ItalicFont=Lato-Italic,BoldItalicFont=Lato-BoldItalic]{Lato-Regular}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\fboxsep}{0pt}
+\hypersetup{colorlinks=true, urlcolor=accent}
+\definecolor{sidebarbg}{HTML}{DBE3EB}
+\definecolor{textfg}{HTML}{20262D}
+\definecolor{mutedfg}{HTML}{59646F}
+\definecolor{accent}{HTML}{2D5F9D}
+\definecolor{accentstrong}{HTML}{1F4476}
+\definecolor{rulefg}{HTML}{D7DDE4}
+\definecolor{badgedark}{HTML}{2A2D31}
+\definecolor{badgegreen}{HTML}{5B8648}
+\definecolor{badgeblue}{HTML}{2D5F9D}
+\definecolor{badgeslate}{HTML}{5F6C7D}
+\color{textfg}
+\AddToShipoutPictureBG*{%
+  \AtPageLowerLeft{\color{white}\rule{\paperwidth}{\paperheight}}%
+  \AtPageLowerLeft{\color{sidebarbg}\rule{55mm}{\paperheight}}%
+}
+[% if content.footer_keywords %]
+\AddToShipoutPictureFG*{%
+  \AtPageLowerLeft{\raisebox{4.5mm}{\hspace{55mm}\parbox{\dimexpr\paperwidth-55mm-14mm\relax}{\centering\color{mutedfg}\fontsize{5.5}{7.0}\selectfont [% for kw in content.footer_keywords %][[ kw | latex_escape ]][% if not loop.last %] \textperiodcentered{} [% endif %][% endfor %]}}}%
+}
+[% endif %]
+\newcommand{\sidebartitle}[1]{{\color{accent}\fontsize{6.8}{7.2}\selectfont\bfseries\MakeUppercase{#1}\par}\vspace{0.4mm}{\color{rulefg}\rule{\linewidth}{0.25pt}\par}\vspace{0.8mm}}
+\newcommand{\maintitle}[1]{{\color{accent}\fontsize{7.1}{7.5}\selectfont\bfseries\MakeUppercase{#1}\par}{\color{rulefg}\rule{\linewidth}{0.25pt}\par}\vspace{0.8mm}}
+\newcommand{\sidebarlabel}[1]{{\color{accentstrong}\fontsize{6.4}{6.8}\selectfont\bfseries\MakeUppercase{#1}\par}}
+\newcommand{\sidebarcopy}[1]{{\color{mutedfg}\fontsize{7.5}{8.4}\selectfont #1\par}}
+\newcommand{\educationcopy}[1]{{\fontsize{7.5}{8.4}\selectfont #1\par}}
+\newcommand{\namecopy}[1]{{\fontsize{19.5}{20.0}\selectfont\bfseries #1\par}}
+\newcommand{\headlinecopy}[1]{{\color{accent}\fontsize{8.6}{9.2}\selectfont\bfseries #1\par}}
+\newcommand{\metaline}[1]{{\color{mutedfg}\fontsize{7.5}{8.4}\selectfont #1\par}}
+\newcommand{\profilecopy}[1]{{\fontsize{7.5}{8.4}\selectfont #1\par}}
+\newcommand{\secondarycopy}[1]{{\color{mutedfg}\fontsize{7.5}{8.4}\selectfont #1\par}}
+\newcommand{\entryname}[1]{{\fontsize{7.9}{8.6}\selectfont\bfseries #1}}
+\newcommand{\entrymeta}[1]{{\color{mutedfg}\fontsize{7.5}{8.4}\selectfont #1}}
+\newcommand{\entryperiod}[1]{{\color{accent}\fontsize{6.8}{7.6}\selectfont\bfseries\MakeUppercase{#1}}}
+\newcommand{\toolline}[1]{{\color{accent}\fontsize{6.8}{7.6}\selectfont\bfseries #1\par}}
+\newcommand{\experiencecopy}[1]{{\color{mutedfg}\fontsize{7.5}{8.4}\selectfont #1\par}}
+\newenvironment{tightitemize}{\fontsize{7.5}{8.4}\selectfont\begin{itemize}\setlength{\leftmargin}{2.4mm}\setlength{\itemsep}{0.2mm}\setlength{\topsep}{0.2mm}\setlength{\parsep}{0pt}\setlength{\parskip}{0pt}\setlength{\partopsep}{0pt}}{\end{itemize}}
+\newlength{\sidebarwidth}
+\setlength{\sidebarwidth}{48mm}
+\newlength{\gutterwidth}
+\setlength{\gutterwidth}{6mm}
+\newlength{\mainwidth}
+\setlength{\mainwidth}{\dimexpr\textwidth-\sidebarwidth-\gutterwidth\relax}
+
+[% macro project_badge(tone, label) -%]
+[% if label %]
+[% if tone == "badge-security" %]
+{\setlength{\fboxsep}{1.2pt}\colorbox{badgedark}{\textcolor{white}{\fontsize{5.5}{6.0}\selectfont\bfseries [[ label | latex_escape ]]}}}
+[% elif tone == "badge-automation" %]
+{\setlength{\fboxsep}{1.2pt}\colorbox{badgegreen}{\textcolor{white}{\fontsize{5.5}{6.0}\selectfont\bfseries [[ label | latex_escape ]]}}}
+[% elif tone == "badge-ai" %]
+{\setlength{\fboxsep}{1.2pt}\colorbox{badgeblue}{\textcolor{white}{\fontsize{5.5}{6.0}\selectfont\bfseries [[ label | latex_escape ]]}}}
+[% else %]
+{\setlength{\fboxsep}{1.2pt}\colorbox{badgeslate}{\textcolor{white}{\fontsize{5.5}{6.0}\selectfont\bfseries [[ label | latex_escape ]]}}}
+[% endif %]
+[% endif %]
+[% endmacro -%]
+
+\begin{document}
+\sloppy
+\noindent
+\begin{minipage}[t]{\sidebarwidth}
+\vspace*{1.5mm}
+\sidebartitle{Technologien}
+[% for group in content.sidebar.technology_groups %]
+\sidebarlabel{[[ group["name"] | latex_escape ]]}
+\sidebarcopy{[[ group["items"] | join(", ") | latex_escape ]]}
+\vspace{1.2mm}
+[% endfor %]
+
+\vspace{2.5mm}
+\sidebartitle{Zertifizierungen}
+[% for group in content.sidebar.certification_groups %]
+\sidebarlabel{[[ group["name"] | latex_escape ]]}
+\begin{tightitemize}
+[% for item in group["items"] %]
+\item {\color{mutedfg}\fontsize{7.5}{8.4}\selectfont [[ item["label"] | latex_escape ]]}
+[% endfor %]
+\end{tightitemize}
+\vspace{0.7mm}
+[% endfor %]
+
+\vspace{2.5mm}
+\sidebartitle{Ausbildung}
+[% for item in content.sidebar.education %]
+{\fontsize{6.5}{7.4}\selectfont\bfseries [[ item["institution"] | latex_escape ]]\par}
+\educationcopy{[[ item["program"] | latex_escape ]]}
+\educationcopy{[[ item["period"] | latex_escape ]]}
+\vspace{1.2mm}
+[% endfor %]
+[% if content.sidebar.languages %]
+\vspace{2.5mm}
+\sidebartitle{Sprachen}
+[% for item in content.sidebar.languages %]
+\sidebarcopy{[[ item["name"] | latex_escape ]] -- [[ item["level"] | latex_escape ]]}
+\vspace{0.5mm}
+[% endfor %]
+[% endif %]
+\end{minipage}
+\hspace{\gutterwidth}
+\begin{minipage}[t]{\mainwidth}
+\vspace*{0pt}
+\begin{minipage}[t]{\dimexpr\mainwidth-31mm\relax}
+\vspace*{0pt}
+\namecopy{[[ content.full_name | latex_escape ]]}
+\headlinecopy{[[ content.headline | latex_escape ]]}
+\vspace{0.7mm}
+\metaline{[[ content.contact_line | latex_escape ]]}
+{\color{accentstrong}\fontsize{6.8}{7.6}\selectfont
+[% for item in content.links %]
+\href{[[ item["url"] ]]}{[[ item["label"] | latex_escape ]]}[% if not loop.last %] \textbar{} [% endif %]
+[% endfor %]
+\par}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{26mm}
+\vspace*{0pt}
+\includegraphics[width=26mm,height=32mm,keepaspectratio]{[[ content.portrait_path | latex_escape ]]}
+\end{minipage}
+
+\vspace{2.1mm}
+{\color{rulefg}\rule{\linewidth}{0.25pt}\par}
+
+\vspace{1.4mm}
+\maintitle{Profil}
+\profilecopy{[[ content.profile.summary | latex_escape ]]}
+
+[% if content.featured_projects %]
+\vspace{2.8mm}
+\maintitle{Projekte --- Auszug}
+[% for item in content.featured_projects %]
+{\entryname{[[ item["name"] | latex_escape ]]}\hfill\entryperiod{[[ item["period"] | latex_escape ]]}\par}
+{\entrymeta{[[ [item["client"], item["role"]] | select | join(" | ") | latex_escape ]]}%
+\hfill [[ project_badge(item["badge_tone"], item["badge_label"]) ]] \par}
+[% if item["detail_points"] %]
+\begin{tightitemize}
+[% for detail in item["detail_points"][:2] %]
+\item {\fontsize{7.5}{8.4}\selectfont [[ detail | latex_escape ]]}
+[% endfor %]
+\end{tightitemize}
+[% else %]
+\profilecopy{[[ item["summary"] | latex_escape ]]}
+[% endif %]
+[% if item["tools"] %]
+\toolline{[[ item["tools"] | latex_escape ]]}
+[% endif %]
+\vspace{0.4mm}
+{\color{rulefg}\rule{\linewidth}{0.2pt}\par}
+\vspace{0.6mm}
+[% endfor %]
+[% endif %]
+
+\vspace{2.8mm}
+\maintitle{Fr{\"u}here T{\"a}tigkeiten}
+[% for item in content.experiences %]
+{\color{mutedfg}\fontsize{7.5}{8.4}\selectfont [% if item["roles_held"] %][[ item["roles_held"] | map("latex_escape") | join(" \\textperiodcentered{} ") ]][% elif item["role"] %][[ item["role"] | latex_escape ]][% endif %][% if item["roles_held"] or item["role"] %] \textbar{} [% endif %]{\bfseries\color{textfg}[[ item["company"] | latex_escape ]]}\hfill\entryperiod{[[ item["period"] | latex_escape ]]}\par}
+\vspace{0.35mm}
+[% endfor %]
+\end{minipage}
+\end{document}

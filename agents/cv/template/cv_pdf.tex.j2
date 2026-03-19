@@ -1,0 +1,175 @@
+\documentclass[9pt,a4paper]{article}
+\usepackage[paperwidth=210mm,paperheight=297mm,margin=6mm]{geometry}
+\usepackage{eso-pic}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{array}
+\usepackage{ragged2e}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\fboxsep}{0pt}
+\definecolor{pagebg}{HTML}{FFFFFF}
+\definecolor{sidebarbg}{HTML}{E2E7EE}
+\definecolor{textfg}{HTML}{17222F}
+\definecolor{mutedfg}{HTML}{607085}
+\definecolor{accent}{HTML}{1457AD}
+\definecolor{linefg}{HTML}{C8D4E4}
+\definecolor{softaccent}{HTML}{EAF1FD}
+\pagecolor{pagebg}
+\color{textfg}
+\AddToShipoutPictureBG*{\AtPageLowerLeft{\color{sidebarbg}\rule{62mm}{\paperheight}}}
+\renewcommand{\familydefault}{\sfdefault}
+\hypersetup{colorlinks=true, urlcolor=accent}
+\newcommand{\sectiontitle}[1]{\vspace{1.4mm}{\color{accent}\fontsize{7.7}{8.1}\selectfont\bfseries\MakeUppercase{#1}}\par\vspace{1.3mm}}
+\newcommand{\sidebarsection}[1]{\vspace{1.2mm}{\color{accent}\fontsize{7.4}{7.8}\selectfont\bfseries\MakeUppercase{#1}}\par\vspace{1.2mm}}
+\newcommand{\eyebrowcopy}[1]{{\color{accent}\fontsize{5.9}{6.3}\selectfont\bfseries\MakeUppercase{#1}\par}}
+\newcommand{\smallcopy}[1]{{\color{mutedfg}\fontsize{6.45}{7.35}\selectfont #1\par}}
+\newcommand{\metaline}[1]{{\color{mutedfg}\fontsize{6.45}{7.35}\selectfont #1\par}}
+\newcommand{\bodycopy}[1]{{\fontsize{6.8}{8.05}\selectfont #1\par}}
+\newcommand{\headlinecopy}[1]{{\fontsize{8.15}{8.9}\selectfont\bfseries #1\par}}
+\newcommand{\namecopy}[1]{{\color{accent}\fontsize{20}{20}\selectfont\bfseries #1\par}}
+\newcommand{\factline}[2]{{\color{accent}\fontsize{5.75}{6.1}\selectfont\bfseries\MakeUppercase{#1}}\hspace{1.2mm}{\color{mutedfg}\fontsize{6.45}{7.2}\selectfont #2}\par}
+\newcommand{\goalblock}[1]{\vspace{0.2mm}{\setlength{\fboxsep}{1.8mm}\colorbox{softaccent}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{\fontsize{6.7}{7.5}\selectfont #1}}}\par}
+\newcommand{\chip}[1]{{\setlength{\fboxsep}{1.2pt}\colorbox{softaccent}{\textcolor{accent}{\fontsize{5.9}{6.2}\selectfont\bfseries #1}}}}
+\newcommand{\availabilitycard}[1]{{\setlength{\fboxsep}{1.6mm}\colorbox{softaccent}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{{\color{accent}\fontsize{5.75}{6.1}\selectfont\bfseries\MakeUppercase{Verfuegbar ab}\par}{\color{textfg}\fontsize{6.9}{7.3}\selectfont\bfseries #1\par}}}}}
+\newenvironment{tightitemize}{\begin{itemize}\setlength{\itemsep}{0.55mm}\setlength{\topsep}{0.4mm}\setlength{\parsep}{0pt}\setlength{\parskip}{0pt}\setlength{\leftmargin}{3.2mm}}{\end{itemize}}
+\newlength{\sidebarwidth}
+\setlength{\sidebarwidth}{56mm}
+\newlength{\mainwidth}
+\setlength{\mainwidth}{138mm}
+\begin{document}
+\noindent
+\begin{minipage}[t]{\sidebarwidth}
+\vspace*{0pt}
+\colorbox{sidebarbg}{%
+\parbox[t][\dimexpr\textheight-2mm\relax][t]{\sidebarwidth}{%
+\vspace*{8mm}
+\begin{minipage}[t]{\dimexpr\sidebarwidth-5mm\relax}
+[% if content.sidebar.focus_areas %]
+\sidebarsection{Fokus}
+\begin{tightitemize}
+[% for item in content.sidebar.focus_areas %]
+\item {\fontsize{6.3}{7.0}\selectfont [[ item | latex_escape ]]}
+[% endfor %]
+\end{tightitemize}
+\vspace{1mm}
+[% endif %]
+[% if content.sidebar.work_preferences %]
+\sidebarsection{Arbeitsmodell}
+\smallcopy{[[ content.sidebar.work_preferences | latex_escape ]]}
+\vspace{1.2mm}
+[% endif %]
+[% if content.sidebar.standards %]
+\sidebarsection{Standards}
+\smallcopy{[[ content.sidebar.standards | join(" · ") | latex_escape ]]}
+\vspace{1.2mm}
+[% endif %]
+\sidebarsection{Technologien}
+[% for group in content.sidebar.technology_groups %]
+{\color{accent}\fontsize{6.35}{6.95}\selectfont\bfseries\MakeUppercase{[[ group["name"] | latex_escape ]]}\par}
+\smallcopy{[[ group["items"] | join(", ") | latex_escape ]]}
+\vspace{1.4mm}
+[% endfor %]
+\sidebarsection{Zertifizierungen}
+[% for group in content.sidebar.certification_groups %]
+{\color{accent}\fontsize{6.35}{6.95}\selectfont\bfseries\MakeUppercase{[[ group["name"] | latex_escape ]]}\par}
+\begin{tightitemize}
+[% for item in group["items"] %]
+\item {\fontsize{6.3}{7.1}\selectfont [[ item["label"] | latex_escape ]]}
+[% endfor %]
+\end{tightitemize}
+\vspace{1mm}
+[% endfor %]
+\sidebarsection{Ausbildung}
+[% for item in content.sidebar.education %]
+{\color{textfg}\fontsize{6.75}{7.35}\selectfont\bfseries [[ item["institution"] | latex_escape ]]\par}
+\smallcopy{[[ item["program"] | latex_escape ]]}
+\smallcopy{[[ item["period"] | latex_escape ]]}
+\vspace{1.2mm}
+[% endfor %]
+\vfill
+\sidebarsection{Ausgewaehlte Kunden}
+\smallcopy{[[ content.sidebar.clients | join(" · ") | latex_escape ]]}
+\end{minipage}
+}%
+}%
+\end{minipage}
+\hspace{4mm}
+\begin{minipage}[t]{\mainwidth}
+\vspace*{0pt}
+\begin{minipage}[t]{\dimexpr\mainwidth-36mm\relax}
+\vspace*{0pt}
+\namecopy{[[ content.full_name | latex_escape ]]}
+\headlinecopy{[[ content.headline | latex_escape ]]}
+{\fontsize{6.2}{6.6}\selectfont
+[% for strength in content.profile.strengths %]
+\chip{[[ strength | latex_escape ]]}[% if not loop.last %]\hspace{0.9mm}[% endif %]
+[% endfor %]
+\par}
+\vspace{1.8mm}
+\metaline{[[ content.contact_line | latex_escape ]]}
+{\fontsize{6.45}{7.1}\selectfont
+[% for item in content.links %]
+\href{[[ item["url"] ]]}{[[ item["label"] | latex_escape ]]}[% if not loop.last %] \textbar{} [% endif %]
+[% endfor %]
+\par}
+\vspace{2mm}
+\sectiontitle{Profil}
+\bodycopy{[[ content.profile.summary | latex_escape ]]}
+\goalblock{[[ content.profile.goal | latex_escape ]]}
+\factline{Branchen}{[[ content.profile.industries | join(" · ") | latex_escape ]]}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{30mm}
+\vspace*{0pt}
+\includegraphics[width=30mm,height=38mm,keepaspectratio]{[[ content.portrait_path | latex_escape ]]}
+[% if content.sidebar.availability %]
+\vspace{2mm}
+\availabilitycard{[[ content.sidebar.availability | latex_escape ]]}
+[% endif %]
+\end{minipage}
+\vspace{2.6mm}
+[% if content.featured_projects %]
+\sectiontitle{Ausgewaehlte Projekte}
+[% for item in content.featured_projects %]
+{\setlength{\fboxsep}{1.7mm}\colorbox{softaccent}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{
+{\fontsize{6.75}{7.2}\selectfont\bfseries [[ item["name"] | latex_escape ]]\par}
+{\color{mutedfg}\fontsize{6.05}{6.5}\selectfont [[ [item["client"], item["role"], item["period"]] | select | join(" | ") | latex_escape ]]\par}
+[% if item["context"] %]
+\vspace{0.55mm}
+{\color{mutedfg}\fontsize{6.0}{6.8}\selectfont [[ item["context"] | latex_escape ]]\par}
+[% endif %]
+\vspace{0.65mm}
+{\fontsize{6.35}{7.05}\selectfont [[ item["summary"] | latex_escape ]]\par}
+[% if item["detail_points"] %]
+\begin{tightitemize}
+[% for detail in item["detail_points"] %]
+\item {\fontsize{6.2}{6.9}\selectfont [[ detail | latex_escape ]]}
+[% endfor %]
+\end{tightitemize}
+[% endif %]
+\vspace{0.35mm}
+{\color{accent}\fontsize{5.9}{6.3}\selectfont\bfseries [[ item["tools"] | latex_escape ]]\par}
+}}}\par
+[% endfor %]
+[% endif %]
+\vspace{1.4mm}
+\sectiontitle{Berufserfahrung}
+[% for item in content.experiences %]
+{\fontsize{7.25}{7.85}\selectfont\bfseries [[ item["company"] | latex_escape ]]\hfill{\color{accent}\fontsize{5.9}{6.3}\selectfont\bfseries [[ item["period"] | latex_escape ]]}\par}
+{\color{mutedfg}\fontsize{6.35}{6.9}\selectfont\bfseries [[ item["role"] | latex_escape ]]\par}
+[% if item["roles_held"] %]
+{\color{accent}\fontsize{5.75}{6.1}\selectfont\bfseries Projektrollen}\hspace{1.2mm}{\color{mutedfg}\fontsize{6.1}{6.7}\selectfont [[ item["roles_held"] | join(" · ") | latex_escape ]]}\par
+[% endif %]
+[% if item["project_names"] %]
+{\color{accent}\fontsize{5.75}{6.1}\selectfont\bfseries Projekte}\hspace{1.9mm}{\color{mutedfg}\fontsize{6.1}{6.7}\selectfont [[ item["project_names"] | join(" · ") | latex_escape ]]}\par
+[% endif %]
+[% if item["focus_text"] %]
+{\color{accent}\fontsize{5.75}{6.1}\selectfont\bfseries Schwerpunkte}\hspace{0.9mm}{\color{mutedfg}\fontsize{6.1}{6.7}\selectfont [[ item["focus_text"] | latex_escape ]]}\par
+[% endif %]
+\vspace{0.9mm}
+[% endfor %]
+\end{minipage}
+\end{document}
