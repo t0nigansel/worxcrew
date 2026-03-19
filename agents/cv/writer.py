@@ -255,7 +255,9 @@ def _compose_featured_projects(
         if start or end:
             period_label = f"{month_label(start)} - {month_label(end)}".strip(" -")
 
-        badge_label, badge_tone = _project_badge(project, analysis)
+        badges = _project_badges(project, analysis, limit=5)
+        badge_label = badges[0]["label"] if badges else ""
+        badge_tone = badges[0]["tone"] if badges else "badge-neutral"
 
         featured.append(
             {
@@ -268,6 +270,7 @@ def _compose_featured_projects(
                 "context": context,
                 "detail_points": detail_points,
                 "tools": _project_tools(project, limit=4),
+                "badges": badges,
                 "badge_label": badge_label,
                 "badge_tone": badge_tone,
             }
@@ -320,6 +323,40 @@ def _project_badge(project: Dict[str, object], analysis: JobAnalysis) -> tuple[s
     if analysis.variant == "security_appsec":
         return ("Security", "badge-security")
     return ("Delivery", "badge-neutral")
+
+
+def _badge_tone_for_label(label: str) -> str:
+    normalized = normalize_text(label)
+    mapping = {
+        "security": "badge-security",
+        "test automation": "badge-automation",
+        "load tests": "badge-performance",
+        "programming": "badge-neutral",
+        "test management": "badge-neutral",
+        "ai": "badge-ai",
+        "api testing": "badge-neutral",
+        "ci cd": "badge-automation",
+        "static analysis sast": "badge-security",
+        "mentoring leadership": "badge-neutral",
+    }
+    return mapping.get(normalized, "badge-neutral")
+
+
+def _project_badges(project: Dict[str, object], analysis: JobAnalysis, limit: int = 5) -> List[Dict[str, str]]:
+    raw_badges = project.get("badges", []) or []
+    normalized: List[str] = []
+    for value in raw_badges:
+        label = str(value or "").strip()
+        if label and label not in normalized:
+            normalized.append(label)
+        if len(normalized) >= limit:
+            break
+
+    if not normalized:
+        fallback_label, fallback_tone = _project_badge(project, analysis)
+        return [{"label": fallback_label, "tone": fallback_tone}]
+
+    return [{"label": label, "tone": _badge_tone_for_label(label)} for label in normalized[:limit]]
 
 
 def _experience_project_priority(

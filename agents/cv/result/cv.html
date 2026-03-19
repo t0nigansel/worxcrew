@@ -239,6 +239,7 @@ body {
   flex-direction: column;
   align-items: flex-end;
   gap: 0.6mm;
+  max-width: 36mm;
 }
 
 .entry-period {
@@ -265,6 +266,13 @@ body {
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+
+.project-badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.7mm 0.8mm;
 }
 
 .project-badge.badge-security {
@@ -458,7 +466,13 @@ body {
               </div>
               <div class="entry-side">
                 <p class="entry-period">02/2024 - 05/2024</p>
-                <span class="project-badge badge-ai">AI</span>
+                <div class="project-badges">
+                  <span class="project-badge badge-automation">Test automation</span>
+                  <span class="project-badge badge-neutral">Test management</span>
+                  <span class="project-badge badge-neutral">Programming</span>
+                  <span class="project-badge badge-automation">CI/CD</span>
+                  <span class="project-badge badge-neutral">Mentoring/Leadership</span>
+                </div>
               </div>
             </div>
             <ul class="entry-list">
@@ -477,7 +491,13 @@ body {
               </div>
               <div class="entry-side">
                 <p class="entry-period">06/2015 - 07/2017</p>
-                <span class="project-badge badge-performance">Performance</span>
+                <div class="project-badges">
+                  <span class="project-badge badge-security">Security</span>
+                  <span class="project-badge badge-performance">Load tests</span>
+                  <span class="project-badge badge-automation">Test automation</span>
+                  <span class="project-badge badge-neutral">Test management</span>
+                  <span class="project-badge badge-security">Static analysis (SAST)</span>
+                </div>
               </div>
             </div>
             <ul class="entry-list">
@@ -496,7 +516,11 @@ body {
               </div>
               <div class="entry-side">
                 <p class="entry-period">06/2024 - 07/2024</p>
-                <span class="project-badge badge-ai">AI</span>
+                <div class="project-badges">
+                  <span class="project-badge badge-performance">Load tests</span>
+                  <span class="project-badge badge-neutral">Test management</span>
+                  <span class="project-badge badge-automation">Test automation</span>
+                </div>
               </div>
             </div>
             <ul class="entry-list">

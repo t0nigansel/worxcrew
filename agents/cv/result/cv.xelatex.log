@@ -67,25 +67,13 @@ LaTeX Warning: Unused global option(s):
 *geometry* detected driver: xetex
 (/Users/tonigansel/workspace/worxcrew/agents/cv/result/cv.out)
 (/Users/tonigansel/workspace/worxcrew/agents/cv/result/cv.out)
-Underfull \hbox (badness 3713) in paragraph at lines 64--64
-[]\TU/Lato-Regular(0)/m/n/7.5 JMeter, Selenium, OWASP ZAP, Burp
+Underfull \hbox (badness 1515) in paragraph at lines 92--92
+[]\TU/AvenirNext(0)/m/n/5.65 Agile (Scrum), DevSecOps, Risikobasiertes Testen,
 
-Underfull \hbox (badness 1735) in paragraph at lines 64--64
-\TU/Lato-Regular(0)/m/n/7.5 Suite, Ranorex, SonarQube, JUnit, Cy-
+Underfull \hbox (badness 1057) in paragraph at lines 104--105
+[]\TU/AvenirNext(0)/m/n/5.55 Introduction to Cybersecurity for Business
 
-Underfull \hbox (badness 1655) in paragraph at lines 70--70
-[]\TU/Lato-Regular(0)/m/n/7.5 Java, Python, SQL, JavaScript, Groovy,
-
-Underfull \hbox (badness 1097) in paragraph at lines 73--73
-[]\TU/Lato-Regular(0)/m/n/7.5 Git, SVN, Jenkins, Docker, Kubernetes,
-
-Underfull \hbox (badness 2334) in paragraph at lines 90--91
-[]\TU/Lato-Regular(0)/m/n/7.5 ISTQB Advanced Level Security
-
-Underfull \hbox (badness 5077) in paragraph at lines 96--97
-[]\TU/Lato-Regular(0)/m/n/7.5 Red Teaming LLM Applications
-
-Overfull \hbox (3.41333pt too wide) in paragraph at lines 59--198
+Overfull \hbox (3.33334pt too wide) in paragraph at lines 72--233
 []   [] 
 
 [1] (/Users/tonigansel/workspace/worxcrew/agents/cv/result/cv.aux) )

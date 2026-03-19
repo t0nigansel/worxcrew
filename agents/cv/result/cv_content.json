@@ -78,8 +78,30 @@
           "Migration der bestehenden Selenium-Testsuite zu Cypress"
         ],
         "tools": "Selenium, Cypress, Cucumber, GitLab",
-        "badge_label": "AI",
-        "badge_tone": "badge-ai"
+        "badges": [
+          {
+            "label": "Test automation",
+            "tone": "badge-automation"
+          },
+          {
+            "label": "Test management",
+            "tone": "badge-neutral"
+          },
+          {
+            "label": "Programming",
+            "tone": "badge-neutral"
+          },
+          {
+            "label": "CI/CD",
+            "tone": "badge-automation"
+          },
+          {
+            "label": "Mentoring/Leadership",
+            "tone": "badge-neutral"
+          }
+        ],
+        "badge_label": "Test automation",
+        "badge_tone": "badge-automation"
       },
       {
         "project_id": "hsms-2015-06",
@@ -95,8 +117,30 @@
           "Planung und Administration der Testinfrastruktur"
         ],
         "tools": "Jira, Jenkins, SonarQube, JMeter",
-        "badge_label": "Performance",
-        "badge_tone": "badge-performance"
+        "badges": [
+          {
+            "label": "Security",
+            "tone": "badge-security"
+          },
+          {
+            "label": "Load tests",
+            "tone": "badge-performance"
+          },
+          {
+            "label": "Test automation",
+            "tone": "badge-automation"
+          },
+          {
+            "label": "Test management",
+            "tone": "badge-neutral"
+          },
+          {
+            "label": "Static analysis (SAST)",
+            "tone": "badge-security"
+          }
+        ],
+        "badge_label": "Security",
+        "badge_tone": "badge-security"
       },
       {
         "project_id": "emma-2024-06",
@@ -111,8 +155,22 @@
           "Aufbau und Ausführung eines JMeter-Testplans"
         ],
         "tools": "JMeter, Jira, Git",
-        "badge_label": "AI",
-        "badge_tone": "badge-ai"
+        "badges": [
+          {
+            "label": "Load tests",
+            "tone": "badge-performance"
+          },
+          {
+            "label": "Test management",
+            "tone": "badge-neutral"
+          },
+          {
+            "label": "Test automation",
+            "tone": "badge-automation"
+          }
+        ],
+        "badge_label": "Load tests",
+        "badge_tone": "badge-performance"
       }
     ],
     "experiences": [

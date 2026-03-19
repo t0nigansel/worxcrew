@@ -388,7 +388,14 @@
         "Git",
         "JetBrains IntelliJ"
       ],
-      "system_purpose": "Im Rahmen der Einführung der Elektronischen Patientenakte (EPA) war ich als Performance Tester verantwortlich für die Planung, Entwicklung und Auswertung umfangreicher Last- und Performancetests. Die EPA bildet die zentrale Plattform zur Verwaltung und Speicherung der Gesundheitsdaten aller deutschen Versicherten und stellt damit höchste Anforderungen an Skalierbarkeit, Verfügbarkeit und Stabilität. Zur Testdurchführung wurde ein JMeter-basiertes Framework eingesetzt, das über Groovy auf eine selbstentwickelte Java-Bibliothek zugreift. Die Tests wurden in einem Kubernetes-Cluster ausgeführt und mit Prometheus sowie Grafana überwacht. Ergänzend wurden KI-gestützte Methoden zur Programmierunterstützung und im Testmanagement erprobt sowie automatisierte Lasttestberichte mit R erstellt."
+      "system_purpose": "Im Rahmen der Einführung der Elektronischen Patientenakte (EPA) war ich als Performance Tester verantwortlich für die Planung, Entwicklung und Auswertung umfangreicher Last- und Performancetests. Die EPA bildet die zentrale Plattform zur Verwaltung und Speicherung der Gesundheitsdaten aller deutschen Versicherten und stellt damit höchste Anforderungen an Skalierbarkeit, Verfügbarkeit und Stabilität. Zur Testdurchführung wurde ein JMeter-basiertes Framework eingesetzt, das über Groovy auf eine selbstentwickelte Java-Bibliothek zugreift. Die Tests wurden in einem Kubernetes-Cluster ausgeführt und mit Prometheus sowie Grafana überwacht. Ergänzend wurden KI-gestützte Methoden zur Programmierunterstützung und im Testmanagement erprobt sowie automatisierte Lasttestberichte mit R erstellt.",
+      "badges": [
+        "Load tests",
+        "Test management",
+        "AI",
+        "Programming",
+        "CI/CD"
+      ]
     },
     {
       "id": "emma-2024-06",
@@ -418,7 +425,12 @@
         "Jira",
         "Git"
       ],
-      "system_purpose": "EMMA – E-Mail Manager ist eine Softwarelösung zur zentralen Verwaltung und Verarbeitung geschäftlicher E-Mail-Kommunikation. Die Plattform unterstützt Unternehmen bei der strukturierten Organisation, Verarbeitung und Archivierung von E-Mails sowie bei der Integration in bestehende Geschäftsprozesse und IT-Systeme. Ziel ist eine sichere, transparente und effiziente Kommunikation in komplexen IT-Umgebungen."
+      "system_purpose": "EMMA – E-Mail Manager ist eine Softwarelösung zur zentralen Verwaltung und Verarbeitung geschäftlicher E-Mail-Kommunikation. Die Plattform unterstützt Unternehmen bei der strukturierten Organisation, Verarbeitung und Archivierung von E-Mails sowie bei der Integration in bestehende Geschäftsprozesse und IT-Systeme. Ziel ist eine sichere, transparente und effiziente Kommunikation in komplexen IT-Umgebungen.",
+      "badges": [
+        "Load tests",
+        "Test management",
+        "Test automation"
+      ]
     },
     {
       "id": "tms-2024-04",
@@ -456,7 +468,13 @@
         "Maven",
         "JetBrains IntelliJ"
       ],
-      "system_purpose": "TMS (Transaction Management Service) ist eine zentrale API-Plattform zur Integration und Orchestrierung von Backend-Systemen. Der Service nimmt Requests von Clients entgegen, kapselt die Komplexität verschiedener Endsysteme und leitet Anfragen über standardisierte Schnittstellen an die jeweiligen Zielsysteme weiter. Dadurch wird die Integration vereinfacht, Systemkopplung reduziert und eine skalierbare, konsistente Kommunikation zwischen Anwendungen ermöglicht."
+      "system_purpose": "TMS (Transaction Management Service) ist eine zentrale API-Plattform zur Integration und Orchestrierung von Backend-Systemen. Der Service nimmt Requests von Clients entgegen, kapselt die Komplexität verschiedener Endsysteme und leitet Anfragen über standardisierte Schnittstellen an die jeweiligen Zielsysteme weiter. Dadurch wird die Integration vereinfacht, Systemkopplung reduziert und eine skalierbare, konsistente Kommunikation zwischen Anwendungen ermöglicht.",
+      "badges": [
+        "Test management",
+        "Test automation",
+        "Programming",
+        "API testing"
+      ]
     },
     {
       "id": "ti-portal-2024-02",
@@ -505,7 +523,14 @@
         "Maven",
         "JetBrains IntelliJ"
       ],
-      "system_purpose": "TI-Portal ist eine E-Commerce-Plattform innerhalb der RISE-Telematikinfrastruktur, auf der verschiedene Anbieter ihre Produkte und Services anbieten können. Jeder Anbieter betreibt einen eigenen Shop, während Kunden über eine zentrale Plattform einkaufen. Der Zugang erfolgt über das TI-Gateway, wodurch eine sichere Integration in die TI-Infrastruktur gewährleistet wird und ein skalierbarer digitaler Marktplatz entsteht."
+      "system_purpose": "TI-Portal ist eine E-Commerce-Plattform innerhalb der RISE-Telematikinfrastruktur, auf der verschiedene Anbieter ihre Produkte und Services anbieten können. Jeder Anbieter betreibt einen eigenen Shop, während Kunden über eine zentrale Plattform einkaufen. Der Zugang erfolgt über das TI-Gateway, wodurch eine sichere Integration in die TI-Infrastruktur gewährleistet wird und ein skalierbarer digitaler Marktplatz entsteht.",
+      "badges": [
+        "Test automation",
+        "Test management",
+        "Programming",
+        "CI/CD",
+        "Mentoring/Leadership"
+      ]
     },
     {
       "id": "hsk-api-tests-2023-05",
@@ -536,7 +561,13 @@
         "Jira",
         "Git"
       ],
-      "system_purpose": "secunet Highspeedkonnektor (HSK) ist eine skalierbare, serverbasierte Zugangskomponente zur deutschen Telematikinfrastruktur (TI), die zentral in Rechenzentren betrieben wird und den sicheren Zugriff auf TI-Fachdienste ermöglicht. Der HSK ersetzt viele dezentrale Konnektoren und bildet die technische Basis des TI-Gateways. Im Projekt wurden die Schnittstellen und APIs des HSK getestet, um eine sichere und zuverlässige Kommunikation mit der TI sicherzustellen."
+      "system_purpose": "secunet Highspeedkonnektor (HSK) ist eine skalierbare, serverbasierte Zugangskomponente zur deutschen Telematikinfrastruktur (TI), die zentral in Rechenzentren betrieben wird und den sicheren Zugriff auf TI-Fachdienste ermöglicht. Der HSK ersetzt viele dezentrale Konnektoren und bildet die technische Basis des TI-Gateways. Im Projekt wurden die Schnittstellen und APIs des HSK getestet, um eine sichere und zuverlässige Kommunikation mit der TI sicherzustellen.",
+      "badges": [
+        "Test automation",
+        "Test management",
+        "API testing",
+        "CI/CD"
+      ]
     },
     {
       "id": "cell-broadcast-2022-04",
@@ -574,7 +605,12 @@
         "XML",
         "Git"
       ],
-      "system_purpose": "Cell Broadcast ist ein bundesweit eingesetztes Warnsystem zur schnellen Information der Bevölkerung bei Katastrophen und Gefahrenlagen. Warnmeldungen werden standortbasiert über Mobilfunkzellen direkt an alle kompatiblen Smartphones in einem betroffenen Gebiet gesendet – ohne App oder Registrierung. Die Lösung ermöglicht eine schnelle, skalierbare und netzlastunabhängige Verbreitung offizieller Warnungen."
+      "system_purpose": "Cell Broadcast ist ein bundesweit eingesetztes Warnsystem zur schnellen Information der Bevölkerung bei Katastrophen und Gefahrenlagen. Warnmeldungen werden standortbasiert über Mobilfunkzellen direkt an alle kompatiblen Smartphones in einem betroffenen Gebiet gesendet – ohne App oder Registrierung. Die Lösung ermöglicht eine schnelle, skalierbare und netzlastunabhängige Verbreitung offizieller Warnungen.",
+      "badges": [
+        "Test automation",
+        "Programming",
+        "Test management"
+      ]
     },
     {
       "id": "school-sh-2018-04",
@@ -623,7 +659,15 @@
         "ANT",
         "Eclipse"
       ],
-      "system_purpose": "School-SH ist eine landesweit eingesetzte Schulverwaltungssoftware des Landes Schleswig-Holstein zur Verwaltung zentraler schulischer Daten. Die Webanwendung unterstützt Schulen bei der Organisation von Schülerinnen und Schülern, Klassen, Kursen, Zeugnissen und statistischen Meldungen. Sie wird im Landesnetz betrieben und dient als zentrale Plattform zur digitalen Abbildung administrativer Schulprozesse."
+      "system_purpose": "School-SH ist eine landesweit eingesetzte Schulverwaltungssoftware des Landes Schleswig-Holstein zur Verwaltung zentraler schulischer Daten. Die Webanwendung unterstützt Schulen bei der Organisation von Schülerinnen und Schülern, Klassen, Kursen, Zeugnissen und statistischen Meldungen. Sie wird im Landesnetz betrieben und dient als zentrale Plattform zur digitalen Abbildung administrativer Schulprozesse.",
+      "badges": [
+        "Security",
+        "Load tests",
+        "Test automation",
+        "Test management",
+        "CI/CD",
+        "Mentoring/Leadership"
+      ]
     },
     {
       "id": "logout-checkout-2019-01",
@@ -661,7 +705,12 @@
         "OWASP Cornucopia",
         "JetBrains IntelliJ"
       ],
-      "system_purpose": "Im Rahmen der Weiterentwicklung des Fielmann-Online-Shops wurde eine Keycloak-basierte Identity-Lösung für Benutzer-Authentifizierung implementiert. Das Projekt umfasste Login-, Logout- und Passwort-Management-Funktionen. Anschliessend entstand eine mobile Anwendung zur virtuellen Anprobe von Sonnenbrillen, bei der Nutzer Modelle digital testen und anschließend direkt in der Appp kaufen können. Im Projekt formulierte ich die Teststrategie für den Checkout-Prozess."
+      "system_purpose": "Im Rahmen der Weiterentwicklung des Fielmann-Online-Shops wurde eine Keycloak-basierte Identity-Lösung für Benutzer-Authentifizierung implementiert. Das Projekt umfasste Login-, Logout- und Passwort-Management-Funktionen. Anschliessend entstand eine mobile Anwendung zur virtuellen Anprobe von Sonnenbrillen, bei der Nutzer Modelle digital testen und anschließend direkt in der Appp kaufen können. Im Projekt formulierte ich die Teststrategie für den Checkout-Prozess.",
+      "badges": [
+        "Security",
+        "Test automation",
+        "Test management"
+      ]
     },
     {
       "id": "divis-2018-04",
@@ -705,7 +754,14 @@
         "ANT",
         "Eclipse"
       ],
-      "system_purpose": "DiViS (Digitale Verwaltung in Schulen) ist eine webbasierte Schulverwaltungssoftware der Freien und Hansestadt Hamburg zur digitalen Abbildung administrativer Schulprozesse. Die Anwendung unterstützt Schulen bei der Verwaltung von Schüler- und Klassendaten, Noten, Zeugnissen sowie organisatorischen Abläufen und stellt eine zentrale Datenbasis für Verwaltung und Bildungspolitik bereit."
+      "system_purpose": "DiViS (Digitale Verwaltung in Schulen) ist eine webbasierte Schulverwaltungssoftware der Freien und Hansestadt Hamburg zur digitalen Abbildung administrativer Schulprozesse. Die Anwendung unterstützt Schulen bei der Verwaltung von Schüler- und Klassendaten, Noten, Zeugnissen sowie organisatorischen Abläufen und stellt eine zentrale Datenbasis für Verwaltung und Bildungspolitik bereit.",
+      "badges": [
+        "Security",
+        "Load tests",
+        "Test automation",
+        "Test management",
+        "Mentoring/Leadership"
+      ]
     },
     {
       "id": "dutypay-2018-04",
@@ -736,7 +792,11 @@
         "Apache HTTP Server",
         "TYPO3"
       ],
-      "system_purpose": "Softwarelösung zur automatisierten Berechnung von Mehrwertsteuerverpflichtungen in E-Commerce-Systemen."
+      "system_purpose": "Softwarelösung zur automatisierten Berechnung von Mehrwertsteuerverpflichtungen in E-Commerce-Systemen.",
+      "badges": [
+        "Test management",
+        "Test automation"
+      ]
     },
     {
       "id": "businessunit-ai-2017-07",
@@ -769,7 +829,12 @@
         "Jira",
         "Confluence"
       ],
-      "system_purpose": "Erweiterung des Dienstleistungsportfolios um professionelle Security-Test-Services."
+      "system_purpose": "Erweiterung des Dienstleistungsportfolios um professionelle Security-Test-Services.",
+      "badges": [
+        "Security",
+        "Test management",
+        "Mentoring/Leadership"
+      ]
     },
     {
       "id": "hsms-2015-06",
@@ -813,7 +878,14 @@
         "Eclipse",
         "Git"
       ],
-      "system_purpose": "HSMS (Hamburger Schulverwaltungs Software) ist eine webbasierte Schulverwaltungssoftware der Freien und Hansestadt Hamburg zur digitalen Abbildung administrativer Schulprozesse. Die Anwendung unterstützt Schulen bei der Verwaltung von Schüler- und Klassendaten, Noten, Zeugnissen sowie organisatorischen Abläufen und stellt eine zentrale Datenbasis für Verwaltung und Bildungspolitik bereit."
+      "system_purpose": "HSMS (Hamburger Schulverwaltungs Software) ist eine webbasierte Schulverwaltungssoftware der Freien und Hansestadt Hamburg zur digitalen Abbildung administrativer Schulprozesse. Die Anwendung unterstützt Schulen bei der Verwaltung von Schüler- und Klassendaten, Noten, Zeugnissen sowie organisatorischen Abläufen und stellt eine zentrale Datenbasis für Verwaltung und Bildungspolitik bereit.",
+      "badges": [
+        "Security",
+        "Load tests",
+        "Test automation",
+        "Test management",
+        "Static analysis (SAST)"
+      ]
     },
     {
       "id": "sast-integration-2015-01",
@@ -842,7 +914,14 @@
         "SonarQube",
         "PMD"
       ],
-      "system_purpose": "SAST Integration (Volkswagen Konzern) Konzeption und Implementierung eines Prototyps für automatisierte statische Quellcodeanalyse auf Basis von PMD und SonarQube. Zusätzlich wurde ein konzernweit standardisierter Regelkatalog entwickelt und mit diversen Stakeholdern abgestimmt, um Coding-Standards sowie sicherheitsrelevante Muster konsistent zu prüfen."
+      "system_purpose": "SAST Integration (Volkswagen Konzern) Konzeption und Implementierung eines Prototyps für automatisierte statische Quellcodeanalyse auf Basis von PMD und SonarQube. Zusätzlich wurde ein konzernweit standardisierter Regelkatalog entwickelt und mit diversen Stakeholdern abgestimmt, um Coding-Standards sowie sicherheitsrelevante Muster konsistent zu prüfen.",
+      "badges": [
+        "Security",
+        "Programming",
+        "Test automation",
+        "Static analysis (SAST)",
+        "CI/CD"
+      ]
     },
     {
       "id": "pentest-2015-02",
@@ -873,7 +952,10 @@
         "Nmap",
         "Nessus"
       ],
-      "system_purpose": "Durchführung eigenständiger Penetrationstests von Webanwendungen und Infrastruktur auf Basis der OWASP-Top-10-Methodik. Dabei kamen Tools wie OWASP ZAP, Burp Suite und Nessus zum Einsatz, um Schwachstellen systematisch zu identifizieren, auszunutzen und zu bewerten. Die Ergebnisse wurden strukturiert dokumentiert, nach Schweregrad priorisiert und mit konkreten technischen Handlungsempfehlungen zur Behebung an die Kunden übergeben."
+      "system_purpose": "Durchführung eigenständiger Penetrationstests von Webanwendungen und Infrastruktur auf Basis der OWASP-Top-10-Methodik. Dabei kamen Tools wie OWASP ZAP, Burp Suite und Nessus zum Einsatz, um Schwachstellen systematisch zu identifizieren, auszunutzen und zu bewerten. Die Ergebnisse wurden strukturiert dokumentiert, nach Schweregrad priorisiert und mit konkreten technischen Handlungsempfehlungen zur Behebung an die Kunden übergeben.",
+      "badges": [
+        "Security"
+      ]
     },
     {
       "id": "allegro-2013-08",
@@ -909,7 +991,12 @@
         "Oracle WebLogic",
         "Dragon NaturallySpeaking"
       ],
-      "system_purpose": "ALLEGRO ist eine zentrale Fachanwendung der Bundesagentur für Arbeit zur Berechnung und Verwaltung von Leistungen der Grundsicherung (Arbeitslosengeld II). Das System basiert auf einer serviceorientierten Architektur und ist in zahlreiche Backend-Systeme wie Zahlungs-, Archiv- und Stammdatensysteme integriert. Es unterstützt Jobcenter bei der Bearbeitung, Berechnung und Auskunft zu Leistungsfällen."
+      "system_purpose": "ALLEGRO ist eine zentrale Fachanwendung der Bundesagentur für Arbeit zur Berechnung und Verwaltung von Leistungen der Grundsicherung (Arbeitslosengeld II). Das System basiert auf einer serviceorientierten Architektur und ist in zahlreiche Backend-Systeme wie Zahlungs-, Archiv- und Stammdatensysteme integriert. Es unterstützt Jobcenter bei der Bearbeitung, Berechnung und Auskunft zu Leistungsfällen.",
+      "badges": [
+        "Security",
+        "Load tests",
+        "Test management"
+      ]
     },
     {
       "id": "prolog-2012-06",
@@ -949,7 +1036,11 @@
         "Eclipse",
         "Shell Scripting"
       ],
-      "system_purpose": "ProLog ist eine JEE-basierte Anwendung zur weltweiten Nachverfolgung von Fahrzeugteilen in der Lieferkette des Volkswagen-Konzerns. Das System stellt Transparenz über den aktuellen Standort von Bauteilen bereit – z. B. in LKWs, Flugzeugen oder internationalen Lagern – und unterstützt damit die Just-in-Time-Produktion. Im Projekt erfolgte zudem die Migration der Anwendung von IBM WebSphere auf Apache Tomcat."
+      "system_purpose": "ProLog ist eine JEE-basierte Anwendung zur weltweiten Nachverfolgung von Fahrzeugteilen in der Lieferkette des Volkswagen-Konzerns. Das System stellt Transparenz über den aktuellen Standort von Bauteilen bereit – z. B. in LKWs, Flugzeugen oder internationalen Lagern – und unterstützt damit die Just-in-Time-Produktion. Im Projekt erfolgte zudem die Migration der Anwendung von IBM WebSphere auf Apache Tomcat.",
+      "badges": [
+        "Programming",
+        "Load tests"
+      ]
     },
     {
       "id": "cp-suite-2011-04",
@@ -978,7 +1069,10 @@
         "TestComplete",
         "TFS"
       ],
-      "system_purpose": "Corporate Planner (CP-Suite) ist eine Softwareplattform für Corporate Performance Management zur Unterstützung von Controlling, Finanzplanung und Unternehmenssteuerung. Die Lösung ermöglicht integrierte Planung, Budgetierung, Forecasting sowie Reporting und Konsolidierung auf Basis einer zentralen Datenplattform und bietet umfangreiche Analyse- und Reporting-Funktionen für Managemententscheidungen."
+      "system_purpose": "Corporate Planner (CP-Suite) ist eine Softwareplattform für Corporate Performance Management zur Unterstützung von Controlling, Finanzplanung und Unternehmenssteuerung. Die Lösung ermöglicht integrierte Planung, Budgetierung, Forecasting sowie Reporting und Konsolidierung auf Basis einer zentralen Datenplattform und bietet umfangreiche Analyse- und Reporting-Funktionen für Managemententscheidungen.",
+      "badges": [
+        "Test automation"
+      ]
     },
     {
       "id": "yoom-2010-07",
@@ -1007,7 +1101,11 @@
         "Selenium",
         "Mantis"
       ],
-      "system_purpose": "yoom.de war eine Internetplattform für Wohnungsnachmieten, die Wohnungswechsel mit einer Auktionslogik kombinierte. Ausziehende Mieter konnten Möbel und Inventar zusammen mit ihrem Mietverhältnis einstellen, während Interessenten Gebote abgaben. Die Plattform unterstützte die Vermittlung potenzieller Nachmieter, die anschließend dem Vermieter vorgeschlagen wurden, und digitalisierte damit einen Teil des Wohnungswechsel- und Nachmietprozesses."
+      "system_purpose": "yoom.de war eine Internetplattform für Wohnungsnachmieten, die Wohnungswechsel mit einer Auktionslogik kombinierte. Ausziehende Mieter konnten Möbel und Inventar zusammen mit ihrem Mietverhältnis einstellen, während Interessenten Gebote abgaben. Die Plattform unterstützte die Vermittlung potenzieller Nachmieter, die anschließend dem Vermieter vorgeschlagen wurden, und digitalisierte damit einen Teil des Wohnungswechsel- und Nachmietprozesses.",
+      "badges": [
+        "Test automation",
+        "Test management"
+      ]
     },
     {
       "id": "maven-einfuehrung-2009-05",
@@ -1044,7 +1142,11 @@
         "Jira",
         "Subversion"
       ],
-      "system_purpose": "Analyse und Migration bestehender ANT-basierter Build-Konfigurationen auf Apache Maven zur Vereinheitlichung der Build-Prozesse. Erstellung und Pflege von POM-Dateien, Konfiguration von Build-Phasen und Plugins sowie Sicherstellung reproduzierbarer Builds. Zusätzlich Aufbau eines zentralen Maven-Repositories für Bibliotheken und Abhängigkeiten sowie Integration von FishEye zur Verknüpfung von SVN-Commits mit Jira-Tickets und zur verbesserten Nachvollziehbarkeit von Codeänderungen."
+      "system_purpose": "Analyse und Migration bestehender ANT-basierter Build-Konfigurationen auf Apache Maven zur Vereinheitlichung der Build-Prozesse. Erstellung und Pflege von POM-Dateien, Konfiguration von Build-Phasen und Plugins sowie Sicherstellung reproduzierbarer Builds. Zusätzlich Aufbau eines zentralen Maven-Repositories für Bibliotheken und Abhängigkeiten sowie Integration von FishEye zur Verknüpfung von SVN-Commits mit Jira-Tickets und zur verbesserten Nachvollziehbarkeit von Codeänderungen.",
+      "badges": [
+        "Programming",
+        "CI/CD"
+      ]
     },
     {
       "id": "misslight-2005-12",
@@ -1083,7 +1185,11 @@
         "ANT",
         "Subversion"
       ],
-      "system_purpose": "Entwicklung und Betrieb einer JEE-basierten Anwendung zur konzernweiten Verwaltung von Fahrzeugteilen. In dem System wurden sämtliche Bauteile des Volkswagen-Konzerns mit ihren Eigenschaften, Varianten und technischen Merkmalen zentral gepflegt. Die Anwendung unterstützte die strukturierte Verwaltung und Suche nach Material- und Stammdaten und stellte diese Informationen verschiedenen Entwicklungs- und Produktionssystemen zur Verfügung. Ein solches Teilemanagement dient dazu, Bauteile und ihre Eigenschaften zentral zu verwalten und effizient nutzbar zu machen."
+      "system_purpose": "Entwicklung und Betrieb einer JEE-basierten Anwendung zur konzernweiten Verwaltung von Fahrzeugteilen. In dem System wurden sämtliche Bauteile des Volkswagen-Konzerns mit ihren Eigenschaften, Varianten und technischen Merkmalen zentral gepflegt. Die Anwendung unterstützte die strukturierte Verwaltung und Suche nach Material- und Stammdaten und stellte diese Informationen verschiedenen Entwicklungs- und Produktionssystemen zur Verfügung. Ein solches Teilemanagement dient dazu, Bauteile und ihre Eigenschaften zentral zu verwalten und effizient nutzbar zu machen.",
+      "badges": [
+        "Programming",
+        "Load tests"
+      ]
     },
     {
       "id": "umwelt-informationssystem-2005-10",
@@ -1118,7 +1224,10 @@
         "Subversion",
         "Eclipse"
       ],
-      "system_purpose": "Entwicklung und Betrieb eines Systems zur Bewertung der Umweltverträglichkeit und Recyclingfähigkeit von Fahrzeugen. Auf Basis der Material- und Bauteildaten einzelner Fahrzeugkomponenten wurde der jeweilige Recyclinganteil berechnet und aggregiert. Dadurch konnte die Gesamt-Recyclingquote eines Fahrzeugs ermittelt werden und als Grundlage für Umweltbewertungen und Nachhaltigkeitsanforderungen im Konzern dienen."
+      "system_purpose": "Entwicklung und Betrieb eines Systems zur Bewertung der Umweltverträglichkeit und Recyclingfähigkeit von Fahrzeugen. Auf Basis der Material- und Bauteildaten einzelner Fahrzeugkomponenten wurde der jeweilige Recyclinganteil berechnet und aggregiert. Dadurch konnte die Gesamt-Recyclingquote eines Fahrzeugs ermittelt werden und als Grundlage für Umweltbewertungen und Nachhaltigkeitsanforderungen im Konzern dienen.",
+      "badges": [
+        "Programming"
+      ]
     },
     {
       "id": "kws-2005-08",
@@ -1146,7 +1255,10 @@
         "Struts",
         "Eclipse"
       ],
-      "system_purpose": "Entwicklung einer webbasierten Anwendung zur automatisierten Bewertung der Kreditwürdigkeit von Antragstellern auf Grundlage regulatorischer Vorgaben zur Kreditwürdigkeitsprüfung. Die serverseitige Implementierung basierte auf Apache Struts. Das System analysierte relevante Finanz- und Risikodaten und unterstützte eine strukturierte Entscheidung über die Kreditfähigkeit von Antragstellern."
+      "system_purpose": "Entwicklung einer webbasierten Anwendung zur automatisierten Bewertung der Kreditwürdigkeit von Antragstellern auf Grundlage regulatorischer Vorgaben zur Kreditwürdigkeitsprüfung. Die serverseitige Implementierung basierte auf Apache Struts. Das System analysierte relevante Finanz- und Risikodaten und unterstützte eine strukturierte Entscheidung über die Kreditfähigkeit von Antragstellern.",
+      "badges": [
+        "Programming"
+      ]
     },
     {
       "id": "dozent-2004-10",
@@ -1179,7 +1291,10 @@
         "ANT",
         "CVS"
       ],
-      "system_purpose": "DOZENT war eine JEE-basierte Enterprise-Anwendung zur Verwaltung von Fahrzeugteilen im Volkswagen-Konzern. Das System diente der zentralen Pflege und Verwaltung von Bauteilen sowie deren Eigenschaften und Varianten. Es unterstützte Fachbereiche dabei, Material- und Produktinformationen strukturiert zu erfassen, zu pflegen und für Entwicklungs- und Produktionsprozesse bereitzustellen."
+      "system_purpose": "DOZENT war eine JEE-basierte Enterprise-Anwendung zur Verwaltung von Fahrzeugteilen im Volkswagen-Konzern. Das System diente der zentralen Pflege und Verwaltung von Bauteilen sowie deren Eigenschaften und Varianten. Es unterstützte Fachbereiche dabei, Material- und Produktinformationen strukturiert zu erfassen, zu pflegen und für Entwicklungs- und Produktionsprozesse bereitzustellen.",
+      "badges": [
+        "Programming"
+      ]
     },
     {
       "id": "esv-2004-02",
@@ -1206,7 +1321,10 @@
         "Tomcat",
         "Java EE (EJB)"
       ],
-      "system_purpose": "Entwicklung einer Software zur Unterstützung und Überwachung manueller Montageprozesse in der Produktion. Mitarbeitende erhielten Arbeitskörbe mit Bauteilen und wurden über einen großen Bildschirm mit Ampelanzeige über ihre aktuelle Arbeitsgeschwindigkeit informiert. Die Anwendung visualisierte den Bearbeitungsfortschritt in Echtzeit und zeigte über eine Grün-Gelb-Rot-Logik an, ob der Arbeitsrhythmus den Produktionsvorgaben entspricht."
+      "system_purpose": "Entwicklung einer Software zur Unterstützung und Überwachung manueller Montageprozesse in der Produktion. Mitarbeitende erhielten Arbeitskörbe mit Bauteilen und wurden über einen großen Bildschirm mit Ampelanzeige über ihre aktuelle Arbeitsgeschwindigkeit informiert. Die Anwendung visualisierte den Bearbeitungsfortschritt in Echtzeit und zeigte über eine Grün-Gelb-Rot-Logik an, ob der Arbeitsrhythmus den Produktionsvorgaben entspricht.",
+      "badges": [
+        "Programming"
+      ]
     }
   ],
   "certifications": [

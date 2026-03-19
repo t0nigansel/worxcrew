@@ -5,7 +5,9 @@
       "enabled": false
     },
     "variant": "",
-    "layout": "reference"
+    "layout": "reference",
+    "language": "de",
+    "include_project_history": false
   },
   "artifacts": {
     "source_bundle": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/source_bundle.json",
@@ -17,11 +19,7 @@
     "cv_html": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/cv.html",
     "cv_tex": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/cv.tex",
     "cv_pdf": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/cv.pdf",
-    "cv_log": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/cv.xelatex.log",
-    "project_history_content": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/project_history_content.json",
-    "project_history_markdown": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/project_history.md",
-    "project_history_validation_report": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/project_history_validation_report.json",
-    "project_history_html": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/project_history.html"
+    "cv_log": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/cv.xelatex.log"
   },
   "stages": [
     {
@@ -63,32 +61,6 @@
         "cv_tex": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/cv.tex",
         "cv_pdf": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/cv.pdf",
         "cv_log": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/cv.xelatex.log"
-      }
-    },
-    {
-      "agent": "project_history_writer",
-      "warnings": [],
-      "artifacts": {
-        "project_history_content": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/project_history_content.json",
-        "project_history_markdown": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/project_history.md"
-      }
-    },
-    {
-      "agent": "project_history_fact_checker",
-      "warnings": [],
-      "artifacts": {
-        "project_history_content": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/project_history_content.json",
-        "project_history_markdown": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/project_history.md",
-        "project_history_validation_report": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/project_history_validation_report.json"
-      }
-    },
-    {
-      "agent": "project_history_renderer",
-      "warnings": [
-        "xelatex failed for project history. See /Users/tonigansel/workspace/worxcrew/agents/cv/result/project_history.xelatex.log"
-      ],
-      "artifacts": {
-        "project_history_html": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/project_history.html"
       }
     }
   ]

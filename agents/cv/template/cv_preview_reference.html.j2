@@ -89,8 +89,16 @@
                 {% if item["period"] %}
                 <p class="entry-period">{{ item["period"] }}</p>
                 {% endif %}
-                {% if item["badge_label"] %}
-                <span class="project-badge {{ item["badge_tone"] }}">{{ item["badge_label"] }}</span>
+                {% if item["badges"] %}
+                <div class="project-badges">
+                  {% for badge in item["badges"][:5] %}
+                  <span class="project-badge {{ badge["tone"] }}">{{ badge["label"] }}</span>
+                  {% endfor %}
+                </div>
+                {% elif item["badge_label"] %}
+                <div class="project-badges">
+                  <span class="project-badge {{ item["badge_tone"] }}">{{ item["badge_label"] }}</span>
+                </div>
                 {% endif %}
               </div>
             </div>
