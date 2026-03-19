@@ -66,35 +66,6 @@
 \setlength{\gutterwidth}{6mm}
 \newlength{\mainwidth}
 \setlength{\mainwidth}{\dimexpr\textwidth-\sidebarwidth-\gutterwidth\relax}
-\newlength{\badgecolumnwidth}
-\setlength{\badgecolumnwidth}{34mm}
-
-[% macro project_badge(tone, label) -%]
-[% if label %]
-[% if tone == "badge-security" %]
-{\setlength{\fboxsep}{1.2pt}\colorbox{badgedark}{\textcolor{white}{\fontsize{4.9}{5.5}\selectfont\bfseries [[ label | latex_escape ]]}}}
-[% elif tone == "badge-automation" %]
-{\setlength{\fboxsep}{1.2pt}\colorbox{badgegreen}{\textcolor{white}{\fontsize{4.9}{5.5}\selectfont\bfseries [[ label | latex_escape ]]}}}
-[% elif tone == "badge-ai" %]
-{\setlength{\fboxsep}{1.2pt}\colorbox{badgeblue}{\textcolor{white}{\fontsize{4.9}{5.5}\selectfont\bfseries [[ label | latex_escape ]]}}}
-[% else %]
-{\setlength{\fboxsep}{1.2pt}\colorbox{badgeslate}{\textcolor{white}{\fontsize{4.9}{5.5}\selectfont\bfseries [[ label | latex_escape ]]}}}
-[% endif %]
-[% endif %]
-[% endmacro -%]
-
-[% macro project_badges(badges, fallback_tone, fallback_label) -%]
-\begin{minipage}[t]{\badgecolumnwidth}
-\raggedleft
-[% if badges %]
-[% for badge in badges[:5] %]
-[[ project_badge(badge["tone"], badge["label"]) ]][% if not loop.last %]\hspace{0.8mm}[% endif %]
-[% endfor %]
-[% elif fallback_label %]
-[[ project_badge(fallback_tone, fallback_label) ]]
-[% endif %]
-\end{minipage}
-[% endmacro -%]
 
 \begin{document}
 \sloppy
@@ -172,7 +143,6 @@
 [% for item in content.featured_projects %]
 {\entryname{[[ item["name"] | latex_escape ]]}\hfill\entryperiod{[[ item["period"] | latex_escape ]]}\par}
 {\entrymeta{[[ [item["client"], item["role"]] | select | join(" | ") | latex_escape ]]}\par}
-{\hfill [[ project_badges(item.get("badges"), item["badge_tone"], item["badge_label"]) ]] \par}
 [% if item["detail_points"] %]
 \begin{detailitemize}
 [% for detail in item["detail_points"][:3] %]

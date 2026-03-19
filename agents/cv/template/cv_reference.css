@@ -246,51 +246,6 @@ body {
   white-space: nowrap;
 }
 
-.project-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 15mm;
-  padding: 0.65mm 1.8mm;
-  border-radius: 0.8mm;
-  color: var(--badge-fg);
-  font-size: 4.9pt;
-  line-height: 1;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.project-badges {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  gap: 0.7mm 0.8mm;
-}
-
-.project-badges-row {
-  margin-top: 0.6mm;
-  display: flex;
-  justify-content: flex-end;
-}
-
-.project-badge.badge-security {
-  background: var(--badge-dark);
-}
-
-.project-badge.badge-automation {
-  background: var(--badge-green);
-}
-
-.project-badge.badge-ai {
-  background: var(--badge-blue);
-}
-
-.project-badge.badge-performance,
-.project-badge.badge-neutral {
-  background: var(--badge-slate);
-}
-
 .entry-list {
   margin: 0.75mm 0 0;
   padding-left: 2.4mm;
