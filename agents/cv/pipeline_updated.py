@@ -1,3 +1,10 @@
+"""Updated pipeline.py — adds ProjectHistory agents to the orchestrator.
+
+This file shows the CHANGES needed. The existing agents (JobAnalyzerAgent,
+EvidenceSelectorAgent, CVWriterAgent, FactCheckerAgent, PdfRendererAgent)
+remain unchanged.  Only the CVOrchestrator and run_pipeline are modified.
+"""
+
 from __future__ import annotations
 
 from dataclasses import asdict
@@ -17,11 +24,14 @@ from .utils import write_json, write_text
 from .validator import validate_cv_content
 from .variants import available_cv_variants, resolve_cv_variant
 from .writer import build_cv_content
+
+# ── New imports ─────────────────────────────────────────────
 from .project_history_pipeline import (
     ProjectHistoryFactCheckerAgent,
     ProjectHistoryRendererAgent,
     ProjectHistoryWriterAgent,
 )
+
 
 def _serializable_source_bundle(bundle: SourceBundle) -> Dict[str, object]:
     return {
@@ -32,6 +42,8 @@ def _serializable_source_bundle(bundle: SourceBundle) -> Dict[str, object]:
         "certifications": bundle.certifications,
     }
 
+
+# ── Existing agents (unchanged) ────────────────────────────
 
 class JobAnalyzerAgent(BaseAgent):
     name = "job_analyzer"
@@ -54,10 +66,7 @@ class JobAnalyzerAgent(BaseAgent):
         if llm_client and analysis.raw_text:
             try:
                 analysis, llm_payload, llm_warnings = run_job_analyzer_llm(
-                    llm_client,
-                    context.root_dir,
-                    bundle,
-                    analysis,
+                    llm_client, context.root_dir, bundle, analysis,
                 )
                 warnings.extend(llm_warnings)
                 llm_artifact = context.record_artifact(
@@ -68,7 +77,6 @@ class JobAnalyzerAgent(BaseAgent):
                 warnings.append(f"Job analyzer LLM fallback used: {error}")
 
         context.data["job_analysis"] = analysis
-
         path = context.record_artifact(
             "job_analysis",
             write_json(context.result_dir / "job_analysis.json", asdict(analysis)),
@@ -88,7 +96,6 @@ class EvidenceSelectorAgent(BaseAgent):
         analysis: JobAnalysis = context.data["job_analysis"]
         selection = select_evidence(bundle, analysis)
         context.data["selection"] = selection
-
         path = context.record_artifact(
             "selection",
             write_json(context.result_dir / "selection.json", asdict(selection)),
@@ -112,12 +119,7 @@ class CVWriterAgent(BaseAgent):
         if llm_client:
             try:
                 content, llm_payload, llm_warnings = run_writer_llm(
-                    llm_client,
-                    context.root_dir,
-                    bundle,
-                    analysis,
-                    selection,
-                    content,
+                    llm_client, context.root_dir, bundle, analysis, selection, content,
                 )
                 warnings.extend(llm_warnings)
                 llm_artifact = context.record_artifact(
@@ -128,27 +130,15 @@ class CVWriterAgent(BaseAgent):
                 warnings.append(f"Writer LLM fallback used: {error}")
 
         context.data["cv_content"] = content
-
         content_path = context.record_artifact(
             "cv_content",
-            write_json(
-                context.result_dir / "cv_content.json",
-                {
-                    "frontmatter": content.frontmatter,
-                    "body": content.body,
-                },
-            ),
+            write_json(context.result_dir / "cv_content.json", {"frontmatter": content.frontmatter, "body": content.body}),
         )
         markdown_path = context.record_artifact("cv_markdown", write_text(context.result_dir / "cv.md", content.markdown))
         artifacts = {"cv_content": str(content_path), "cv_markdown": str(markdown_path)}
         if llm_artifact:
             artifacts["cv_writer_llm"] = str(llm_artifact)
-        return AgentResult(
-            name=self.name,
-            payload={"content_path": str(content_path), "markdown_path": str(markdown_path)},
-            warnings=warnings,
-            artifacts=artifacts,
-        )
+        return AgentResult(name=self.name, payload={"content_path": str(content_path), "markdown_path": str(markdown_path)}, warnings=warnings, artifacts=artifacts)
 
 
 class FactCheckerAgent(BaseAgent):
@@ -168,12 +158,7 @@ class FactCheckerAgent(BaseAgent):
         if llm_client:
             try:
                 content, llm_payload, llm_warnings = run_fact_checker_llm(
-                    llm_client,
-                    context.root_dir,
-                    bundle,
-                    analysis,
-                    selection,
-                    content,
+                    llm_client, context.root_dir, bundle, analysis, selection, content,
                 )
                 warnings.extend(llm_warnings)
                 llm_corrections = [str(item) for item in (llm_payload.get("corrections") or []) if str(item).strip()]
@@ -191,38 +176,17 @@ class FactCheckerAgent(BaseAgent):
 
         content_path = context.record_artifact(
             "cv_content",
-            write_json(
-                context.result_dir / "cv_content.json",
-                {
-                    "frontmatter": corrected_content.frontmatter,
-                    "body": corrected_content.body,
-                },
-            ),
+            write_json(context.result_dir / "cv_content.json", {"frontmatter": corrected_content.frontmatter, "body": corrected_content.body}),
         )
         markdown_path = context.record_artifact("cv_markdown", write_text(context.result_dir / "cv.md", corrected_content.markdown))
         report_path = context.record_artifact(
             "validation_report",
-            write_json(
-                context.result_dir / "validation_report.json",
-                {
-                    "passed": report.passed,
-                    "corrections": report.corrections,
-                },
-            ),
+            write_json(context.result_dir / "validation_report.json", {"passed": report.passed, "corrections": report.corrections}),
         )
-        artifacts = {
-            "cv_content": str(content_path),
-            "cv_markdown": str(markdown_path),
-            "validation_report": str(report_path),
-        }
+        artifacts = {"cv_content": str(content_path), "cv_markdown": str(markdown_path), "validation_report": str(report_path)}
         if llm_artifact:
             artifacts["fact_checker_llm"] = str(llm_artifact)
-        return AgentResult(
-            name=self.name,
-            payload={"passed": report.passed, "corrections": report.corrections},
-            warnings=warnings + report.corrections,
-            artifacts=artifacts,
-        )
+        return AgentResult(name=self.name, payload={"passed": report.passed, "corrections": report.corrections}, warnings=warnings + report.corrections, artifacts=artifacts)
 
 
 class PdfRendererAgent(BaseAgent):
@@ -242,7 +206,6 @@ class PdfRendererAgent(BaseAgent):
             "cv_html",
             render_html(content, context.template_dir, context.result_dir / "cv.html"),
         )
-
         warnings: List[str] = []
         artifacts = {"cv_html": str(html_path)}
         try:
@@ -252,18 +215,21 @@ class PdfRendererAgent(BaseAgent):
                 context.record_artifact(f"cv_{name}", Path(path))
         except Exception as error:
             warnings.append(str(error))
-
         return AgentResult(name=self.name, payload=artifacts, warnings=warnings, artifacts=artifacts)
 
 
+# ── Updated Orchestrator ────────────────────────────────────
+
 class CVOrchestrator(BaseAgent):
     name = "orchestrator"
-    description = "Runs the complete CV generation flow."
+    description = "Runs the complete CV generation flow including project history attachment."
 
     def __init__(self) -> None:
         self.agents = [
+            # Phase 1: Analysis & Selection (shared)
             JobAnalyzerAgent(),
             EvidenceSelectorAgent(),
+            # Phase 2: CV
             CVWriterAgent(),
             FactCheckerAgent(),
             PdfRendererAgent(),
@@ -271,7 +237,7 @@ class CVOrchestrator(BaseAgent):
             ProjectHistoryWriterAgent(),
             ProjectHistoryFactCheckerAgent(),
             ProjectHistoryRendererAgent(),
-        ]  
+        ]
 
     def run(self, context: AgentContext) -> AgentResult:
         source_bundle = load_source_bundle(context.root_dir / "data")

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="{{ content.language or 'de' }}">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ content.full_name }} - Projekthistorie</title>
+    <style>{{ css }}</style>
+  </head>
+  <body>
+    <article class="ph-page">
+      <header class="ph-header">
+        <div class="ph-header-copy">
+          <h1 class="ph-name">{{ content.full_name }}</h1>
+          <p class="ph-headline">{{ content.headline }}</p>
+          <p class="ph-contact">{{ content.contact_line }}</p>
+          <p class="ph-links">
+            {% for item in content.links %}
+            <a href="{{ item['url'] }}">{{ item['label'] }}</a>{% if not loop.last %} | {% endif %}
+            {% endfor %}
+          </p>
+        </div>
+        <div class="ph-header-meta">
+          <p class="ph-doc-title">Projekthistorie</p>
+          <p class="ph-project-count">{{ content.project_count }} Projekte</p>
+        </div>
+      </header>
+
+      <main class="ph-main">
+        {% for project in content.projects %}
+        <article class="ph-project">
+          <div class="ph-project-head">
+            <div>
+              <p class="ph-project-name">{{ project.name }}</p>
+              <p class="ph-project-meta">
+                {{ project.client }}{% if project.role %} | {{ project.role }}{% endif %}{% if project.methodology %} | {{ project.methodology }}{% endif %}
+              </p>
+            </div>
+            <div class="ph-project-side">
+              {% if project.period %}
+              <p class="ph-project-period">{{ project.period }}</p>
+              {% endif %}
+              {% if project.badge_label %}
+              <span class="ph-badge {{ project.badge_tone }}">{{ project.badge_label }}</span>
+              {% endif %}
+            </div>
+          </div>
+
+          {% if project.system_purpose %}
+          <p class="ph-project-context">{{ project.system_purpose }}</p>
+          {% endif %}
+
+          {% if project.responsibilities %}
+          <div class="ph-responsibilities">
+            {% for resp in project.responsibilities %}
+            <div class="ph-responsibility">
+              <p class="ph-resp-title">{{ resp.title }}</p>
+              {% if resp.description %}
+              <p class="ph-resp-desc">{{ resp.description }}</p>
+              {% endif %}
+            </div>
+            {% endfor %}
+          </div>
+          {% endif %}
+
+          {% if project.tools_line %}
+          <p class="ph-tools">{{ project.tools_line }}</p>
+          {% endif %}
+        </article>
+        {% endfor %}
+      </main>
+    </article>
+  </body>
+</html>

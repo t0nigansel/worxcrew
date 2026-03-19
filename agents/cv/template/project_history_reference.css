@@ -1,0 +1,260 @@
+:root {
+  --page-bg: #ffffff;
+  --accent: #2d5f9d;
+  --accent-strong: #1f4476;
+  --text: #20262d;
+  --muted: #59646f;
+  --line: #d7dde4;
+  --surface: #f4f6f9;
+  --badge-dark: #2a2d31;
+  --badge-green: #5b8648;
+  --badge-blue: #2d5f9d;
+  --badge-slate: #5f6c7d;
+  --badge-fg: #ffffff;
+  --font-base: "Avenir Next", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 20px 0;
+  background: #0f1114;
+  color: var(--text);
+  font-family: var(--font-base);
+}
+
+.ph-page {
+  width: 210mm;
+  margin: 0 auto;
+  background: var(--page-bg);
+  box-shadow: 0 16px 42px rgba(0, 0, 0, 0.28);
+}
+
+/* ── Header ─────────────────────────────────────────────── */
+
+.ph-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 10mm 12mm 6mm;
+  border-bottom: 2px solid var(--accent);
+}
+
+.ph-header-copy {
+  flex: 1;
+}
+
+.ph-name {
+  margin: 0 0 1mm;
+  color: var(--text);
+  font-size: 16pt;
+  line-height: 0.96;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.ph-headline {
+  margin: 0 0 1.5mm;
+  color: var(--accent);
+  font-size: 7.5pt;
+  line-height: 1.25;
+  font-weight: 700;
+}
+
+.ph-contact,
+.ph-links {
+  margin: 0;
+  color: var(--muted);
+  font-size: 6pt;
+  line-height: 1.4;
+}
+
+.ph-links {
+  margin-top: 0.5mm;
+}
+
+.ph-links a {
+  color: var(--accent-strong);
+  text-decoration: none;
+}
+
+.ph-header-meta {
+  text-align: right;
+}
+
+.ph-doc-title {
+  margin: 0;
+  color: var(--accent);
+  font-size: 9pt;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+.ph-project-count {
+  margin: 1mm 0 0;
+  color: var(--muted);
+  font-size: 6.5pt;
+}
+
+/* ── Main ───────────────────────────────────────────────── */
+
+.ph-main {
+  padding: 6mm 12mm 10mm;
+}
+
+/* ── Project Card ───────────────────────────────────────── */
+
+.ph-project {
+  padding-bottom: 4mm;
+  margin-bottom: 4mm;
+  border-bottom: 1px solid var(--line);
+  page-break-inside: avoid;
+}
+
+.ph-project:last-child {
+  margin-bottom: 0;
+  border-bottom: none;
+}
+
+.ph-project-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 3mm;
+  margin-bottom: 1.5mm;
+}
+
+.ph-project-name {
+  margin: 0;
+  color: var(--text);
+  font-size: 8pt;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.ph-project-meta {
+  margin: 0.5mm 0 0;
+  color: var(--muted);
+  font-size: 6pt;
+  line-height: 1.3;
+}
+
+.ph-project-side {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.8mm;
+  flex-shrink: 0;
+}
+
+.ph-project-period {
+  margin: 0;
+  color: var(--accent);
+  font-size: 6pt;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.ph-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 14mm;
+  padding: 0.6mm 1.6mm;
+  border-radius: 0.8mm;
+  color: var(--badge-fg);
+  font-size: 5pt;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ph-badge.badge-security { background: var(--badge-dark); }
+.ph-badge.badge-automation { background: var(--badge-green); }
+.ph-badge.badge-ai { background: var(--badge-blue); }
+.ph-badge.badge-performance,
+.ph-badge.badge-neutral { background: var(--badge-slate); }
+
+/* ── Context / System Purpose ───────────────────────────── */
+
+.ph-project-context {
+  margin: 1mm 0 2mm;
+  padding: 2mm 2.5mm;
+  background: var(--surface);
+  border-left: 2px solid var(--accent);
+  color: var(--muted);
+  font-size: 6pt;
+  line-height: 1.45;
+}
+
+/* ── Responsibilities ───────────────────────────────────── */
+
+.ph-responsibilities {
+  margin: 1mm 0;
+}
+
+.ph-responsibility {
+  margin-bottom: 1.5mm;
+}
+
+.ph-resp-title {
+  margin: 0;
+  color: var(--text);
+  font-size: 6.5pt;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.ph-resp-desc {
+  margin: 0.5mm 0 0;
+  color: var(--muted);
+  font-size: 6pt;
+  line-height: 1.42;
+}
+
+/* ── Tools ───────────────────────────────────────────────── */
+
+.ph-tools {
+  margin: 1.5mm 0 0;
+  color: var(--accent);
+  font-size: 5.8pt;
+  line-height: 1.25;
+  font-weight: 700;
+}
+
+/* ── Print / Responsive ─────────────────────────────────── */
+
+@media print {
+  body {
+    padding: 0;
+    background: white;
+  }
+
+  .ph-page {
+    width: 100%;
+    box-shadow: none;
+  }
+
+  .ph-project {
+    page-break-inside: avoid;
+  }
+}
+
+@media (max-width: 1000px) {
+  body {
+    padding: 0;
+    background: #f2f4f7;
+  }
+
+  .ph-page {
+    width: 100%;
+    box-shadow: none;
+  }
+}

@@ -1,3 +1,11 @@
+"""CV generation pipeline with language support and optional project history.
+
+Changes vs original pipeline.py:
+  - run_pipeline() accepts `language` and `include_project_history` params
+  - CVOrchestrator dynamically includes project history agents based on flag
+  - Language is passed through context.data for all agents to consume
+"""
+
 from __future__ import annotations
 
 from dataclasses import asdict
@@ -17,11 +25,13 @@ from .utils import write_json, write_text
 from .validator import validate_cv_content
 from .variants import available_cv_variants, resolve_cv_variant
 from .writer import build_cv_content
+
 from .project_history_pipeline import (
     ProjectHistoryFactCheckerAgent,
     ProjectHistoryRendererAgent,
     ProjectHistoryWriterAgent,
 )
+
 
 def _serializable_source_bundle(bundle: SourceBundle) -> Dict[str, object]:
     return {
@@ -32,6 +42,8 @@ def _serializable_source_bundle(bundle: SourceBundle) -> Dict[str, object]:
         "certifications": bundle.certifications,
     }
 
+
+# ── Existing agents (unchanged internally) ──────────────────
 
 class JobAnalyzerAgent(BaseAgent):
     name = "job_analyzer"
@@ -45,19 +57,31 @@ class JobAnalyzerAgent(BaseAgent):
         warnings: List[str] = []
         llm_artifact = None
 
+        # Override language if explicitly set via CLI/pipeline
+        forced_language = context.data.get("language")
+        if forced_language and forced_language in ("de", "en"):
+            analysis = JobAnalysis(
+                title=analysis.title,
+                summary=analysis.summary,
+                keywords=analysis.keywords,
+                matched_terms=analysis.matched_terms,
+                raw_text=analysis.raw_text,
+                language=forced_language,
+                tone=analysis.tone,
+                variant=analysis.variant,
+            )
+
         if variant_name and not variant:
             warnings.append(
-                f"Unbekannte CV-Variante '{variant_name}'. Verfuegbar: {', '.join(available_cv_variants(bundle.profile)) or 'keine'}."
+                f"Unbekannte CV-Variante '{variant_name}'. Verfuegbar: "
+                f"{', '.join(available_cv_variants(bundle.profile)) or 'keine'}."
             )
 
         llm_client: OpenAICompatibleClient | None = context.data.get("llm_client")
         if llm_client and analysis.raw_text:
             try:
                 analysis, llm_payload, llm_warnings = run_job_analyzer_llm(
-                    llm_client,
-                    context.root_dir,
-                    bundle,
-                    analysis,
+                    llm_client, context.root_dir, bundle, analysis,
                 )
                 warnings.extend(llm_warnings)
                 llm_artifact = context.record_artifact(
@@ -68,7 +92,6 @@ class JobAnalyzerAgent(BaseAgent):
                 warnings.append(f"Job analyzer LLM fallback used: {error}")
 
         context.data["job_analysis"] = analysis
-
         path = context.record_artifact(
             "job_analysis",
             write_json(context.result_dir / "job_analysis.json", asdict(analysis)),
@@ -88,7 +111,6 @@ class EvidenceSelectorAgent(BaseAgent):
         analysis: JobAnalysis = context.data["job_analysis"]
         selection = select_evidence(bundle, analysis)
         context.data["selection"] = selection
-
         path = context.record_artifact(
             "selection",
             write_json(context.result_dir / "selection.json", asdict(selection)),
@@ -112,12 +134,7 @@ class CVWriterAgent(BaseAgent):
         if llm_client:
             try:
                 content, llm_payload, llm_warnings = run_writer_llm(
-                    llm_client,
-                    context.root_dir,
-                    bundle,
-                    analysis,
-                    selection,
-                    content,
+                    llm_client, context.root_dir, bundle, analysis, selection, content,
                 )
                 warnings.extend(llm_warnings)
                 llm_artifact = context.record_artifact(
@@ -128,16 +145,9 @@ class CVWriterAgent(BaseAgent):
                 warnings.append(f"Writer LLM fallback used: {error}")
 
         context.data["cv_content"] = content
-
         content_path = context.record_artifact(
             "cv_content",
-            write_json(
-                context.result_dir / "cv_content.json",
-                {
-                    "frontmatter": content.frontmatter,
-                    "body": content.body,
-                },
-            ),
+            write_json(context.result_dir / "cv_content.json", {"frontmatter": content.frontmatter, "body": content.body}),
         )
         markdown_path = context.record_artifact("cv_markdown", write_text(context.result_dir / "cv.md", content.markdown))
         artifacts = {"cv_content": str(content_path), "cv_markdown": str(markdown_path)}
@@ -168,12 +178,7 @@ class FactCheckerAgent(BaseAgent):
         if llm_client:
             try:
                 content, llm_payload, llm_warnings = run_fact_checker_llm(
-                    llm_client,
-                    context.root_dir,
-                    bundle,
-                    analysis,
-                    selection,
-                    content,
+                    llm_client, context.root_dir, bundle, analysis, selection, content,
                 )
                 warnings.extend(llm_warnings)
                 llm_corrections = [str(item) for item in (llm_payload.get("corrections") or []) if str(item).strip()]
@@ -191,30 +196,14 @@ class FactCheckerAgent(BaseAgent):
 
         content_path = context.record_artifact(
             "cv_content",
-            write_json(
-                context.result_dir / "cv_content.json",
-                {
-                    "frontmatter": corrected_content.frontmatter,
-                    "body": corrected_content.body,
-                },
-            ),
+            write_json(context.result_dir / "cv_content.json", {"frontmatter": corrected_content.frontmatter, "body": corrected_content.body}),
         )
         markdown_path = context.record_artifact("cv_markdown", write_text(context.result_dir / "cv.md", corrected_content.markdown))
         report_path = context.record_artifact(
             "validation_report",
-            write_json(
-                context.result_dir / "validation_report.json",
-                {
-                    "passed": report.passed,
-                    "corrections": report.corrections,
-                },
-            ),
+            write_json(context.result_dir / "validation_report.json", {"passed": report.passed, "corrections": report.corrections}),
         )
-        artifacts = {
-            "cv_content": str(content_path),
-            "cv_markdown": str(markdown_path),
-            "validation_report": str(report_path),
-        }
+        artifacts = {"cv_content": str(content_path), "cv_markdown": str(markdown_path), "validation_report": str(report_path)}
         if llm_artifact:
             artifacts["fact_checker_llm"] = str(llm_artifact)
         return AgentResult(
@@ -242,7 +231,6 @@ class PdfRendererAgent(BaseAgent):
             "cv_html",
             render_html(content, context.template_dir, context.result_dir / "cv.html"),
         )
-
         warnings: List[str] = []
         artifacts = {"cv_html": str(html_path)}
         try:
@@ -252,26 +240,33 @@ class PdfRendererAgent(BaseAgent):
                 context.record_artifact(f"cv_{name}", Path(path))
         except Exception as error:
             warnings.append(str(error))
-
         return AgentResult(name=self.name, payload=artifacts, warnings=warnings, artifacts=artifacts)
 
 
+# ── Orchestrator (updated) ──────────────────────────────────
+
 class CVOrchestrator(BaseAgent):
     name = "orchestrator"
-    description = "Runs the complete CV generation flow."
+    description = "Runs the complete CV generation flow with optional project history."
 
-    def __init__(self) -> None:
-        self.agents = [
+    def __init__(self, include_project_history: bool = False) -> None:
+        self.agents: List[BaseAgent] = [
+            # Phase 1: Analysis & Selection (shared)
             JobAnalyzerAgent(),
             EvidenceSelectorAgent(),
+            # Phase 2: CV
             CVWriterAgent(),
             FactCheckerAgent(),
             PdfRendererAgent(),
-            # Phase 3: Project History Attachment
-            ProjectHistoryWriterAgent(),
-            ProjectHistoryFactCheckerAgent(),
-            ProjectHistoryRendererAgent(),
-        ]  
+        ]
+
+        # Phase 3: Project History (conditional)
+        if include_project_history:
+            self.agents.extend([
+                ProjectHistoryWriterAgent(),
+                ProjectHistoryFactCheckerAgent(),
+                ProjectHistoryRendererAgent(),
+            ])
 
     def run(self, context: AgentContext) -> AgentResult:
         source_bundle = load_source_bundle(context.root_dir / "data")
@@ -310,11 +305,15 @@ class CVOrchestrator(BaseAgent):
         )
 
 
+# ── Entry point ─────────────────────────────────────────────
+
 def run_pipeline(
     base_dir: Path,
     job_offer_text: str = "",
     variant_name: str = "",
     layout_name: str = "reference",
+    language: str = "de",
+    include_project_history: bool = False,
 ) -> AgentResult:
     result_dir = base_dir / "result"
     result_dir.mkdir(parents=True, exist_ok=True)
@@ -327,13 +326,17 @@ def run_pipeline(
             "job_offer_text": job_offer_text,
             "variant_name": variant_name,
             "layout_name": layout_name,
+            "language": language,
+            "include_project_history": include_project_history,
             "llm_client": OpenAICompatibleClient(llm_settings) if llm_settings else None,
         },
         metadata={
             "llm": llm_settings.public_dict() if llm_settings else {"enabled": False},
             "variant": variant_name,
             "layout": layout_name,
+            "language": language,
+            "include_project_history": include_project_history,
         },
     )
-    orchestrator = CVOrchestrator()
+    orchestrator = CVOrchestrator(include_project_history=include_project_history)
     return orchestrator.run(context)
