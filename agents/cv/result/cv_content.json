@@ -4,36 +4,36 @@
     "language": "de",
     "validated": true,
     "full_name": "Toni Gansel",
-    "headline": "Security Testing / AppSec mit Fokus auf OWASP, Teststrategie und Automatisierung",
-    "job_title": "Senior Security Testing / AppSec Engineer",
-    "variant": "security_appsec",
+    "headline": "Testingenieur mit Fokus auf Sicherheit, Performance und AI-gestützte Automatisierung",
+    "job_title": "Senior QA / Test Engineer",
+    "variant": "",
     "layout": "reference",
     "selected_project_ids": [
-      "school-sh-2018-04",
-      "pentest-2015-02",
+      "ti-portal-2024-02",
       "hsms-2015-06",
-      "divis-2018-04",
-      "sast-integration-2015-01",
-      "ti-portal-2024-02"
+      "emma-2024-06",
+      "school-sh-2018-04",
+      "businessunit-ai-2017-07"
     ],
     "selected_certification_ids": [
-      "cert_applied_chatgpt_cybersecurity_infosec_2024_05",
       "red_teaming_llm2025_10",
+      "cert_applied_chatgpt_cybersecurity_infosec_2024_05",
       "cert_google_cybersecurity_spec_2023_10",
+      "cert_istqb_adv_security_isqi_2019_03",
       "cert_intro_cybersecurity_business_uoc_2019_02",
-      "cert_ceh_eccouncil_2017_11",
-      "cert_cpsse_isseco_2014_11"
+      "cert_usable_security_umd",
+      "cert_agentic_ai_dlai_2025_10"
     ],
     "selected_experience_ids": [
-      "exp_freelance_2018",
+      "exp_rise_2024",
       "exp_sogeti_2013",
-      "exp_rise_2024"
+      "exp_freelance_2018"
     ]
   },
   "body": {
     "layout": "reference",
     "full_name": "Toni Gansel",
-    "headline": "Security Testing / AppSec mit Fokus auf OWASP, Teststrategie und Automatisierung",
+    "headline": "Testingenieur mit Fokus auf Sicherheit, Performance und AI-gestützte Automatisierung",
     "contact_line": "Am Kirchbrunnen 18, 38446, Wolfsburg | +49 156 797 434 06 | toni.gansel@gmail.com",
     "links": [
       {
@@ -46,57 +46,40 @@
       }
     ],
     "profile": {
-      "summary": "Security- und Testingenieur mit rund 22+ Jahren Erfahrung in Application Security, OWASP-orientiertem Testing und CI/CD-naher Qualitaetssicherung. Fokus auf Application Security Testing, OWASP. Referenzen: school-SH, Pentest.",
+      "summary": "Testingenieur mit rund 22+ Jahren Erfahrung in Softwareentwicklung, Qualitaetssicherung und Security Testing. Fokus fuer die Zielrolle: Security, Performance, Teststrategie, Automatisierung. Relevante Referenzen: TI-Portal, HSMS, EMMA.",
       "strengths": [
-        "Application Security Testing",
-        "OWASP",
-        "Threat Modeling",
-        "Security Testing"
+        "Security",
+        "Performance",
+        "Teststrategie",
+        "Automatisierung"
       ],
-      "goal": "Zielsetzung: Remote-Rolle in Security Testing / AppSec mit Fokus auf Application Security Testing, OWASP, Threat Modeling.",
+      "goal": "Zielsetzung: Senior QA / Test Engineer mit Schwerpunkt auf Security, Performance, Teststrategie.",
       "industries": [
-        "Dataport",
-        "Sogeti NL",
+        "RISE",
         "Hamburger Schulbehörde",
-        "Volkswagen",
-        "RISE"
+        "Dataport",
+        "Sogeti"
       ],
       "work_preferences": "100% Remote | Keine Reisebereitschaft",
-      "variant_focus": "Application Security, Threat Modeling, OWASP-orientiertes Testen und CI/CD-nahe Qualitaetssicherung"
+      "variant_focus": ""
     },
     "featured_projects": [
       {
-        "project_id": "school-sh-2018-04",
-        "name": "school-SH",
-        "client": "Dataport",
-        "role": "Security Tester / Test Manager",
-        "period": "07/2019 - 06/2022",
-        "summary": "Sicherheits-, Last- und Regressionstests mit OWASP ZAP, JMeter und Selenium; Projektbegleitende Schulungen zu Security und Testing",
-        "context": "School-SH ist eine landesweit eingesetzte Schulverwaltungssoftware des Landes Schleswig-Holstein zur Verwaltung zentraler schulischer Daten. Die Webanwendung...",
+        "project_id": "ti-portal-2024-02",
+        "name": "TI-Portal",
+        "client": "RISE",
+        "role": "Test Automation Engineer",
+        "period": "02/2024 - 05/2024",
+        "summary": "Aufbau einer automatisierten Testpipeline mit GitLab CI/CD; Mentoring und Einarbeitung mehrerer Junior Tester",
+        "context": "TI-Portal ist eine E-Commerce-Plattform innerhalb der RISE-Telematikinfrastruktur, auf der verschiedene Anbieter ihre Produkte und Services anbieten können....",
         "detail_points": [
-          "Sicherheits-, Last- und Regressionstests mit OWASP ZAP, JMeter und Selenium",
-          "Projektbegleitende Schulungen zu Security und Testing",
-          "Aufbau einer automatisierten Testpipeline in Jenkins"
+          "Aufbau einer automatisierten Testpipeline mit GitLab CI/CD",
+          "Mentoring und Einarbeitung mehrerer Junior Tester",
+          "Migration der bestehenden Selenium-Testsuite zu Cypress"
         ],
-        "tools": "Jira, Jenkins, SonarQube, Tomcat",
-        "badge_label": "White-Box",
-        "badge_tone": "badge-neutral"
-      },
-      {
-        "project_id": "pentest-2015-02",
-        "name": "Pentest",
-        "client": "Sogeti NL",
-        "role": "Security Tester",
-        "period": "02/2015 - 03/2015",
-        "summary": "Durchführung von Penetrationstests nach OWASP Top 10; Reporting und Klassifizierung von Schwachstellen",
-        "context": "Durchführung eigenständiger Penetrationstests von Webanwendungen und Infrastruktur auf Basis der OWASP-Top-10-Methodik. Dabei kamen Tools wie OWASP ZAP, Burp...",
-        "detail_points": [
-          "Durchführung von Penetrationstests nach OWASP Top 10",
-          "Reporting und Klassifizierung von Schwachstellen"
-        ],
-        "tools": "OWASP ZAP, Burp Suite, Nmap, Nessus",
-        "badge_label": "Black-Box",
-        "badge_tone": "badge-security"
+        "tools": "Selenium, Cypress, Cucumber, GitLab",
+        "badge_label": "AI",
+        "badge_tone": "badge-ai"
       },
       {
         "project_id": "hsms-2015-06",
@@ -104,66 +87,32 @@
         "client": "Hamburger Schulbehörde",
         "role": "Test Manager",
         "period": "06/2015 - 07/2017",
-        "summary": "Planung und Administration der Testinfrastruktur; Sicherheits-, Regressions-, Last- und Performancetests sowie Codeanalysen",
+        "summary": "Sicherheits-, Regressions-, Last- und Performancetests sowie Codeanalysen; Konzeption und Durchführung einer projektweiten Teststrategie",
         "context": "HSMS (Hamburger Schulverwaltungs Software) ist eine webbasierte Schulverwaltungssoftware der Freien und Hansestadt Hamburg zur digitalen Abbildung...",
         "detail_points": [
-          "Planung und Administration der Testinfrastruktur",
           "Sicherheits-, Regressions-, Last- und Performancetests sowie Codeanalysen",
-          "Konzeption und Durchführung einer projektweiten Teststrategie"
+          "Konzeption und Durchführung einer projektweiten Teststrategie",
+          "Planung und Administration der Testinfrastruktur"
         ],
         "tools": "Jira, Jenkins, SonarQube, JMeter",
-        "badge_label": "Security",
-        "badge_tone": "badge-security"
+        "badge_label": "Performance",
+        "badge_tone": "badge-performance"
       },
       {
-        "project_id": "divis-2018-04",
-        "name": "DiViS",
-        "client": "Hamburger Schulbehörde",
-        "role": "Security Tester / Test Manager",
-        "period": "10/2017 - 12/2018",
-        "summary": "Planung und Durchführung von Sicherheits- und Lasttests; Beratung der Projektleitung in Qualitäts- und Testfragen",
-        "context": "DiViS (Digitale Verwaltung in Schulen) ist eine webbasierte Schulverwaltungssoftware der Freien und Hansestadt Hamburg zur digitalen Abbildung administrativer...",
-        "detail_points": [
-          "Planung und Durchführung von Sicherheits- und Lasttests",
-          "Beratung der Projektleitung in Qualitäts- und Testfragen",
-          "Weiterentwicklung der automatisierten Regressionstests"
-        ],
-        "tools": "Jira, Jenkins, SonarQube, Tomcat",
-        "badge_label": "White-Box",
-        "badge_tone": "badge-neutral"
-      },
-      {
-        "project_id": "sast-integration-2015-01",
-        "name": "SAST Integration",
-        "client": "Volkswagen",
-        "role": "Security Consultant",
-        "period": "01/2015 - 05/2015",
-        "summary": "Entwicklung eines konzernweiten Standardregelsatzes für PMD und SonarQube; Implementierung eines SAST-Prototyps mit PMD und SonarQube",
-        "context": "SAST Integration (Volkswagen Konzern) Konzeption und Implementierung eines Prototyps für automatisierte statische Quellcodeanalyse auf Basis von PMD und...",
-        "detail_points": [
-          "Entwicklung eines konzernweiten Standardregelsatzes für PMD und SonarQube",
-          "Implementierung eines SAST-Prototyps mit PMD und SonarQube"
-        ],
-        "tools": "SonarQube, PMD",
-        "badge_label": "White-Box",
-        "badge_tone": "badge-neutral"
-      },
-      {
-        "project_id": "ti-portal-2024-02",
-        "name": "TI-Portal",
+        "project_id": "emma-2024-06",
+        "name": "EMMA",
         "client": "RISE",
-        "role": "Test Automation Engineer",
-        "period": "02/2024 - 05/2024",
-        "summary": "Aufbau einer automatisierten Testpipeline mit GitLab CI/CD; Integration der Tests in Testpipeline und Zephyr Scale",
-        "context": "TI-Portal ist eine E-Commerce-Plattform innerhalb der RISE-Telematikinfrastruktur, auf der verschiedene Anbieter ihre Produkte und Services anbieten können....",
+        "role": "Performance Tester",
+        "period": "06/2024 - 07/2024",
+        "summary": "Planung und Auswertung von Performance- und Lasttests; Aufbau und Ausführung eines JMeter-Testplans",
+        "context": "EMMA – E-Mail Manager ist eine Softwarelösung zur zentralen Verwaltung und Verarbeitung geschäftlicher E-Mail-Kommunikation. Die Plattform unterstützt...",
         "detail_points": [
-          "Aufbau einer automatisierten Testpipeline mit GitLab CI/CD",
-          "Integration der Tests in Testpipeline und Zephyr Scale",
-          "Mentoring und Einarbeitung mehrerer Junior Tester"
+          "Planung und Auswertung von Performance- und Lasttests",
+          "Aufbau und Ausführung eines JMeter-Testplans"
         ],
-        "tools": "Selenium, Cypress, Cucumber, GitLab",
-        "badge_label": "Security",
-        "badge_tone": "badge-security"
+        "tools": "JMeter, Jira, Git",
+        "badge_label": "AI",
+        "badge_tone": "badge-ai"
       }
     ],
     "experiences": [
@@ -178,17 +127,17 @@
         ],
         "project_names": [
           "TI-Portal",
+          "Elektronische Patientenakte (EPA)",
           "EMMA",
-          "TMS",
-          "Elektronische Patientenakte (EPA)"
+          "TMS"
         ],
         "focus_text": "Performance- und E2E-Tests verteilter Systeme · Lasttest-Frameworks auf Kubernetes · Mentoring und Testautomatisierung",
         "source_ids": [
           "exp_rise_2024",
           "ti-portal-2024-02",
+          "elektronische-patientenakte-2024-07",
           "emma-2024-06",
-          "tms-2024-04",
-          "elektronische-patientenakte-2024-07"
+          "tms-2024-04"
         ],
         "highlights": []
       },
@@ -204,7 +153,7 @@
         "project_names": [
           "school-SH",
           "DiViS",
-          "Login, Checkout",
+          "HSK API Tests",
           "DutyPay"
         ],
         "focus_text": "Risikobasierte Teststrategien · Security- und Lasttests · CI/CD-nahe Qualitätssicherung",
@@ -212,7 +161,7 @@
           "exp_freelance_2018",
           "school-sh-2018-04",
           "divis-2018-04",
-          "logout-checkout-2019-01",
+          "hsk-api-tests-2023-05",
           "dutypay-2018-04"
         ],
         "highlights": []
@@ -223,22 +172,22 @@
         "company": "Sogeti Deutschland",
         "period": "05/2013 - 02/2018",
         "roles_held": [
-          "Security Tester",
-          "Security Consultant"
+          "Test Manager",
+          "Security Tester"
         ],
         "project_names": [
-          "Pentest",
-          "SAST Integration",
           "HSMS",
-          "BusinessUnit Security"
+          "BusinessUnit Security",
+          "Pentest",
+          "SAST Integration"
         ],
         "focus_text": "Penetrationstests und Regressionstests · Koordination von Testteams · Fachpublikationen",
         "source_ids": [
           "exp_sogeti_2013",
-          "pentest-2015-02",
-          "sast-integration-2015-01",
           "hsms-2015-06",
-          "businessunit-ai-2017-07"
+          "businessunit-ai-2017-07",
+          "pentest-2015-02",
+          "sast-integration-2015-01"
         ],
         "highlights": []
       },
@@ -297,91 +246,110 @@
       "work_preferences": "100% Remote | Keine Reisebereitschaft",
       "technology_groups": [
         {
-          "name": "Offensive Security",
+          "name": "Testtools",
           "items": [
-            "Nmap",
-            "Kali Linux",
-            "Nessus",
+            "JMeter",
+            "Selenium",
             "OWASP ZAP",
             "Burp Suite",
-            "SonarQube"
+            "Ranorex",
+            "SonarQube",
+            "JUnit",
+            "Cypress"
           ]
         },
         {
-          "name": "Scripting & Automation",
+          "name": "Security",
+          "items": [
+            "Nmap",
+            "Kali Linux",
+            "Nessus"
+          ]
+        },
+        {
+          "name": "Programmierung",
           "items": [
             "Java",
             "Python",
             "SQL",
             "JavaScript",
-            "Groovy"
+            "Groovy",
+            "XML"
           ]
         },
         {
-          "name": "Cloud & Infra",
+          "name": "Infrastruktur & CI/CD",
           "items": [
             "Git",
             "SVN",
             "Jenkins",
             "Docker",
-            "Kubernetes"
+            "Kubernetes",
+            "Maven",
+            "ANT"
           ]
         },
         {
-          "name": "Standards & Compliance",
+          "name": "Datenbanken",
+          "items": [
+            "MySQL",
+            "DB2",
+            "Oracle",
+            "PostgreSQL"
+          ]
+        },
+        {
+          "name": "Methoden",
           "items": [
             "Agile (Scrum)",
             "DevSecOps",
             "Risikobasiertes Testen",
             "ISTQB",
-            "OWASP",
-            "BSI"
+            "OWASP"
           ]
         },
         {
-          "name": "Tools & Collaboration",
+          "name": "Testmanagement",
           "items": [
-            "JMeter",
-            "Selenium",
-            "Ranorex",
-            "JUnit",
             "Jira",
-            "Microsoft Teams"
+            "Microsoft Teams",
+            "Team Foundation Server",
+            "Visio"
           ]
         }
       ],
       "certification_groups": [
         {
-          "name": "Security & Ethical Hacking",
+          "name": "Testing & Security",
           "items": [
             {
               "label": "Google Cybersecurity Specialization (2023)",
               "source_id": "cert_google_cybersecurity_spec_2023_10"
             },
             {
+              "label": "ISTQB Advanced Level Security Tester (2019)",
+              "source_id": "cert_istqb_adv_security_isqi_2019_03"
+            },
+            {
               "label": "Introduction to Cybersecurity for Business (2019)",
               "source_id": "cert_intro_cybersecurity_business_uoc_2019_02"
-            },
-            {
-              "label": "Certified Ethical Hacker (CEH) (2017)",
-              "source_id": "cert_ceh_eccouncil_2017_11"
-            },
-            {
-              "label": "Certified Professional for Secure Software Engineering (2014)",
-              "source_id": "cert_cpsse_isseco_2014_11"
             }
           ]
         },
         {
-          "name": "AI Red Teaming & Cloud",
+          "name": "AI Security & AI Testing",
           "items": [
+            {
+              "label": "Red Teaming LLM Applications (2025)",
+              "source_id": "red_teaming_llm2025_10"
+            },
             {
               "label": "Applied ChatGPT for Cybersecurity (2024)",
               "source_id": "cert_applied_chatgpt_cybersecurity_infosec_2024_05"
             },
             {
-              "label": "Red Teaming LLM Applications (2025)",
-              "source_id": "red_teaming_llm2025_10"
+              "label": "Agentic AI (2025)",
+              "source_id": "cert_agentic_ai_dlai_2025_10"
             }
           ]
         }
@@ -411,31 +379,30 @@
         }
       ],
       "clients": [
-        "Dataport",
-        "Sogeti NL",
+        "RISE",
         "Hamburger Schulbehörde",
-        "Volkswagen",
-        "RISE"
+        "Dataport",
+        "Sogeti"
       ],
       "availability": "April 2026"
     },
     "portrait_path": "/Users/tonigansel/workspace/worxcrew/agents/cv/data/portrait.jpeg",
     "footer_keywords": [
-      "#Application Security Testing",
-      "#OWASP",
-      "#Threat Modeling",
-      "#Security Testing",
-      "#DevSecOps",
-      "#CI/CD",
-      "#Nmap",
-      "#Kali Linux",
-      "#Nessus",
+      "#Security",
+      "#Performance",
+      "#Teststrategie",
+      "#Automatisierung",
+      "#Agil",
+      "#Risikoorientiert",
+      "#JMeter",
+      "#Selenium",
       "#OWASP ZAP",
       "#Burp Suite",
+      "#Ranorex",
       "#SonarQube",
-      "#Java",
-      "#Python",
-      "#SQL"
+      "#JUnit",
+      "#Cypress",
+      "#Nmap"
     ]
   }
 }

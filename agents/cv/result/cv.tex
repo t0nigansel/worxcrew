@@ -29,7 +29,7 @@
   \AtPageLowerLeft{\color{sidebarbg}\rule{55mm}{\paperheight}}%
 }
 \AddToShipoutPictureFG*{%
-  \AtPageLowerLeft{\raisebox{4.5mm}{\hspace{55mm}\parbox{\dimexpr\paperwidth-55mm-14mm\relax}{\centering\color{mutedfg}\fontsize{5.5}{7.0}\selectfont \#Application Security Testing \textperiodcentered{} \#OWASP \textperiodcentered{} \#Threat Modeling \textperiodcentered{} \#Security Testing \textperiodcentered{} \#DevSecOps \textperiodcentered{} \#CI/CD \textperiodcentered{} \#Nmap \textperiodcentered{} \#Kali Linux \textperiodcentered{} \#Nessus \textperiodcentered{} \#OWASP ZAP \textperiodcentered{} \#Burp Suite \textperiodcentered{} \#SonarQube \textperiodcentered{} \#Java \textperiodcentered{} \#Python \textperiodcentered{} \#SQL}}}%
+  \AtPageLowerLeft{\raisebox{4.5mm}{\hspace{55mm}\parbox{\dimexpr\paperwidth-55mm-14mm\relax}{\centering\color{mutedfg}\fontsize{5.5}{7.0}\selectfont \#Security \textperiodcentered{} \#Performance \textperiodcentered{} \#Teststrategie \textperiodcentered{} \#Automatisierung \textperiodcentered{} \#Agil \textperiodcentered{} \#Risikoorientiert \textperiodcentered{} \#JMeter \textperiodcentered{} \#Selenium \textperiodcentered{} \#OWASP ZAP \textperiodcentered{} \#Burp Suite \textperiodcentered{} \#Ranorex \textperiodcentered{} \#SonarQube \textperiodcentered{} \#JUnit \textperiodcentered{} \#Cypress \textperiodcentered{} \#Nmap}}}%
 }
 \newcommand{\sidebartitle}[1]{{\color{accent}\fontsize{6.8}{7.2}\selectfont\bfseries\MakeUppercase{#1}\par}\vspace{0.4mm}{\color{rulefg}\rule{\linewidth}{0.25pt}\par}\vspace{0.8mm}}
 \newcommand{\maintitle}[1]{{\color{accent}\fontsize{7.1}{7.5}\selectfont\bfseries\MakeUppercase{#1}\par}{\color{rulefg}\rule{\linewidth}{0.25pt}\par}\vspace{0.8mm}}
@@ -60,36 +60,42 @@
 \begin{minipage}[t]{\sidebarwidth}
 \vspace*{1.5mm}
 \sidebartitle{Technologien}
-\sidebarlabel{Offensive Security}
-\sidebarcopy{Nmap, Kali Linux, Nessus, OWASP ZAP, Burp Suite, SonarQube}
+\sidebarlabel{Testtools}
+\sidebarcopy{JMeter, Selenium, OWASP ZAP, Burp Suite, Ranorex, SonarQube, JUnit, Cypress}
 \vspace{1.2mm}
-\sidebarlabel{Scripting \& Automation}
-\sidebarcopy{Java, Python, SQL, JavaScript, Groovy}
+\sidebarlabel{Security}
+\sidebarcopy{Nmap, Kali Linux, Nessus}
 \vspace{1.2mm}
-\sidebarlabel{Cloud \& Infra}
-\sidebarcopy{Git, SVN, Jenkins, Docker, Kubernetes}
+\sidebarlabel{Programmierung}
+\sidebarcopy{Java, Python, SQL, JavaScript, Groovy, XML}
 \vspace{1.2mm}
-\sidebarlabel{Standards \& Compliance}
-\sidebarcopy{Agile (Scrum), DevSecOps, Risikobasiertes Testen, ISTQB, OWASP, BSI}
+\sidebarlabel{Infrastruktur \& CI/CD}
+\sidebarcopy{Git, SVN, Jenkins, Docker, Kubernetes, Maven, ANT}
 \vspace{1.2mm}
-\sidebarlabel{Tools \& Collaboration}
-\sidebarcopy{JMeter, Selenium, Ranorex, JUnit, Jira, Microsoft Teams}
+\sidebarlabel{Datenbanken}
+\sidebarcopy{MySQL, DB2, Oracle, PostgreSQL}
+\vspace{1.2mm}
+\sidebarlabel{Methoden}
+\sidebarcopy{Agile (Scrum), DevSecOps, Risikobasiertes Testen, ISTQB, OWASP}
+\vspace{1.2mm}
+\sidebarlabel{Testmanagement}
+\sidebarcopy{Jira, Microsoft Teams, Team Foundation Server, Visio}
 \vspace{1.2mm}
 
 \vspace{2.5mm}
 \sidebartitle{Zertifizierungen}
-\sidebarlabel{Security \& Ethical Hacking}
+\sidebarlabel{Testing \& Security}
 \begin{tightitemize}
 \item {\color{mutedfg}\fontsize{7.5}{8.4}\selectfont Google Cybersecurity Specialization (2023)}
+\item {\color{mutedfg}\fontsize{7.5}{8.4}\selectfont ISTQB Advanced Level Security Tester (2019)}
 \item {\color{mutedfg}\fontsize{7.5}{8.4}\selectfont Introduction to Cybersecurity for Business (2019)}
-\item {\color{mutedfg}\fontsize{7.5}{8.4}\selectfont Certified Ethical Hacker (CEH) (2017)}
-\item {\color{mutedfg}\fontsize{7.5}{8.4}\selectfont Certified Professional for Secure Software Engineering (2014)}
 \end{tightitemize}
 \vspace{0.7mm}
-\sidebarlabel{AI Red Teaming \& Cloud}
+\sidebarlabel{AI Security \& AI Testing}
 \begin{tightitemize}
-\item {\color{mutedfg}\fontsize{7.5}{8.4}\selectfont Applied ChatGPT for Cybersecurity (2024)}
 \item {\color{mutedfg}\fontsize{7.5}{8.4}\selectfont Red Teaming LLM Applications (2025)}
+\item {\color{mutedfg}\fontsize{7.5}{8.4}\selectfont Applied ChatGPT for Cybersecurity (2024)}
+\item {\color{mutedfg}\fontsize{7.5}{8.4}\selectfont Agentic AI (2025)}
 \end{tightitemize}
 \vspace{0.7mm}
 
@@ -116,7 +122,7 @@
 \begin{minipage}[t]{\dimexpr\mainwidth-31mm\relax}
 \vspace*{0pt}
 \namecopy{Toni Gansel}
-\headlinecopy{Security Testing / AppSec mit Fokus auf OWASP, Teststrategie und Automatisierung}
+\headlinecopy{Testingenieur mit Fokus auf Sicherheit, Performance und AI-gestützte Automatisierung}
 \vspace{0.7mm}
 \metaline{Am Kirchbrunnen 18, 38446, Wolfsburg | +49 156 797 434 06 | toni.gansel@gmail.com}
 {\color{accentstrong}\fontsize{6.8}{7.6}\selectfont
@@ -125,7 +131,7 @@
 \hfill
 \begin{minipage}[t]{26mm}
 \vspace*{0pt}
-\includegraphics[width=26mm,height=32mm,keepaspectratio]{/sessions/cool-dazzling-babbage/mnt/cv/data/portrait.jpeg}
+\includegraphics[width=26mm,height=32mm,keepaspectratio]{/Users/tonigansel/workspace/worxcrew/agents/cv/data/portrait.jpeg}
 \end{minipage}
 
 \vspace{2.1mm}
@@ -133,79 +139,43 @@
 
 \vspace{1.4mm}
 \maintitle{Profil}
-\profilecopy{Security- und Testingenieur mit rund 22+ Jahren Erfahrung in Application Security, OWASP-orientiertem Testing und CI/CD-naher Qualitaetssicherung. Fokus auf Application Security Testing, OWASP. Referenzen: school-SH, Pentest.}
+\profilecopy{Testingenieur mit rund 22+ Jahren Erfahrung in Softwareentwicklung, Qualitaetssicherung und Security Testing. Fokus fuer die Zielrolle: Security, Performance, Teststrategie, Automatisierung. Relevante Referenzen: TI-Portal, HSMS, EMMA.}
 
 \vspace{2.8mm}
 \maintitle{Projekte --- Auszug}
-{\entryname{school-SH}\hfill\entryperiod{07/2019 - 06/2022}\par}
-{\entrymeta{Dataport | Security Tester / Test Manager}%
-\hfill {\setlength{\fboxsep}{1.2pt}\colorbox{badgeslate}{\textcolor{white}{\fontsize{5.5}{6.0}\selectfont\bfseries White-Box}}}
+{\entryname{TI-Portal}\hfill\entryperiod{02/2024 - 05/2024}\par}
+{\entrymeta{RISE | Test Automation Engineer}%
+\hfill {\setlength{\fboxsep}{1.2pt}\colorbox{badgeblue}{\textcolor{white}{\fontsize{5.5}{6.0}\selectfont\bfseries AI}}}
  \par}
 \begin{tightitemize}
-\item {\fontsize{7.5}{8.4}\selectfont Sicherheits-, Last- und Regressionstests mit OWASP ZAP, JMeter und Selenium}
-\item {\fontsize{7.5}{8.4}\selectfont Projektbegleitende Schulungen zu Security und Testing}
+\item {\fontsize{7.5}{8.4}\selectfont Aufbau einer automatisierten Testpipeline mit GitLab CI/CD}
+\item {\fontsize{7.5}{8.4}\selectfont Mentoring und Einarbeitung mehrerer Junior Tester}
 \end{tightitemize}
-\toolline{Jira, Jenkins, SonarQube, Tomcat}
-\vspace{0.4mm}
-{\color{rulefg}\rule{\linewidth}{0.2pt}\par}
-\vspace{0.6mm}
-{\entryname{Pentest}\hfill\entryperiod{02/2015 - 03/2015}\par}
-{\entrymeta{Sogeti NL | Security Tester}%
-\hfill {\setlength{\fboxsep}{1.2pt}\colorbox{badgedark}{\textcolor{white}{\fontsize{5.5}{6.0}\selectfont\bfseries Black-Box}}}
- \par}
-\begin{tightitemize}
-\item {\fontsize{7.5}{8.4}\selectfont Durchführung von Penetrationstests nach OWASP Top 10}
-\item {\fontsize{7.5}{8.4}\selectfont Reporting und Klassifizierung von Schwachstellen}
-\end{tightitemize}
-\toolline{OWASP ZAP, Burp Suite, Nmap, Nessus}
+\toolline{Selenium, Cypress, Cucumber, GitLab}
 \vspace{0.4mm}
 {\color{rulefg}\rule{\linewidth}{0.2pt}\par}
 \vspace{0.6mm}
 {\entryname{HSMS}\hfill\entryperiod{06/2015 - 07/2017}\par}
 {\entrymeta{Hamburger Schulbehörde | Test Manager}%
-\hfill {\setlength{\fboxsep}{1.2pt}\colorbox{badgedark}{\textcolor{white}{\fontsize{5.5}{6.0}\selectfont\bfseries Security}}}
+\hfill {\setlength{\fboxsep}{1.2pt}\colorbox{badgeslate}{\textcolor{white}{\fontsize{5.5}{6.0}\selectfont\bfseries Performance}}}
  \par}
 \begin{tightitemize}
-\item {\fontsize{7.5}{8.4}\selectfont Planung und Administration der Testinfrastruktur}
 \item {\fontsize{7.5}{8.4}\selectfont Sicherheits-, Regressions-, Last- und Performancetests sowie Codeanalysen}
+\item {\fontsize{7.5}{8.4}\selectfont Konzeption und Durchführung einer projektweiten Teststrategie}
 \end{tightitemize}
 \toolline{Jira, Jenkins, SonarQube, JMeter}
 \vspace{0.4mm}
 {\color{rulefg}\rule{\linewidth}{0.2pt}\par}
 \vspace{0.6mm}
-{\entryname{DiViS}\hfill\entryperiod{10/2017 - 12/2018}\par}
-{\entrymeta{Hamburger Schulbehörde | Security Tester / Test Manager}%
-\hfill {\setlength{\fboxsep}{1.2pt}\colorbox{badgeslate}{\textcolor{white}{\fontsize{5.5}{6.0}\selectfont\bfseries White-Box}}}
+{\entryname{EMMA}\hfill\entryperiod{06/2024 - 07/2024}\par}
+{\entrymeta{RISE | Performance Tester}%
+\hfill {\setlength{\fboxsep}{1.2pt}\colorbox{badgeblue}{\textcolor{white}{\fontsize{5.5}{6.0}\selectfont\bfseries AI}}}
  \par}
 \begin{tightitemize}
-\item {\fontsize{7.5}{8.4}\selectfont Planung und Durchführung von Sicherheits- und Lasttests}
-\item {\fontsize{7.5}{8.4}\selectfont Beratung der Projektleitung in Qualitäts- und Testfragen}
+\item {\fontsize{7.5}{8.4}\selectfont Planung und Auswertung von Performance- und Lasttests}
+\item {\fontsize{7.5}{8.4}\selectfont Aufbau und Ausführung eines JMeter-Testplans}
 \end{tightitemize}
-\toolline{Jira, Jenkins, SonarQube, Tomcat}
-\vspace{0.4mm}
-{\color{rulefg}\rule{\linewidth}{0.2pt}\par}
-\vspace{0.6mm}
-{\entryname{SAST Integration}\hfill\entryperiod{01/2015 - 05/2015}\par}
-{\entrymeta{Volkswagen | Security Consultant}%
-\hfill {\setlength{\fboxsep}{1.2pt}\colorbox{badgeslate}{\textcolor{white}{\fontsize{5.5}{6.0}\selectfont\bfseries White-Box}}}
- \par}
-\begin{tightitemize}
-\item {\fontsize{7.5}{8.4}\selectfont Entwicklung eines konzernweiten Standardregelsatzes für PMD und SonarQube}
-\item {\fontsize{7.5}{8.4}\selectfont Implementierung eines SAST-Prototyps mit PMD und SonarQube}
-\end{tightitemize}
-\toolline{SonarQube, PMD}
-\vspace{0.4mm}
-{\color{rulefg}\rule{\linewidth}{0.2pt}\par}
-\vspace{0.6mm}
-{\entryname{TI-Portal}\hfill\entryperiod{02/2024 - 05/2024}\par}
-{\entrymeta{RISE | Test Automation Engineer}%
-\hfill {\setlength{\fboxsep}{1.2pt}\colorbox{badgedark}{\textcolor{white}{\fontsize{5.5}{6.0}\selectfont\bfseries Security}}}
- \par}
-\begin{tightitemize}
-\item {\fontsize{7.5}{8.4}\selectfont Aufbau einer automatisierten Testpipeline mit GitLab CI/CD}
-\item {\fontsize{7.5}{8.4}\selectfont Integration der Tests in Testpipeline und Zephyr Scale}
-\end{tightitemize}
-\toolline{Selenium, Cypress, Cucumber, GitLab}
+\toolline{JMeter, Jira, Git}
 \vspace{0.4mm}
 {\color{rulefg}\rule{\linewidth}{0.2pt}\par}
 \vspace{0.6mm}
@@ -216,7 +186,7 @@
 \vspace{0.35mm}
 {\color{mutedfg}\fontsize{7.5}{8.4}\selectfont Security Tester \textperiodcentered{} Test Manager \textbar{} {\bfseries\color{textfg}Freiberufler}\hfill\entryperiod{04/2018 - 02/2024}\par}
 \vspace{0.35mm}
-{\color{mutedfg}\fontsize{7.5}{8.4}\selectfont Security Tester \textperiodcentered{} Security Consultant \textbar{} {\bfseries\color{textfg}Sogeti Deutschland}\hfill\entryperiod{05/2013 - 02/2018}\par}
+{\color{mutedfg}\fontsize{7.5}{8.4}\selectfont Test Manager \textperiodcentered{} Security Tester \textbar{} {\bfseries\color{textfg}Sogeti Deutschland}\hfill\entryperiod{05/2013 - 02/2018}\par}
 \vspace{0.35mm}
 {\color{mutedfg}\fontsize{7.5}{8.4}\selectfont Softwareentwickler \textbar{} {\bfseries\color{textfg}ITC Automotive}\hfill\entryperiod{06/2012 - 05/2013}\par}
 \vspace{0.35mm}

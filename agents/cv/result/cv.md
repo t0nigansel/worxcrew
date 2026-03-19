@@ -3,33 +3,33 @@ document_type: cv
 language: de
 validated: true
 full_name: Toni Gansel
-headline: Security Testing / AppSec mit Fokus auf OWASP, Teststrategie und Automatisierung
-job_title: Senior Security Testing / AppSec Engineer
-variant: security_appsec
+headline: Testingenieur mit Fokus auf Sicherheit, Performance und AI-gestützte Automatisierung
+job_title: Senior QA / Test Engineer
+variant: ''
 layout: reference
 selected_project_ids:
-- school-sh-2018-04
-- pentest-2015-02
-- hsms-2015-06
-- divis-2018-04
-- sast-integration-2015-01
 - ti-portal-2024-02
+- hsms-2015-06
+- emma-2024-06
+- school-sh-2018-04
+- businessunit-ai-2017-07
 selected_certification_ids:
-- cert_applied_chatgpt_cybersecurity_infosec_2024_05
 - red_teaming_llm2025_10
+- cert_applied_chatgpt_cybersecurity_infosec_2024_05
 - cert_google_cybersecurity_spec_2023_10
+- cert_istqb_adv_security_isqi_2019_03
 - cert_intro_cybersecurity_business_uoc_2019_02
-- cert_ceh_eccouncil_2017_11
-- cert_cpsse_isseco_2014_11
+- cert_usable_security_umd
+- cert_agentic_ai_dlai_2025_10
 selected_experience_ids:
-- exp_freelance_2018
-- exp_sogeti_2013
 - exp_rise_2024
+- exp_sogeti_2013
+- exp_freelance_2018
 ---
 
 # Toni Gansel
 
-**Security Testing / AppSec mit Fokus auf OWASP, Teststrategie und Automatisierung**
+**Testingenieur mit Fokus auf Sicherheit, Performance und AI-gestützte Automatisierung**
 
 Am Kirchbrunnen 18, 38446, Wolfsburg | +49 156 797 434 06 | toni.gansel@gmail.com
 
@@ -37,75 +37,17 @@ Am Kirchbrunnen 18, 38446, Wolfsburg | +49 156 797 434 06 | toni.gansel@gmail.co
 
 ## Profil
 
-Security- und Testingenieur mit rund 22+ Jahren Erfahrung in Application Security, OWASP-orientiertem Testing und CI/CD-naher Qualitaetssicherung. Fokus auf Application Security Testing, OWASP. Referenzen: school-SH, Pentest.
+Testingenieur mit rund 22+ Jahren Erfahrung in Softwareentwicklung, Qualitaetssicherung und Security Testing. Fokus fuer die Zielrolle: Security, Performance, Teststrategie, Automatisierung. Relevante Referenzen: TI-Portal, HSMS, EMMA.
 
-**Schwerpunkte:** Application Security Testing, OWASP, Threat Modeling, Security Testing
+**Schwerpunkte:** Security, Performance, Teststrategie, Automatisierung
 
-Zielsetzung: Remote-Rolle in Security Testing / AppSec mit Fokus auf Application Security Testing, OWASP, Threat Modeling.
+Zielsetzung: Senior QA / Test Engineer mit Schwerpunkt auf Security, Performance, Teststrategie.
 
 **Arbeitsmodell:** 100% Remote | Keine Reisebereitschaft
 
-**Branchenerfahrung:** Dataport, Sogeti NL, Hamburger Schulbehörde, Volkswagen, RISE
+**Branchenerfahrung:** RISE, Hamburger Schulbehörde, Dataport, Sogeti
 
 ## Ausgewaehlte Projekte
-
-<!-- source: school-sh-2018-04 -->
-### school-SH
-
-Dataport | Security Tester / Test Manager | 07/2019 - 06/2022
-
-- Kontext: School-SH ist eine landesweit eingesetzte Schulverwaltungssoftware des Landes Schleswig-Holstein zur Verwaltung zentraler schulischer Daten. Die Webanwendung...
-- Fokus: Sicherheits-, Last- und Regressionstests mit OWASP ZAP, JMeter und Selenium; Projektbegleitende Schulungen zu Security und Testing
-- Detail: Sicherheits-, Last- und Regressionstests mit OWASP ZAP, JMeter und Selenium
-- Detail: Projektbegleitende Schulungen zu Security und Testing
-- Detail: Aufbau einer automatisierten Testpipeline in Jenkins
-- Tools: Jira, Jenkins, SonarQube, Tomcat
-
-<!-- source: pentest-2015-02 -->
-### Pentest
-
-Sogeti NL | Security Tester | 02/2015 - 03/2015
-
-- Kontext: Durchführung eigenständiger Penetrationstests von Webanwendungen und Infrastruktur auf Basis der OWASP-Top-10-Methodik. Dabei kamen Tools wie OWASP ZAP, Burp...
-- Fokus: Durchführung von Penetrationstests nach OWASP Top 10; Reporting und Klassifizierung von Schwachstellen
-- Detail: Durchführung von Penetrationstests nach OWASP Top 10
-- Detail: Reporting und Klassifizierung von Schwachstellen
-- Tools: OWASP ZAP, Burp Suite, Nmap, Nessus
-
-<!-- source: hsms-2015-06 -->
-### HSMS
-
-Hamburger Schulbehörde | Test Manager | 06/2015 - 07/2017
-
-- Kontext: HSMS (Hamburger Schulverwaltungs Software) ist eine webbasierte Schulverwaltungssoftware der Freien und Hansestadt Hamburg zur digitalen Abbildung...
-- Fokus: Planung und Administration der Testinfrastruktur; Sicherheits-, Regressions-, Last- und Performancetests sowie Codeanalysen
-- Detail: Planung und Administration der Testinfrastruktur
-- Detail: Sicherheits-, Regressions-, Last- und Performancetests sowie Codeanalysen
-- Detail: Konzeption und Durchführung einer projektweiten Teststrategie
-- Tools: Jira, Jenkins, SonarQube, JMeter
-
-<!-- source: divis-2018-04 -->
-### DiViS
-
-Hamburger Schulbehörde | Security Tester / Test Manager | 10/2017 - 12/2018
-
-- Kontext: DiViS (Digitale Verwaltung in Schulen) ist eine webbasierte Schulverwaltungssoftware der Freien und Hansestadt Hamburg zur digitalen Abbildung administrativer...
-- Fokus: Planung und Durchführung von Sicherheits- und Lasttests; Beratung der Projektleitung in Qualitäts- und Testfragen
-- Detail: Planung und Durchführung von Sicherheits- und Lasttests
-- Detail: Beratung der Projektleitung in Qualitäts- und Testfragen
-- Detail: Weiterentwicklung der automatisierten Regressionstests
-- Tools: Jira, Jenkins, SonarQube, Tomcat
-
-<!-- source: sast-integration-2015-01 -->
-### SAST Integration
-
-Volkswagen | Security Consultant | 01/2015 - 05/2015
-
-- Kontext: SAST Integration (Volkswagen Konzern) Konzeption und Implementierung eines Prototyps für automatisierte statische Quellcodeanalyse auf Basis von PMD und...
-- Fokus: Entwicklung eines konzernweiten Standardregelsatzes für PMD und SonarQube; Implementierung eines SAST-Prototyps mit PMD und SonarQube
-- Detail: Entwicklung eines konzernweiten Standardregelsatzes für PMD und SonarQube
-- Detail: Implementierung eines SAST-Prototyps mit PMD und SonarQube
-- Tools: SonarQube, PMD
 
 <!-- source: ti-portal-2024-02 -->
 ### TI-Portal
@@ -113,39 +55,62 @@ Volkswagen | Security Consultant | 01/2015 - 05/2015
 RISE | Test Automation Engineer | 02/2024 - 05/2024
 
 - Kontext: TI-Portal ist eine E-Commerce-Plattform innerhalb der RISE-Telematikinfrastruktur, auf der verschiedene Anbieter ihre Produkte und Services anbieten können....
-- Fokus: Aufbau einer automatisierten Testpipeline mit GitLab CI/CD; Integration der Tests in Testpipeline und Zephyr Scale
+- Fokus: Aufbau einer automatisierten Testpipeline mit GitLab CI/CD; Mentoring und Einarbeitung mehrerer Junior Tester
 - Detail: Aufbau einer automatisierten Testpipeline mit GitLab CI/CD
-- Detail: Integration der Tests in Testpipeline und Zephyr Scale
 - Detail: Mentoring und Einarbeitung mehrerer Junior Tester
+- Detail: Migration der bestehenden Selenium-Testsuite zu Cypress
 - Tools: Selenium, Cypress, Cucumber, GitLab
+
+<!-- source: hsms-2015-06 -->
+### HSMS
+
+Hamburger Schulbehörde | Test Manager | 06/2015 - 07/2017
+
+- Kontext: HSMS (Hamburger Schulverwaltungs Software) ist eine webbasierte Schulverwaltungssoftware der Freien und Hansestadt Hamburg zur digitalen Abbildung...
+- Fokus: Sicherheits-, Regressions-, Last- und Performancetests sowie Codeanalysen; Konzeption und Durchführung einer projektweiten Teststrategie
+- Detail: Sicherheits-, Regressions-, Last- und Performancetests sowie Codeanalysen
+- Detail: Konzeption und Durchführung einer projektweiten Teststrategie
+- Detail: Planung und Administration der Testinfrastruktur
+- Tools: Jira, Jenkins, SonarQube, JMeter
+
+<!-- source: emma-2024-06 -->
+### EMMA
+
+RISE | Performance Tester | 06/2024 - 07/2024
+
+- Kontext: EMMA – E-Mail Manager ist eine Softwarelösung zur zentralen Verwaltung und Verarbeitung geschäftlicher E-Mail-Kommunikation. Die Plattform unterstützt...
+- Fokus: Planung und Auswertung von Performance- und Lasttests; Aufbau und Ausführung eines JMeter-Testplans
+- Detail: Planung und Auswertung von Performance- und Lasttests
+- Detail: Aufbau und Ausführung eines JMeter-Testplans
+- Tools: JMeter, Jira, Git
 
 ## Berufserfahrung
 
-<!-- source: exp_rise_2024, ti-portal-2024-02, emma-2024-06, tms-2024-04, elektronische-patientenakte-2024-07 -->
+<!-- source: exp_rise_2024, ti-portal-2024-02, elektronische-patientenakte-2024-07, emma-2024-06, tms-2024-04 -->
 ### RISE GmbH
 
 Test Engineer | 02/2024 - 02/2026
 
 - Rollen: Test Automation Engineer, Performance Tester
-- Projekte: TI-Portal, EMMA, TMS, Elektronische Patientenakte (EPA)
+- Projekte: TI-Portal, Elektronische Patientenakte (EPA), EMMA, TMS
 - Schwerpunkte: Performance- und E2E-Tests verteilter Systeme · Lasttest-Frameworks auf Kubernetes · Mentoring und Testautomatisierung
 
-<!-- source: exp_freelance_2018, school-sh-2018-04, divis-2018-04, logout-checkout-2019-01, dutypay-2018-04 -->
+<!-- source: exp_freelance_2018, school-sh-2018-04, divis-2018-04, hsk-api-tests-2023-05, dutypay-2018-04 -->
 ### Freiberufler
 
 Test Engineer | 04/2018 - 02/2024
 
 - Rollen: Security Tester, Test Manager
-- Projekte: school-SH, DiViS, Login, Checkout, DutyPay
+- Projekte: school-SH, DiViS, HSK API Tests, DutyPay
 - Schwerpunkte: Risikobasierte Teststrategien · Security- und Lasttests · CI/CD-nahe Qualitätssicherung
 
-<!-- source: exp_sogeti_2013, pentest-2015-02, sast-integration-2015-01, hsms-2015-06, businessunit-ai-2017-07 -->
+<!-- source: exp_sogeti_2013, hsms-2015-06, businessunit-ai-2017-07, pentest-2015-02, sast-integration-2015-01 -->
 ### Sogeti Deutschland
 
 Test Engineer | 05/2013 - 02/2018
 
-- Rollen: Security Tester, Security Consultant
-- Projekte: Pentest, SAST Integration, HSMS, BusinessUnit Security
+- Rollen: Test Manager, Security Tester
+- Projekte: HSMS, BusinessUnit Security, Pentest, SAST Integration
 - Schwerpunkte: Penetrationstests und Regressionstests · Koordination von Testteams · Fachpublikationen
 
 <!-- source: exp_itc_2012 -->
@@ -171,25 +136,33 @@ Softwareentwickler | 07/2004 - 12/2006
 
 ## Technologien
 
-### Offensive Security
+### Testtools
 
-Nmap, Kali Linux, Nessus, OWASP ZAP, Burp Suite, SonarQube
+JMeter, Selenium, OWASP ZAP, Burp Suite, Ranorex, SonarQube, JUnit, Cypress
 
-### Scripting & Automation
+### Security
 
-Java, Python, SQL, JavaScript, Groovy
+Nmap, Kali Linux, Nessus
 
-### Cloud & Infra
+### Programmierung
 
-Git, SVN, Jenkins, Docker, Kubernetes
+Java, Python, SQL, JavaScript, Groovy, XML
 
-### Standards & Compliance
+### Infrastruktur & CI/CD
 
-Agile (Scrum), DevSecOps, Risikobasiertes Testen, ISTQB, OWASP, BSI
+Git, SVN, Jenkins, Docker, Kubernetes, Maven, ANT
 
-### Tools & Collaboration
+### Datenbanken
 
-JMeter, Selenium, Ranorex, JUnit, Jira, Microsoft Teams
+MySQL, DB2, Oracle, PostgreSQL
+
+### Methoden
+
+Agile (Scrum), DevSecOps, Risikobasiertes Testen, ISTQB, OWASP
+
+### Testmanagement
+
+Jira, Microsoft Teams, Team Foundation Server, Visio
 
 ## Fokus
 
@@ -210,23 +183,23 @@ JMeter, Selenium, Ranorex, JUnit, Jira, Microsoft Teams
 
 ## Zertifizierungen
 
-### Security & Ethical Hacking
+### Testing & Security
 
 <!-- source: cert_google_cybersecurity_spec_2023_10 -->
 - Google Cybersecurity Specialization (2023)
+<!-- source: cert_istqb_adv_security_isqi_2019_03 -->
+- ISTQB Advanced Level Security Tester (2019)
 <!-- source: cert_intro_cybersecurity_business_uoc_2019_02 -->
 - Introduction to Cybersecurity for Business (2019)
-<!-- source: cert_ceh_eccouncil_2017_11 -->
-- Certified Ethical Hacker (CEH) (2017)
-<!-- source: cert_cpsse_isseco_2014_11 -->
-- Certified Professional for Secure Software Engineering (2014)
 
-### AI Red Teaming & Cloud
+### AI Security & AI Testing
 
-<!-- source: cert_applied_chatgpt_cybersecurity_infosec_2024_05 -->
-- Applied ChatGPT for Cybersecurity (2024)
 <!-- source: red_teaming_llm2025_10 -->
 - Red Teaming LLM Applications (2025)
+<!-- source: cert_applied_chatgpt_cybersecurity_infosec_2024_05 -->
+- Applied ChatGPT for Cybersecurity (2024)
+<!-- source: cert_agentic_ai_dlai_2025_10 -->
+- Agentic AI (2025)
 
 ## Ausbildung
 
@@ -237,7 +210,7 @@ JMeter, Selenium, Ranorex, JUnit, Jira, Microsoft Teams
 
 ## Ausgewaehlte Kunden
 
-Dataport, Sogeti NL, Hamburger Schulbehörde, Volkswagen, RISE
+RISE, Hamburger Schulbehörde, Dataport, Sogeti
 
 **Verfuegbar ab:** April 2026
 

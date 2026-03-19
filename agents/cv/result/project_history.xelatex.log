@@ -1,7 +1,7 @@
 This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex)
  restricted \write18 enabled.
 entering extended mode
-(/Users/tonigansel/workspace/worxcrew/agents/cv/result/cv.tex
+(/Users/tonigansel/workspace/worxcrew/agents/cv/result/project_history.tex
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/base/article.cls
@@ -11,11 +11,10 @@ Document Class: article 2024/06/29 v1.4n Standard LaTeX document class
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/graphics/keyval.sty)
 (/usr/local/texlive/2025basic/texmf-dist/tex/generic/iftex/ifvtex.sty
 (/usr/local/texlive/2025basic/texmf-dist/tex/generic/iftex/iftex.sty)))
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/eso-pic/eso-pic.sty
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/xcolor/xcolor.sty
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/graphics-cfg/color.cfg)
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/graphics-def/xetex.def)
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/graphics/mathcolor.ltx)))
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/graphics/mathcolor.ltx))
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/graphics/graphicx.sty
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/graphics/graphics.sty
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/graphics/trig.sty)
@@ -58,42 +57,23 @@ f)))
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/fontspec/fontspec-xetex.sty
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/base/fontenc.sty)
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/fontspec/fontspec.cfg)))
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty)
 
-LaTeX Warning: Unused global option(s):
-    [9pt].
+! LaTeX Error: File `lastpage.sty' not found.
 
-(/Users/tonigansel/workspace/worxcrew/agents/cv/result/cv.aux)
-*geometry* driver: auto-detecting
-*geometry* detected driver: xetex
-(/Users/tonigansel/workspace/worxcrew/agents/cv/result/cv.out)
-(/Users/tonigansel/workspace/worxcrew/agents/cv/result/cv.out)
-Underfull \hbox (badness 3713) in paragraph at lines 64--64
-[]\TU/Lato-Regular(0)/m/n/7.5 JMeter, Selenium, OWASP ZAP, Burp
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: sty)
 
-Underfull \hbox (badness 1735) in paragraph at lines 64--64
-\TU/Lato-Regular(0)/m/n/7.5 Suite, Ranorex, SonarQube, JUnit, Cy-
+Enter file name: 
+! Emergency stop.
+<read *> 
+         
+l.10 \setmainfont
+                 [BoldFont=Lato-Bold,ItalicFont=Lato-Italic,BoldItalicFont=L...
 
-Underfull \hbox (badness 1655) in paragraph at lines 70--70
-[]\TU/Lato-Regular(0)/m/n/7.5 Java, Python, SQL, JavaScript, Groovy,
-
-Underfull \hbox (badness 1097) in paragraph at lines 73--73
-[]\TU/Lato-Regular(0)/m/n/7.5 Git, SVN, Jenkins, Docker, Kubernetes,
-
-Underfull \hbox (badness 2334) in paragraph at lines 90--91
-[]\TU/Lato-Regular(0)/m/n/7.5 ISTQB Advanced Level Security
-
-Underfull \hbox (badness 5077) in paragraph at lines 96--97
-[]\TU/Lato-Regular(0)/m/n/7.5 Red Teaming LLM Applications
-
-Overfull \hbox (3.41333pt too wide) in paragraph at lines 59--198
-[]   [] 
-
-[1] (/Users/tonigansel/workspace/worxcrew/agents/cv/result/cv.aux) )
-(see the transcript file for additional information)
-Output written on /Users/tonigansel/workspace/worxcrew/agents/cv/result/cv.pdf 
-(1 page).
-Transcript written on /Users/tonigansel/workspace/worxcrew/agents/cv/result/cv.
-log.
+No pages of output.
+Transcript written on /Users/tonigansel/workspace/worxcrew/agents/cv/result/pro
+ject_history.log.
 
 
 STDERR

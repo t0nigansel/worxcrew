@@ -1,24 +1,24 @@
 {
-  "title": "Senior Security Testing / AppSec Engineer",
-  "summary": "CV-Variante 'security_appsec' aktiv. Profil wird auf Senior Security Testing / AppSec Engineer mit Fokus auf Application Security Testing, OWASP, Threat Modeling, Security Testing ausgerichtet.",
+  "title": "Senior QA / Test Engineer",
+  "summary": "Kein Stellenangebot uebergeben. Es wird ein generischer, profilnaher CV erzeugt.",
   "keywords": [
-    "Application Security Testing",
-    "OWASP",
-    "Threat Modeling",
-    "Security Testing",
-    "DevSecOps",
-    "CI/CD"
+    "Security",
+    "Performance",
+    "Teststrategie",
+    "Automatisierung",
+    "Agil",
+    "Risikoorientiert"
   ],
   "matched_terms": [
-    "Application Security Testing",
-    "OWASP",
-    "Threat Modeling",
-    "Security Testing",
-    "DevSecOps",
-    "CI/CD"
+    "Security",
+    "Performance",
+    "Teststrategie",
+    "Automatisierung",
+    "Agil",
+    "Risikoorientiert"
   ],
   "raw_text": "",
   "language": "de",
   "tone": "direct",
-  "variant": "security_appsec"
+  "variant": null
 }
