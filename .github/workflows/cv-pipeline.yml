@@ -1,0 +1,109 @@
+name: CV Pipeline
+
+on:
+  workflow_dispatch:
+    inputs:
+      job_description:
+        description: "Full job description text (optional). Leave empty for generic CV."
+        required: false
+        type: string
+      language:
+        description: "Output language"
+        required: true
+        default: de
+        type: choice
+        options:
+          - de
+          - en
+      include_project_history:
+        description: "Generate project history attachment"
+        required: true
+        default: false
+        type: boolean
+      variant:
+        description: "CV variant (optional)"
+        required: false
+        default: ""
+        type: choice
+        options:
+          - ""
+          - security_appsec
+          - ai_security_automation
+      layout:
+        description: "CV layout"
+        required: true
+        default: reference
+        type: choice
+        options:
+          - reference
+          - legacy_modern
+
+permissions:
+  contents: read
+
+jobs:
+  generate-cv:
+    runs-on: ubuntu-latest
+    env:
+      CV_LLM_API_KEY: ${{ secrets.CV_LLM_API_KEY }}
+      CV_LLM_MODEL: ${{ vars.CV_LLM_MODEL }}
+      CV_LLM_BASE_URL: ${{ vars.CV_LLM_BASE_URL }}
+      JOB_DESCRIPTION: ${{ inputs.job_description }}
+      LANGUAGE: ${{ inputs.language }}
+      INCLUDE_PROJECT_HISTORY: ${{ inputs.include_project_history }}
+      VARIANT: ${{ inputs.variant }}
+      LAYOUT: ${{ inputs.layout }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            texlive-xetex \
+            texlive-fonts-recommended \
+            texlive-latex-extra \
+            texlive-latex-recommended \
+            fonts-lato \
+            fontconfig
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r agents/cv/requirements-ci.txt
+
+      - name: Run CV pipeline
+        run: |
+          cmd=(python3 -m agents.cv.run --base-dir "$GITHUB_WORKSPACE/agents/cv" --layout "$LAYOUT" --language "$LANGUAGE")
+          if [[ -n "$VARIANT" ]]; then
+            cmd+=(--variant "$VARIANT")
+          fi
+          if [[ "$INCLUDE_PROJECT_HISTORY" == "true" ]]; then
+            cmd+=(--project-history)
+          fi
+          if [[ -n "$JOB_DESCRIPTION" ]]; then
+            cmd+=(--job-text "$JOB_DESCRIPTION")
+          fi
+          printf 'Running command: %q ' "${cmd[@]}"
+          echo
+          "${cmd[@]}"
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: cv-artifacts
+          path: |
+            agents/cv/result/cv.md
+            agents/cv/result/cv.html
+            agents/cv/result/cv.pdf
+            agents/cv/result/project_history.md
+            agents/cv/result/project_history.html
+            agents/cv/result/project_history.pdf
+            agents/cv/result/manifest.json
+          if-no-files-found: warn

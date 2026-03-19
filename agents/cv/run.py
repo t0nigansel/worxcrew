@@ -1,3 +1,10 @@
+"""CLI entry point for the CV generation pipeline.
+
+Updated to support:
+  --language de|en        Output language (default: de)
+  --project-history       Include the project history attachment
+"""
+
 from __future__ import annotations
 
 import argparse
@@ -38,6 +45,18 @@ def build_parser() -> argparse.ArgumentParser:
         default="reference",
         help="Optional layout, for example: reference or legacy_modern.",
     )
+    parser.add_argument(
+        "--language",
+        default="de",
+        choices=["de", "en"],
+        help="Output language: 'de' (German, default) or 'en' (English).",
+    )
+    parser.add_argument(
+        "--project-history",
+        action="store_true",
+        default=False,
+        help="Include the project history attachment PDF.",
+    )
     return parser
 
 
@@ -54,6 +73,8 @@ def main() -> int:
         job_offer_text=job_offer_text,
         variant_name=args.variant or "",
         layout_name=args.layout or "reference",
+        language=args.language or "de",
+        include_project_history=args.project_history,
     )
     print(f"Pipeline completed: {result.name}")
     for warning in result.warnings:
