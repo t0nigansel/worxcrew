@@ -171,8 +171,8 @@
 \maintitle{Projekte --- Auszug}
 [% for item in content.featured_projects %]
 {\entryname{[[ item["name"] | latex_escape ]]}\hfill\entryperiod{[[ item["period"] | latex_escape ]]}\par}
-{\entrymeta{[[ [item["client"], item["role"]] | select | join(" | ") | latex_escape ]]}%
-\hfill [[ project_badges(item.get("badges"), item["badge_tone"], item["badge_label"]) ]] \par}
+{\entrymeta{[[ [item["client"], item["role"]] | select | join(" | ") | latex_escape ]]}\par}
+{\hfill [[ project_badges(item.get("badges"), item["badge_tone"], item["badge_label"]) ]] \par}
 [% if item["detail_points"] %]
 \begin{detailitemize}
 [% for detail in item["detail_points"][:3] %]

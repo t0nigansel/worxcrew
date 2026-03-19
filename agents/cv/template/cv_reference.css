@@ -233,7 +233,6 @@ body {
   flex-direction: column;
   align-items: flex-end;
   gap: 0.6mm;
-  max-width: 36mm;
 }
 
 .entry-period {
@@ -267,6 +266,12 @@ body {
   flex-wrap: wrap;
   justify-content: flex-end;
   gap: 0.7mm 0.8mm;
+}
+
+.project-badges-row {
+  margin-top: 0.6mm;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .project-badge.badge-security {
