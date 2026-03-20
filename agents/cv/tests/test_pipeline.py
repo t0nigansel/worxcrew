@@ -162,6 +162,42 @@ class PipelineTests(unittest.TestCase):
         self.assertIn("## Route 2 - Management Track", markdown)
         self.assertIn("## Route 3 - Specialization Track", markdown)
 
+    def test_interview_prep_includes_company_briefing(self) -> None:
+        run_pipeline(
+            self.temp_dir,
+            job_offer_text=self.job_text,
+            person_id="toni",
+            run_id="interview-briefing",
+            requested_outputs=RequestedOutputs(interview_prep=True),
+        )
+        markdown_path = self.temp_dir / "result" / "toni" / "interview-briefing" / "interview_prep.md"
+        markdown = markdown_path.read_text(encoding="utf-8")
+        self.assertIn("## Frage 1", markdown)
+        self.assertIn("## Frage 2", markdown)
+        self.assertIn("## Frage 3", markdown)
+        self.assertIn("## Company Briefing - Kontext", markdown)
+        self.assertIn("## Company Briefing - Prioritaeten", markdown)
+        self.assertIn("## Company Briefing - Stakeholder", markdown)
+        self.assertIn("## Company Briefing - Interviewton", markdown)
+        self.assertIn("## Company Briefing - So sollten Sie sich positionieren", markdown)
+        self.assertIn("Stellenanzeige", markdown)
+
+    def test_interview_prep_bank_job_uses_regulated_cues(self) -> None:
+        run_pipeline(
+            self.temp_dir,
+            job_offer_text=(
+                "Senior Security Engineer for a bank with compliance, audit, risk, "
+                "and governance ownership."
+            ),
+            person_id="toni",
+            run_id="interview-briefing-bank",
+            requested_outputs=RequestedOutputs(interview_prep=True),
+        )
+        markdown_path = self.temp_dir / "result" / "toni" / "interview-briefing-bank" / "interview_prep.md"
+        markdown = markdown_path.read_text(encoding="utf-8")
+        self.assertIn("reguliertes", markdown)
+        self.assertIn("Compliance", markdown)
+
 
 if __name__ == "__main__":
     unittest.main()

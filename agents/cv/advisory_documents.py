@@ -43,18 +43,18 @@ def _render_sections(frontmatter: Dict[str, object], title: str, sections: List[
     return "\n".join(lines).strip() + "\n"
 
 
-def build_interview_prep_content(
+def build_interview_questions(
     bundle: SourceBundle,
     analysis: JobAnalysis,
     selection: EvidenceSelection,
-) -> CVContent:
+) -> List[Dict[str, object]]:
     projects = _selected_projects(bundle, selection)
     certifications = _selected_certifications(bundle, selection)
     project_names = ", ".join(project.get("name", "") for project in projects[:2] if project.get("name"))
     cert_names = ", ".join(cert.get("name", "") for cert in certifications[:2] if cert.get("name"))
     keyword_focus = ", ".join(analysis.keywords[:3]) or "Ihre Kernkompetenzen"
 
-    questions = [
+    return [
         {
             "title": "Frage 1",
             "body": (
@@ -83,8 +83,131 @@ def build_interview_prep_content(
         },
     ]
 
+
+def _company_signal_profile(analysis: JobAnalysis) -> Dict[str, str]:
+    joined = normalize_text(
+        " ".join([analysis.title, analysis.summary, analysis.raw_text, *analysis.keywords, *analysis.matched_terms])
+    )
+
+    regulated_markers = [
+        "bank", "finance", "versicherung", "insur", "compliance", "audit", "risk", "regulator", "aufsicht",
+        "governance",
+    ]
+    growth_markers = [
+        "startup", "product", "platform", "scale", "saas", "innovation", "growth", "roadmap",
+    ]
+    enterprise_markers = [
+        "transformation", "stakeholder", "matrix", "governance", "enterprise", "programm", "portfolio",
+    ]
+
+    if any(marker in joined for marker in regulated_markers):
+        return {
+            "context": "Die Stellenanzeige deutet auf ein reguliertes, risiko-sensitives Umfeld mit hoher Nachvollziehbarkeit hin.",
+            "priorities": "Wahrscheinliche Prioritaeten: Stabilitaet, Compliance, Risiko-Reduktion, belastbare Prozesse und klare Verantwortlichkeiten.",
+            "stakeholders": "Wahrscheinliche Stakeholder: Hiring Manager, Fachbereich, Security/Compliance und ggf. Audit-nahe Rollen.",
+            "tone": "Voraussichtlicher Interviewton: strukturiert, formal, evidenzbasiert und risiko-orientiert.",
+        }
+    if any(marker in joined for marker in growth_markers):
+        return {
+            "context": "Die Stellenanzeige deutet auf ein produktnahes Wachstumsumfeld mit schneller Iteration hin.",
+            "priorities": "Wahrscheinliche Prioritaeten: Time-to-Value, Produktwirkung, pragmatische Automatisierung und Teamgeschwindigkeit.",
+            "stakeholders": "Wahrscheinliche Stakeholder: Engineering Lead, Product Manager und ggf. Plattform-/Security-Verantwortliche.",
+            "tone": "Voraussichtlicher Interviewton: direkt, loesungsorientiert, impact-fokussiert.",
+        }
+    if any(marker in joined for marker in enterprise_markers):
+        return {
+            "context": "Die Stellenanzeige deutet auf ein groesseres Unternehmensumfeld mit mehreren Abstimmungsachsen hin.",
+            "priorities": "Wahrscheinliche Prioritaeten: bereichsuebergreifende Abstimmung, Governance-Fit, planbare Delivery und nachhaltige Architektur.",
+            "stakeholders": "Wahrscheinliche Stakeholder: Team Lead, Programm-/Projektverantwortliche, Architektur und angrenzende Fachbereiche.",
+            "tone": "Voraussichtlicher Interviewton: professionell, stakeholder-orientiert, auf Skalierbarkeit und Umsetzbarkeit fokussiert.",
+        }
+    return {
+        "context": "Die Stellenanzeige deutet auf ein klassisches Delivery-Umfeld mit Bedarf an fachlicher Tiefe und Zusammenarbeit hin.",
+        "priorities": "Wahrscheinliche Prioritaeten: verlaessliche Umsetzung, technische Qualitaet, Zusammenarbeit und sichtbare Ergebniswirkung.",
+        "stakeholders": "Wahrscheinliche Stakeholder: Hiring Manager, direkte Teamkollegen und relevante Schnittstellen im Delivery-Prozess.",
+        "tone": "Voraussichtlicher Interviewton: professionell, fachlich, praxisnah.",
+    }
+
+
+def _profile_fit_points(bundle: SourceBundle, analysis: JobAnalysis, selection: EvidenceSelection) -> List[str]:
+    projects = _selected_projects(bundle, selection)
+    certifications = _selected_certifications(bundle, selection)
+
+    project_names = [str(project.get("name", "")).strip() for project in projects if project.get("name")]
+    cert_names = [str(certification.get("name", "")).strip() for certification in certifications if certification.get("name")]
+    focus_areas = [
+        str(item).strip()
+        for item in (bundle.profile.get("branding", {}).get("focus_areas", []) or [])
+        if str(item).strip()
+    ]
+    keywords = [str(item).strip() for item in analysis.keywords if str(item).strip()]
+
+    points: List[str] = []
+    if project_names:
+        points.append(f"Verknuepfen Sie Ihre Wirkung mit konkreten Referenzen aus {', '.join(project_names[:2])}.")
+    if focus_areas:
+        points.append(f"Positionieren Sie sich klar ueber Ihre Staerken in {', '.join(focus_areas[:2])}.")
+    if cert_names:
+        points.append(f"Nutzen Sie Weiterbildungen wie {', '.join(cert_names[:2])} als Beleg fuer aktualisierte Fachpraxis.")
+    if keywords:
+        points.append(f"Spiegeln Sie die Anforderungssprache der Anzeige durch klare Beispiele zu {', '.join(keywords[:2])}.")
+
+    while len(points) < 3:
+        points.append("Nutzen Sie kurze, messbare Projektbeispiele und benennen Sie den konkreten Ergebnisbeitrag.")
+    return points[:3]
+
+
+def build_company_briefing(
+    bundle: SourceBundle,
+    analysis: JobAnalysis,
+    selection: EvidenceSelection,
+) -> List[Dict[str, object]]:
+    profile = _company_signal_profile(analysis)
+    fit_points = _profile_fit_points(bundle, analysis, selection)
+
+    return [
+        {
+            "title": "Company Briefing - Kontext",
+            "body": (
+                "Diese Einschaetzung ist aus der Stellenanzeige und Ihrem Profil abgeleitet "
+                "(ohne externe Unternehmensrecherche).\n\n"
+                f"{profile['context']}"
+            ),
+        },
+        {
+            "title": "Company Briefing - Prioritaeten",
+            "body": profile["priorities"],
+        },
+        {
+            "title": "Company Briefing - Stakeholder",
+            "body": profile["stakeholders"],
+        },
+        {
+            "title": "Company Briefing - Interviewton",
+            "body": profile["tone"],
+        },
+        {
+            "title": "Company Briefing - So sollten Sie sich positionieren",
+            "body": "\n".join([
+                "Betonen Sie im Gespraech diese drei Punkte:",
+                "",
+                *(f"- {point}" for point in fit_points),
+            ]),
+        },
+    ]
+
+
+def build_interview_prep_content(
+    bundle: SourceBundle,
+    analysis: JobAnalysis,
+    selection: EvidenceSelection,
+) -> CVContent:
+    questions = build_interview_questions(bundle, analysis, selection)
+    company_briefing = build_company_briefing(bundle, analysis, selection)
+    sections = [*questions, *company_briefing]
+
     frontmatter = _base_frontmatter("interview_prep", bundle, analysis)
-    body = {"title": f"Interviewvorbereitung - {analysis.title or 'Zielrolle'}", "sections": questions}
+    body = {"title": f"Interviewvorbereitung - {analysis.title or 'Zielrolle'}", "sections": sections}
     markdown = _render_sections(frontmatter, body["title"], body["sections"])
     return CVContent(frontmatter=frontmatter, body=body, markdown=markdown)
 

@@ -17,7 +17,7 @@ This workspace generates a tailored CV and companion application documents from 
 6. Optional companion documents can add:
    - `cover_letter`
    - `project_history`
-   - `interview_prep`
+   - `interview_prep` (3 likely questions + answer guidance + company briefing inferred from the job text)
    - `style_guide`
    - `learning_path`
 
