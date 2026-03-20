@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import shutil
 import subprocess
 from pathlib import Path
 from typing import Dict
@@ -55,18 +56,22 @@ def render_project_history_pdf(
     content: CVContent,
     template_dir: Path,
     output_dir: Path,
+    aux_output_dir: Path | None = None,
 ) -> Dict[str, str]:
     """Render the project history as a multi-page A4 PDF via xelatex."""
     output_dir.mkdir(parents=True, exist_ok=True)
+    resolved_aux_output_dir = aux_output_dir or output_dir
+    resolved_aux_output_dir.mkdir(parents=True, exist_ok=True)
 
     if not content.frontmatter.get("validated"):
         raise RuntimeError("Project history PDF rendering requires validated content.")
 
     environment = _latex_environment(template_dir)
     template = environment.get_template("project_history_reference.tex.j2")
-    tex_path = output_dir / "project_history.tex"
+    tex_path = resolved_aux_output_dir / "project_history.tex"
     pdf_path = output_dir / "project_history.pdf"
-    log_path = output_dir / "project_history.xelatex.log"
+    aux_pdf_path = resolved_aux_output_dir / "project_history.pdf"
+    log_path = resolved_aux_output_dir / "project_history.xelatex.log"
 
     tex_path.write_text(
         template.render(content=content.body, frontmatter=content.frontmatter),
@@ -78,7 +83,7 @@ def render_project_history_pdf(
         "-interaction=nonstopmode",
         "-halt-on-error",
         "-output-directory",
-        str(output_dir),
+        str(resolved_aux_output_dir),
         str(tex_path),
     ]
 
@@ -86,8 +91,9 @@ def render_project_history_pdf(
     log_path.write_text(
         process.stdout + "\n\nSTDERR\n\n" + process.stderr, encoding="utf-8"
     )
-    if process.returncode != 0 or not pdf_path.exists():
+    if process.returncode != 0 or not aux_pdf_path.exists():
         raise RuntimeError(f"xelatex failed for project history. See {log_path}")
+    shutil.copy2(aux_pdf_path, pdf_path)
 
     return {
         "tex": str(tex_path),

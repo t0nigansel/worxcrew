@@ -120,6 +120,7 @@ jobs:
           python -m playwright install --with-deps chromium
 
       - name: Run CV pipeline
+        id: run_pipeline
         run: |
           cmd=(python3 -m agents.cv.run --base-dir "$GITHUB_WORKSPACE/agents/cv" --person "$PERSON_ID" --layout "$LAYOUT" --language "$LANGUAGE")
           if [[ "$INCLUDE_CV" == "false" ]]; then
@@ -148,9 +149,48 @@ jobs:
           fi
           printf 'Running command: %q ' "${cmd[@]}"
           echo
-          "${cmd[@]}"
+          "${cmd[@]}" | tee pipeline_output.log
+
+          run_id="$(sed -n 's/^run_id: //p' pipeline_output.log | tail -n 1)"
+          if [[ -z "$run_id" ]]; then
+            echo "Could not parse run_id from pipeline output."
+            exit 1
+          fi
+          echo "run_id=$run_id" >> "$GITHUB_OUTPUT"
+          run_dir="$GITHUB_WORKSPACE/agents/cv/result/$PERSON_ID/$run_id"
+          if [[ ! -d "$run_dir" ]]; then
+            echo "Expected run directory does not exist: $run_dir"
+            exit 1
+          fi
+
+          if [[ "$INCLUDE_CV" == "true" ]]; then
+            if [[ ! -f "$run_dir/cv.pdf" ]]; then
+              echo "Missing expected CV PDF: $run_dir/cv.pdf"
+              if [[ -f "$run_dir/_internal/cv.playwright.log" ]]; then
+                echo "----- cv.playwright.log -----"
+                cat "$run_dir/_internal/cv.playwright.log"
+              fi
+              echo "Files in run directory:"
+              ls -la "$run_dir"
+              exit 1
+            fi
+          fi
+
+          if [[ "$INCLUDE_PROJECT_HISTORY" == "true" ]]; then
+            if [[ ! -f "$run_dir/project_history.pdf" ]]; then
+              echo "Missing expected project history PDF: $run_dir/project_history.pdf"
+              if [[ -f "$run_dir/_internal/project_history.xelatex.log" ]]; then
+                echo "----- project_history.xelatex.log -----"
+                cat "$run_dir/_internal/project_history.xelatex.log"
+              fi
+              echo "Files in run directory:"
+              ls -la "$run_dir"
+              exit 1
+            fi
+          fi
 
       - name: Upload artifacts
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: cv-artifacts

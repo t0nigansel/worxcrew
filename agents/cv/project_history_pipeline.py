@@ -17,6 +17,16 @@ from .project_history_writer import build_project_history_content
 from .utils import write_json, write_text
 
 
+def _internal_dir(context: AgentContext) -> Path:
+    path = context.data["internal_dir"]
+    path.mkdir(parents=True, exist_ok=True)
+    return path
+
+
+def _internal_path(context: AgentContext, filename: str) -> Path:
+    return _internal_dir(context) / filename
+
+
 class ProjectHistoryWriterAgent(BaseAgent):
     name = "project_history_writer"
     description = "Builds structured project history content from the full project list."
@@ -38,7 +48,7 @@ class ProjectHistoryWriterAgent(BaseAgent):
         content_path = context.record_artifact(
             "project_history_content",
             write_json(
-                context.result_dir / "project_history_content.json",
+                _internal_path(context, "project_history_content.json"),
                 {"frontmatter": content.frontmatter, "body": content.body},
             ),
         )
@@ -76,7 +86,7 @@ class ProjectHistoryFactCheckerAgent(BaseAgent):
         content_path = context.record_artifact(
             "project_history_content",
             write_json(
-                context.result_dir / "project_history_content.json",
+                _internal_path(context, "project_history_content.json"),
                 {
                     "frontmatter": corrected_content.frontmatter,
                     "body": corrected_content.body,
@@ -93,7 +103,7 @@ class ProjectHistoryFactCheckerAgent(BaseAgent):
         report_path = context.record_artifact(
             "project_history_validation_report",
             write_json(
-                context.result_dir / "project_history_validation_report.json",
+                _internal_path(context, "project_history_validation_report.json"),
                 {"passed": report.passed, "corrections": report.corrections},
             ),
         )
@@ -147,6 +157,7 @@ class ProjectHistoryRendererAgent(BaseAgent):
                 content,
                 context.template_dir,
                 context.result_dir,
+                aux_output_dir=_internal_dir(context),
             )
             for name, path in pdf_artifacts.items():
                 artifact_name = f"project_history_{name}"

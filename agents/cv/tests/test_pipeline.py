@@ -71,7 +71,7 @@ class PipelineTests(unittest.TestCase):
         self.assertIn("interview_prep_markdown", artifacts)
         self.assertIn("style_guide_markdown", artifacts)
         self.assertIn("learning_path_markdown", artifacts)
-        self.assertTrue((self.temp_dir / "result" / "toni" / "job-run" / "manifest.json").exists())
+        self.assertTrue((self.temp_dir / "result" / "toni" / "job-run" / "_internal" / "manifest.json").exists())
 
     def test_cover_letter_is_marked_validated(self) -> None:
         run_pipeline(
@@ -101,8 +101,8 @@ class PipelineTests(unittest.TestCase):
             run_id="run-two",
             requested_outputs=RequestedOutputs(learning_path=True),
         )
-        self.assertTrue((self.temp_dir / "result" / "toni" / "run-one" / "manifest.json").exists())
-        self.assertTrue((self.temp_dir / "result" / "alex" / "run-two" / "manifest.json").exists())
+        self.assertTrue((self.temp_dir / "result" / "toni" / "run-one" / "_internal" / "manifest.json").exists())
+        self.assertTrue((self.temp_dir / "result" / "alex" / "run-two" / "_internal" / "manifest.json").exists())
 
     def test_project_history_regression(self) -> None:
         result = run_pipeline(
@@ -158,9 +158,45 @@ class PipelineTests(unittest.TestCase):
         )
         markdown_path = self.temp_dir / "result" / "toni" / "learning-routes" / "learning_path.md"
         markdown = markdown_path.read_text(encoding="utf-8")
-        self.assertIn("## Route 1 - Tech-Expert Track", markdown)
-        self.assertIn("## Route 2 - Management Track", markdown)
-        self.assertIn("## Route 3 - Specialization Track", markdown)
+        self.assertIn("## Pfad 1 - Tech-Expertenpfad", markdown)
+        self.assertIn("## Pfad 2 - Managementpfad", markdown)
+        self.assertIn("## Pfad 3 - Spezialisierungspfad", markdown)
+        self.assertEqual(markdown.count("**Grobe Jobbeschreibung:**"), 3)
+        self.assertEqual(markdown.count("**Warum der Kandidat dazu passt:**"), 3)
+        self.assertEqual(markdown.count("**ToDo-Liste:**"), 3)
+        self.assertEqual(markdown.count("**3 sinnvolle Zertifizierungen fuer diesen Pfad:**"), 3)
+
+    def test_style_guide_german_mode_has_german_copy(self) -> None:
+        run_pipeline(
+            self.temp_dir,
+            job_offer_text=self.job_text,
+            person_id="toni",
+            run_id="style-guide-de",
+            language="de",
+            requested_outputs=RequestedOutputs(style_guide=True),
+        )
+        markdown_path = self.temp_dir / "result" / "toni" / "style-guide-de" / "style_guide.md"
+        markdown = markdown_path.read_text(encoding="utf-8")
+        self.assertIn("# Styleguide -", markdown)
+        self.assertIn("## Empfohlener Stil", markdown)
+        self.assertNotIn("## Recommended Style", markdown)
+        self.assertNotIn("business-smart", markdown)
+        self.assertNotIn("Navy, Weiss, Grau", markdown)
+
+    def test_style_guide_english_mode_has_english_copy(self) -> None:
+        run_pipeline(
+            self.temp_dir,
+            job_offer_text=self.job_text,
+            person_id="toni",
+            run_id="style-guide-en",
+            language="en",
+            requested_outputs=RequestedOutputs(style_guide=True),
+        )
+        markdown_path = self.temp_dir / "result" / "toni" / "style-guide-en" / "style_guide.md"
+        markdown = markdown_path.read_text(encoding="utf-8")
+        self.assertIn("# Style Guide -", markdown)
+        self.assertIn("## Recommended Style", markdown)
+        self.assertNotIn("## Empfohlener Stil", markdown)
 
     def test_interview_prep_includes_company_briefing(self) -> None:
         run_pipeline(
@@ -197,6 +233,23 @@ class PipelineTests(unittest.TestCase):
         markdown = markdown_path.read_text(encoding="utf-8")
         self.assertIn("reguliertes", markdown)
         self.assertIn("Compliance", markdown)
+
+    def test_root_run_dir_contains_only_requested_outputs_plus_internal(self) -> None:
+        run_pipeline(
+            self.temp_dir,
+            job_offer_text=self.job_text,
+            person_id="toni",
+            run_id="interview-only-files",
+            requested_outputs=RequestedOutputs(cv=False, interview_prep=True),
+        )
+        run_dir = self.temp_dir / "result" / "toni" / "interview-only-files"
+        names = sorted(path.name for path in run_dir.iterdir())
+        self.assertIn("_internal", names)
+        self.assertIn("interview_prep.md", names)
+        self.assertNotIn("job_analysis.json", names)
+        self.assertNotIn("selection.json", names)
+        self.assertNotIn("manifest.json", names)
+        self.assertNotIn("interview_prep_content.json", names)
 
 
 if __name__ == "__main__":

@@ -41,6 +41,16 @@ JOB_BOUND_OUTPUTS = {
 }
 
 
+def _internal_dir(context: AgentContext) -> Path:
+    path = context.data["internal_dir"]
+    path.mkdir(parents=True, exist_ok=True)
+    return path
+
+
+def _internal_path(context: AgentContext, filename: str) -> Path:
+    return _internal_dir(context) / filename
+
+
 def _serializable_source_bundle(bundle: SourceBundle) -> Dict[str, object]:
     return {
         "person_id": bundle.person_id,
@@ -64,7 +74,7 @@ def _write_document_artifacts(
     json_path = context.record_artifact(
         f"{artifact_prefix}_content",
         write_json(
-            context.result_dir / f"{stem}_content.json",
+            _internal_path(context, f"{stem}_content.json"),
             {"frontmatter": content.frontmatter, "body": content.body},
         ),
     )
@@ -118,7 +128,7 @@ class JobAnalyzerAgent(BaseAgent):
                 warnings.extend(llm_warnings)
                 llm_artifact = context.record_artifact(
                     "job_analyzer_llm",
-                    write_json(context.result_dir / "job_analyzer_llm.json", llm_payload),
+                    write_json(_internal_path(context, "job_analyzer_llm.json"), llm_payload),
                 )
             except LLMError as error:
                 warnings.append(f"Job analyzer LLM fallback used: {error}")
@@ -126,7 +136,7 @@ class JobAnalyzerAgent(BaseAgent):
         context.data["job_analysis"] = analysis
         path = context.record_artifact(
             "job_analysis",
-            write_json(context.result_dir / "job_analysis.json", asdict(analysis)),
+            write_json(_internal_path(context, "job_analysis.json"), asdict(analysis)),
         )
         artifacts = {"job_analysis": str(path)}
         if llm_artifact:
@@ -145,7 +155,7 @@ class EvidenceSelectorAgent(BaseAgent):
         context.data["selection"] = selection
         path = context.record_artifact(
             "selection",
-            write_json(context.result_dir / "selection.json", asdict(selection)),
+            write_json(_internal_path(context, "selection.json"), asdict(selection)),
         )
         return AgentResult(name=self.name, payload=asdict(selection), artifacts={"selection": str(path)})
 
@@ -171,7 +181,7 @@ class CVWriterAgent(BaseAgent):
                 warnings.extend(llm_warnings)
                 llm_artifact = context.record_artifact(
                     "cv_writer_llm",
-                    write_json(context.result_dir / "cv_writer_llm.json", llm_payload),
+                    write_json(_internal_path(context, "cv_writer_llm.json"), llm_payload),
                 )
             except LLMError as error:
                 warnings.append(f"Writer LLM fallback used: {error}")
@@ -211,7 +221,7 @@ class FactCheckerAgent(BaseAgent):
                 llm_corrections = [str(item) for item in (llm_payload.get("corrections") or []) if str(item).strip()]
                 llm_artifact = context.record_artifact(
                     "fact_checker_llm",
-                    write_json(context.result_dir / "fact_checker_llm.json", llm_payload),
+                    write_json(_internal_path(context, "fact_checker_llm.json"), llm_payload),
                 )
             except LLMError as error:
                 warnings.append(f"Fact-checker LLM fallback used: {error}")
@@ -224,7 +234,7 @@ class FactCheckerAgent(BaseAgent):
         artifacts = _write_document_artifacts(context, "cv", "cv", corrected_content)
         report_path = context.record_artifact(
             "validation_report",
-            write_json(context.result_dir / "validation_report.json", {"passed": report.passed, "corrections": report.corrections}),
+            write_json(_internal_path(context, "validation_report.json"), {"passed": report.passed, "corrections": report.corrections}),
         )
         artifacts["validation_report"] = str(report_path)
         if llm_artifact:
@@ -260,7 +270,13 @@ class PdfRendererAgent(BaseAgent):
         warnings: List[str] = []
         artifacts = {"cv_html": str(html_path)}
         try:
-            pdf_artifacts = render_pdf(content, markdown_path, context.template_dir, context.result_dir)
+            pdf_artifacts = render_pdf(
+                content,
+                markdown_path,
+                context.template_dir,
+                context.result_dir,
+                aux_output_dir=_internal_dir(context),
+            )
             for name, path in pdf_artifacts.items():
                 artifacts[f"cv_{name}"] = path
                 context.record_artifact(f"cv_{name}", Path(path))
@@ -300,7 +316,7 @@ class CoverLetterValidatorAgent(BaseAgent):
         report_path = context.record_artifact(
             "cover_letter_validation_report",
             write_json(
-                context.result_dir / "cover_letter_validation_report.json",
+                _internal_path(context, "cover_letter_validation_report.json"),
                 {"passed": report.passed, "corrections": report.corrections},
             ),
         )
@@ -391,7 +407,7 @@ class ApplicationOrchestrator(BaseAgent):
         context.data["source_bundle"] = source_bundle
         source_bundle_path = context.record_artifact(
             "source_bundle",
-            write_json(context.result_dir / "source_bundle.json", _serializable_source_bundle(source_bundle)),
+            write_json(_internal_path(context, "source_bundle.json"), _serializable_source_bundle(source_bundle)),
         )
 
         stage_results = []
@@ -413,7 +429,7 @@ class ApplicationOrchestrator(BaseAgent):
             "artifacts": {name: str(path) for name, path in context.artifacts.items()},
             "stages": stage_results,
         }
-        manifest_path = context.record_artifact("manifest", write_json(context.result_dir / "manifest.json", manifest))
+        manifest_path = context.record_artifact("manifest", write_json(_internal_path(context, "manifest.json"), manifest))
         manifest["artifacts"]["manifest"] = str(manifest_path)
 
         return AgentResult(
@@ -456,6 +472,8 @@ def run_pipeline(
     resolved_run_id = run_id or make_run_id()
     result_dir = base_dir / "result" / person_id / resolved_run_id
     result_dir.mkdir(parents=True, exist_ok=True)
+    internal_dir = result_dir / "_internal"
+    internal_dir.mkdir(parents=True, exist_ok=True)
     llm_settings = LLMSettings.from_env()
     context = AgentContext(
         root_dir=base_dir,
@@ -468,6 +486,7 @@ def run_pipeline(
             "language": language,
             "llm_client": OpenAICompatibleClient(llm_settings) if llm_settings else None,
             "require_pdf": require_pdf,
+            "internal_dir": internal_dir,
             "requested_outputs": outputs.as_dict(),
         },
         metadata={
@@ -478,6 +497,7 @@ def run_pipeline(
             "layout": layout_name,
             "language": language,
             "require_pdf": require_pdf,
+            "internal_dir": str(internal_dir),
             "requested_outputs": outputs.as_dict(),
         },
     )

@@ -96,14 +96,22 @@ def _render_pdf_with_playwright(html_path: Path, pdf_path: Path, log_path: Path)
     }
 
 
-def render_pdf(content: CVContent, markdown_path: Path, template_dir: Path, output_dir: Path) -> Dict[str, str]:
+def render_pdf(
+    content: CVContent,
+    markdown_path: Path,
+    template_dir: Path,
+    output_dir: Path,
+    aux_output_dir: Path | None = None,
+) -> Dict[str, str]:
     output_dir.mkdir(parents=True, exist_ok=True)
+    resolved_aux_output_dir = aux_output_dir or output_dir
+    resolved_aux_output_dir.mkdir(parents=True, exist_ok=True)
     frontmatter, _ = split_frontmatter(markdown_path.read_text(encoding="utf-8"))
     if not frontmatter.get("validated"):
         raise RuntimeError("PDF rendering requires a validated markdown file.")
 
     pdf_path = output_dir / "cv.pdf"
-    log_path = output_dir / "cv.playwright.log"
+    log_path = resolved_aux_output_dir / "cv.playwright.log"
     html_path = output_dir / "cv.html"
     if not html_path.exists():
         render_html(content, template_dir, html_path)

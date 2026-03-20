@@ -99,22 +99,18 @@ If `OPENAI_API_KEY` and `CV_LLM_MODEL` are missing, the pipeline falls back to t
 
 ## Outputs
 
-Outputs are stored per person and per run:
+Outputs are stored per person and per run in two layers:
 
-- `result/<person_id>/<run_id>/manifest.json`
-- `result/<person_id>/<run_id>/source_bundle.json`
-- `result/<person_id>/<run_id>/job_analysis.json`
-- `result/<person_id>/<run_id>/selection.json`
-- `result/<person_id>/<run_id>/cv_content.json`
-- `result/<person_id>/<run_id>/cv.md`
-- `result/<person_id>/<run_id>/validation_report.json`
-- `result/<person_id>/<run_id>/cv.html`
-- `result/<person_id>/<run_id>/cv.pdf` when the PDF runtime is available
-- `result/<person_id>/<run_id>/cover_letter.md` when requested
-- `result/<person_id>/<run_id>/interview_prep.md` when requested
-- `result/<person_id>/<run_id>/style_guide.md` when requested
-- `result/<person_id>/<run_id>/learning_path.md` when requested
-- `result/<person_id>/<run_id>/project_history.md` when requested
+- User-facing files in `result/<person_id>/<run_id>/`
+  - `cv.md`, `cv.html`, `cv.pdf` when CV is requested
+  - `cover_letter.md` when requested
+  - `interview_prep.md` when requested
+  - `style_guide.md` when requested
+  - `learning_path.md` when requested
+  - `project_history.md`, `project_history.html`, `project_history.pdf` when requested
+- Technical/internal files in `result/<person_id>/<run_id>/_internal/`
+  - `manifest.json`, `source_bundle.json`, `job_analysis.json`, `selection.json`
+  - content JSON sidecars, validation reports, LLM payloads, and renderer logs
 
 ## Design
 
