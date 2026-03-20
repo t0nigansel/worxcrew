@@ -1,0 +1,54 @@
+{
+  "frontmatter": {
+    "document_type": "cover_letter",
+    "language": "de",
+    "validated": true,
+    "full_name": "John Smith",
+    "headline": "Senior Java Developer",
+    "job_title": "Senior Java Developer",
+    "variant": "",
+    "selected_project_ids": [
+      "energy-trading-api-2023",
+      "manufacturing-integration-hub-2019",
+      "telco-billing-integration-2008",
+      "ecommerce-order-modernization-2025",
+      "logistics-order-platform-2012"
+    ],
+    "selected_certification_ids": [
+      "cert_spring_professional_2018",
+      "cert_java_ee_2011",
+      "cert_ocjp_2007",
+      "cert_aws_developer_2022"
+    ]
+  },
+  "body": {
+    "full_name": "John Smith",
+    "job_title": "Senior Java Developer",
+    "opening": "mit grossem Interesse bewerbe ich mich auf die Position als Senior Java Developer. Mein Profil verbindet Qualitaetssicherung, Security Testing und praxisnahe Automatisierung mit einem klaren Bezug zu Spring Boot, Backend, Integration.",
+    "fit_points": [
+      {
+        "source_id": "energy-trading-api-2023",
+        "text": "Energy Trading API Platform: Freelance Senior Java Developer mit Fokus auf Freiberufliche Entwicklung einer Java-API-Plattform fuer Handel, Reporting und Partnerintegration im..."
+      },
+      {
+        "source_id": "manufacturing-integration-hub-2019",
+        "text": "Manufacturing Integration Hub: Lead Software Developer mit Fokus auf Zentrale Java-Plattform fuer Datenaustausch zwischen ERP, Produktionssteuerung und Reporting."
+      },
+      {
+        "source_id": "telco-billing-integration-2008",
+        "text": "Billing Integration Platform: Senior Java Developer mit Fokus auf Backend-Entwicklung fuer eine Integrationsplattform zwischen CRM, Auftragsverwaltung und Billing."
+      }
+    ],
+    "certification_points": [
+      {
+        "source_id": "cert_spring_professional_2018",
+        "text": "Spring Professional Certification unterstreicht meinen Fokus auf Spring Framework, Spring Boot, Dependency Injection."
+      },
+      {
+        "source_id": "cert_java_ee_2011",
+        "text": "Oracle Certified Expert, Java EE 5 Web Component Developer unterstreicht meinen Fokus auf Java EE, Web Components, Enterprise Java."
+      }
+    ],
+    "closing": "Gerne moechte ich in einem persoenlichen Gespraech erlaeutern, wie ich meine Erfahrung in Teststrategie, Security und Automatisierung in Ihr Umfeld einbringen kann."
+  }
+}

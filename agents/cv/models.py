@@ -10,7 +10,11 @@ JsonDict = Dict[str, Any]
 
 @dataclass
 class SourceBundle:
+    person_id: str
     data_dir: Path
+    profile_path: Path
+    projects_path: Path
+    certifications_path: Path
     profile: JsonDict
     projects: List[JsonDict]
     certifications: List[JsonDict]
@@ -53,3 +57,23 @@ class ValidationReport:
     passed: bool
     corrections: List[str] = field(default_factory=list)
     markdown_path: Optional[Path] = None
+
+
+@dataclass
+class RequestedOutputs:
+    cv: bool = True
+    project_history: bool = False
+    cover_letter: bool = False
+    interview_prep: bool = False
+    style_guide: bool = False
+    learning_path: bool = False
+
+    def as_dict(self) -> Dict[str, bool]:
+        return {
+            "cv": self.cv,
+            "project_history": self.project_history,
+            "cover_letter": self.cover_letter,
+            "interview_prep": self.interview_prep,
+            "style_guide": self.style_guide,
+            "learning_path": self.learning_path,
+        }

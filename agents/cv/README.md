@@ -1,6 +1,6 @@
 # Agent-Driven CV Generator
 
-This workspace generates a tailored CV from structured JSON data in `agents/cv/data`.
+This workspace generates a tailored CV and companion application documents from structured JSON data in `agents/cv/people/<person_id>`.
 
 `job_analyzer`, `cv_writer`, and `fact_checker` support two modes:
 
@@ -14,6 +14,29 @@ This workspace generates a tailored CV from structured JSON data in `agents/cv/d
 3. `cv_writer` creates structured content plus `result/cv.md`.
 4. `fact_checker` validates the markdown against the JSON sources and rewrites it if needed.
 5. `pdf_renderer` creates `result/cv.html`, `result/cv.tex`, and `result/cv.pdf` when the local LaTeX toolchain is available.
+6. Optional companion documents can add:
+   - `cover_letter`
+   - `project_history`
+   - `interview_prep`
+   - `style_guide`
+   - `learning_path`
+
+## People
+
+Person data live in:
+
+- `agents/cv/people/<person_id>/profile.json`
+- `agents/cv/people/<person_id>/projekte.json`
+- `agents/cv/people/<person_id>/cert.json`
+- `agents/cv/people/<person_id>/portrait.(jpeg|jpg|png|webp)`
+
+List available people:
+
+```bash
+python3 -m agents.cv.run \
+  --base-dir /Users/tonigansel/workspace/worxcrew/agents/cv \
+  --list-people
+```
 
 ## Run
 
@@ -28,7 +51,22 @@ Tailored CV from a job ad file:
 ```bash
 python3 -m agents.cv.run \
   --base-dir /Users/tonigansel/workspace/worxcrew/agents/cv \
+  --person toni \
   --job-file /path/to/job-offer.md
+```
+
+Generate companion documents for a job run:
+
+```bash
+python3 -m agents.cv.run \
+  --base-dir /Users/tonigansel/workspace/worxcrew/agents/cv \
+  --person toni \
+  --job-file /path/to/job-offer.md \
+  --cover-letter \
+  --interview-prep \
+  --style-guide \
+  --learning-path \
+  --project-history
 ```
 
 Render the reference layout explicitly:
@@ -61,18 +99,22 @@ If `OPENAI_API_KEY` and `CV_LLM_MODEL` are missing, the pipeline falls back to t
 
 ## Outputs
 
-- `result/source_bundle.json`
-- `result/job_analysis.json`
-- `result/job_analyzer_llm.json` when the analyzer used the LLM
-- `result/selection.json`
-- `result/cv_content.json`
-- `result/cv.md`
-- `result/validation_report.json`
-- `result/cv_writer_llm.json` when the writer used the LLM
-- `result/fact_checker_llm.json` when the fact checker used the LLM
-- `result/cv.html`
-- `result/cv.tex`
-- `result/cv.pdf`
+Outputs are stored per person and per run:
+
+- `result/<person_id>/<run_id>/manifest.json`
+- `result/<person_id>/<run_id>/source_bundle.json`
+- `result/<person_id>/<run_id>/job_analysis.json`
+- `result/<person_id>/<run_id>/selection.json`
+- `result/<person_id>/<run_id>/cv_content.json`
+- `result/<person_id>/<run_id>/cv.md`
+- `result/<person_id>/<run_id>/validation_report.json`
+- `result/<person_id>/<run_id>/cv.html`
+- `result/<person_id>/<run_id>/cv.pdf` when the PDF runtime is available
+- `result/<person_id>/<run_id>/cover_letter.md` when requested
+- `result/<person_id>/<run_id>/interview_prep.md` when requested
+- `result/<person_id>/<run_id>/style_guide.md` when requested
+- `result/<person_id>/<run_id>/learning_path.md` when requested
+- `result/<person_id>/<run_id>/project_history.md` when requested
 
 ## Design
 

@@ -6,11 +6,6 @@
   --muted: #59646f;
   --line: #d7dde4;
   --surface: #f4f6f9;
-  --badge-dark: #2a2d31;
-  --badge-green: #5b8648;
-  --badge-blue: #2d5f9d;
-  --badge-slate: #5f6c7d;
-  --badge-fg: #ffffff;
   --font-base: "Avenir Next", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
@@ -160,27 +155,6 @@ body {
   text-transform: uppercase;
   white-space: nowrap;
 }
-
-.ph-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 14mm;
-  padding: 0.6mm 1.6mm;
-  border-radius: 0.8mm;
-  color: var(--badge-fg);
-  font-size: 5pt;
-  line-height: 1;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.ph-badge.badge-security { background: var(--badge-dark); }
-.ph-badge.badge-automation { background: var(--badge-green); }
-.ph-badge.badge-ai { background: var(--badge-blue); }
-.ph-badge.badge-performance,
-.ph-badge.badge-neutral { background: var(--badge-slate); }
 
 /* ── Context / System Purpose ───────────────────────────── */
 

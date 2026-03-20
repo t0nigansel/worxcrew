@@ -1,0 +1,152 @@
+{
+  "source_bundle": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/toni/20260320-082743/source_bundle.json",
+  "metadata": {
+    "llm": {
+      "enabled": false
+    },
+    "person_id": "toni",
+    "run_id": "20260320-082743",
+    "variant": "",
+    "layout": "reference",
+    "language": "de",
+    "requested_outputs": {
+      "cv": true,
+      "project_history": true,
+      "cover_letter": true,
+      "interview_prep": true,
+      "style_guide": true,
+      "learning_path": true
+    }
+  },
+  "artifacts": {
+    "source_bundle": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/toni/20260320-082743/source_bundle.json",
+    "job_analysis": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/toni/20260320-082743/job_analysis.json",
+    "selection": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/toni/20260320-082743/selection.json",
+    "cv_content": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/toni/20260320-082743/cv_content.json",
+    "cv_markdown": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/toni/20260320-082743/cv.md",
+    "validation_report": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/toni/20260320-082743/validation_report.json",
+    "cv_html": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/toni/20260320-082743/cv.html",
+    "cover_letter_content": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/toni/20260320-082743/cover_letter_content.json",
+    "cover_letter_markdown": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/toni/20260320-082743/cover_letter.md",
+    "cover_letter_validation_report": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/toni/20260320-082743/cover_letter_validation_report.json",
+    "project_history_content": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/toni/20260320-082743/project_history_content.json",
+    "project_history_markdown": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/toni/20260320-082743/project_history.md",
+    "project_history_validation_report": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/toni/20260320-082743/project_history_validation_report.json",
+    "project_history_html": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/toni/20260320-082743/project_history.html",
+    "interview_prep_content": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/toni/20260320-082743/interview_prep_content.json",
+    "interview_prep_markdown": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/toni/20260320-082743/interview_prep.md",
+    "style_guide_content": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/toni/20260320-082743/style_guide_content.json",
+    "style_guide_markdown": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/toni/20260320-082743/style_guide.md",
+    "learning_path_content": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/toni/20260320-082743/learning_path_content.json",
+    "learning_path_markdown": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/toni/20260320-082743/learning_path.md"
+  },
+  "stages": [
+    {
+      "agent": "job_analyzer",
+      "warnings": [],
+      "artifacts": {
+        "job_analysis": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/toni/20260320-082743/job_analysis.json"
+      }
+    },
+    {
+      "agent": "evidence_selector",
+      "warnings": [],
+      "artifacts": {
+        "selection": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/toni/20260320-082743/selection.json"
+      }
+    },
+    {
+      "agent": "cv_writer",
+      "warnings": [],
+      "artifacts": {
+        "cv_content": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/toni/20260320-082743/cv_content.json",
+        "cv_markdown": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/toni/20260320-082743/cv.md"
+      }
+    },
+    {
+      "agent": "fact_checker",
+      "warnings": [],
+      "artifacts": {
+        "cv_content": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/toni/20260320-082743/cv_content.json",
+        "cv_markdown": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/toni/20260320-082743/cv.md",
+        "validation_report": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/toni/20260320-082743/validation_report.json"
+      }
+    },
+    {
+      "agent": "pdf_renderer",
+      "warnings": [
+        "Playwright is not installed. Install it with: 'pip install playwright' and 'python -m playwright install chromium'."
+      ],
+      "artifacts": {
+        "cv_html": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/toni/20260320-082743/cv.html"
+      }
+    },
+    {
+      "agent": "cover_letter_writer",
+      "warnings": [],
+      "artifacts": {
+        "cover_letter_content": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/toni/20260320-082743/cover_letter_content.json",
+        "cover_letter_markdown": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/toni/20260320-082743/cover_letter.md"
+      }
+    },
+    {
+      "agent": "cover_letter_validator",
+      "warnings": [],
+      "artifacts": {
+        "cover_letter_content": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/toni/20260320-082743/cover_letter_content.json",
+        "cover_letter_markdown": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/toni/20260320-082743/cover_letter.md",
+        "cover_letter_validation_report": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/toni/20260320-082743/cover_letter_validation_report.json"
+      }
+    },
+    {
+      "agent": "project_history_writer",
+      "warnings": [],
+      "artifacts": {
+        "project_history_content": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/toni/20260320-082743/project_history_content.json",
+        "project_history_markdown": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/toni/20260320-082743/project_history.md"
+      }
+    },
+    {
+      "agent": "project_history_fact_checker",
+      "warnings": [],
+      "artifacts": {
+        "project_history_content": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/toni/20260320-082743/project_history_content.json",
+        "project_history_markdown": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/toni/20260320-082743/project_history.md",
+        "project_history_validation_report": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/toni/20260320-082743/project_history_validation_report.json"
+      }
+    },
+    {
+      "agent": "project_history_renderer",
+      "warnings": [
+        "xelatex failed for project history. See /Users/tonigansel/workspace/worxcrew/agents/cv/result/toni/20260320-082743/project_history.xelatex.log"
+      ],
+      "artifacts": {
+        "project_history_html": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/toni/20260320-082743/project_history.html"
+      }
+    },
+    {
+      "agent": "interview_prep_writer",
+      "warnings": [],
+      "artifacts": {
+        "interview_prep_content": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/toni/20260320-082743/interview_prep_content.json",
+        "interview_prep_markdown": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/toni/20260320-082743/interview_prep.md"
+      }
+    },
+    {
+      "agent": "style_guide_writer",
+      "warnings": [],
+      "artifacts": {
+        "style_guide_content": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/toni/20260320-082743/style_guide_content.json",
+        "style_guide_markdown": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/toni/20260320-082743/style_guide.md"
+      }
+    },
+    {
+      "agent": "learning_path_writer",
+      "warnings": [],
+      "artifacts": {
+        "learning_path_content": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/toni/20260320-082743/learning_path_content.json",
+        "learning_path_markdown": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/toni/20260320-082743/learning_path.md"
+      }
+    }
+  ]
+}

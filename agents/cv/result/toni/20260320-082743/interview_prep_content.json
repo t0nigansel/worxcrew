@@ -1,0 +1,29 @@
+{
+  "frontmatter": {
+    "document_type": "interview_prep",
+    "language": "de",
+    "validated": true,
+    "person_id": "toni",
+    "full_name": "Toni Gansel",
+    "job_title": "Senior QA / Test Engineer",
+    "variant": "",
+    "advisory": true
+  },
+  "body": {
+    "title": "Interviewvorbereitung - Senior QA / Test Engineer",
+    "sections": [
+      {
+        "title": "Frage 1",
+        "body": "**Wahrscheinliche Frage:** Wie wuerden Sie Ihren Beitrag in einer Rolle als Senior QA / Test Engineer beschreiben?\n\n**Warum wahrscheinlich:** Die Ausschreibung legt Gewicht auf Security, AI, R.\n\n**Starke Antwort:** Fokussieren Sie auf konkrete Wirkung, zum Beispiel auf Ergebnisse aus TI-Portal, Elektronische Patientenakte (EPA), und verbinden Sie diese mit messbarer Verbesserung in Qualitaet, Sicherheit oder Automatisierung."
+      },
+      {
+        "title": "Frage 2",
+        "body": "**Wahrscheinliche Frage:** Wie gehen Sie mit komplexen Qualitaets- oder Security-Risiken im Team um?\n\n**Warum wahrscheinlich:** Ihre Profilstaerken und die Variante default deuten auf einen beratenden, strukturierenden Beitrag hin.\n\n**Starke Antwort:** Beschreiben Sie einen klaren Ablauf aus Risikoanalyse, Priorisierung, Stakeholder-Abstimmung und Umsetzung. Verweisen Sie auf belastbare Referenzen wie TI-Portal, Elektronische Patientenakte (EPA)."
+      },
+      {
+        "title": "Frage 3",
+        "body": "**Wahrscheinliche Frage:** Wie halten Sie Ihr Wissen aktuell und wie uebertragen Sie es in die Praxis?\n\n**Warum wahrscheinlich:** Aktuelle Weiterbildungen wie Red Teaming LLM Applications, Applied ChatGPT for Cybersecurity machen diesen Punkt plausibel.\n\n**Starke Antwort:** Verbinden Sie Weiterbildung mit einem konkreten Transfer in Projekte, Prozesse oder Standards, statt nur Zertifikate aufzuzaehlen."
+      }
+    ]
+  }
+}

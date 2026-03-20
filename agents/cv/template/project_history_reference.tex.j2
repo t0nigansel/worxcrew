@@ -18,10 +18,6 @@
 \definecolor{accentstrong}{HTML}{1F4476}
 \definecolor{rulefg}{HTML}{D7DDE4}
 \definecolor{surface}{HTML}{F4F6F9}
-\definecolor{badgedark}{HTML}{2A2D31}
-\definecolor{badgegreen}{HTML}{5B8648}
-\definecolor{badgeblue}{HTML}{2D5F9D}
-\definecolor{badgeslate}{HTML}{5F6C7D}
 \color{textfg}
 \hypersetup{colorlinks=true, urlcolor=accent}
 
@@ -44,20 +40,6 @@
 \newcommand{\phresptitle}[1]{{\fontsize{7.5}{8.4}\selectfont\bfseries #1\par}}
 \newcommand{\phrespdesc}[1]{{\color{mutedfg}\fontsize{7}{8.2}\selectfont #1\par}}
 \newcommand{\phtoolline}[1]{{\color{accent}\fontsize{6.8}{7.6}\selectfont\bfseries #1\par}}
-
-[% macro project_badge(tone, label) -%]
-[% if label %]
-[% if tone == "badge-security" %]
-{\setlength{\fboxsep}{1.2pt}\colorbox{badgedark}{\textcolor{white}{\fontsize{5.5}{6.0}\selectfont\bfseries [[ label | latex_escape ]]}}}
-[% elif tone == "badge-automation" %]
-{\setlength{\fboxsep}{1.2pt}\colorbox{badgegreen}{\textcolor{white}{\fontsize{5.5}{6.0}\selectfont\bfseries [[ label | latex_escape ]]}}}
-[% elif tone == "badge-ai" %]
-{\setlength{\fboxsep}{1.2pt}\colorbox{badgeblue}{\textcolor{white}{\fontsize{5.5}{6.0}\selectfont\bfseries [[ label | latex_escape ]]}}}
-[% else %]
-{\setlength{\fboxsep}{1.2pt}\colorbox{badgeslate}{\textcolor{white}{\fontsize{5.5}{6.0}\selectfont\bfseries [[ label | latex_escape ]]}}}
-[% endif %]
-[% endif %]
-[% endmacro -%]
 
 \begin{document}
 \sloppy
@@ -94,8 +76,7 @@
 % Project heading
 \noindent
 {\phprojectname{[[ project.name | latex_escape ]]}\hfill\phperiod{[[ project.period | latex_escape ]]}\par}
-{\phprojectmeta{[[ [project.client, project.role, project.methodology] | select | join(" | ") | latex_escape ]]}%
-\hfill [[ project_badge(project.badge_tone, project.badge_label) ]]\par}
+{\phprojectmeta{[[ [project.client, project.role, project.methodology] | select | join(" | ") | latex_escape ]]}\par}
 
 [% if project.system_purpose %]
 \phcontext{[[ project.system_purpose | latex_escape ]]}

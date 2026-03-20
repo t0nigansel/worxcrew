@@ -1,0 +1,132 @@
+{
+  "selected_project_ids": [
+    "energy-trading-api-2023",
+    "manufacturing-integration-hub-2019",
+    "telco-billing-integration-2008",
+    "ecommerce-order-modernization-2025",
+    "logistics-order-platform-2012"
+  ],
+  "selected_certification_ids": [
+    "cert_spring_professional_2018",
+    "cert_java_ee_2011",
+    "cert_ocjp_2007",
+    "cert_aws_developer_2022"
+  ],
+  "selected_experience_ids": [
+    "exp_freelance_2021",
+    "exp_platform_2017",
+    "exp_consulting_2003",
+    "exp_lead_dev_2009"
+  ],
+  "selected_clients": [
+    "EnerTrade Systems",
+    "Nordkraft Industrie AG",
+    "TeleCom Nord",
+    "RetailScale Commerce",
+    "CargoFlow GmbH"
+  ],
+  "technology_groups": [
+    {
+      "name": "Testtools",
+      "items": [
+        "JUnit",
+        "Mockito",
+        "Testcontainers",
+        "Postman",
+        "Java",
+        "Spring Boot",
+        "REST",
+        "PostgreSQL"
+      ]
+    },
+    {
+      "name": "Security",
+      "items": [
+        "SonarQube",
+        "OWASP Dependency-Check"
+      ]
+    },
+    {
+      "name": "Programmierung",
+      "items": [
+        "Java",
+        "SQL",
+        "XML",
+        "Bash"
+      ]
+    },
+    {
+      "name": "Infrastruktur & CI/CD",
+      "items": [
+        "Git",
+        "Maven",
+        "Gradle",
+        "Jenkins",
+        "Docker",
+        "Kubernetes",
+        "Tomcat"
+      ]
+    },
+    {
+      "name": "Datenbanken",
+      "items": [
+        "Oracle",
+        "PostgreSQL",
+        "MySQL",
+        "DB2"
+      ]
+    },
+    {
+      "name": "Methoden",
+      "items": [
+        "Agile (Scrum)",
+        "Domain-driven Design",
+        "Continuous Delivery",
+        "Java EE",
+        "Spring Boot"
+      ]
+    },
+    {
+      "name": "Testmanagement",
+      "items": [
+        "Jira",
+        "Confluence",
+        "Azure DevOps"
+      ]
+    }
+  ],
+  "certification_groups": [
+    {
+      "name": "Testing & Security",
+      "items": [
+        {
+          "label": "Spring Professional Certification (2018)",
+          "source_id": "cert_spring_professional_2018"
+        },
+        {
+          "label": "Oracle Certified Expert, Java EE 5 Web Component Developer (2011)",
+          "source_id": "cert_java_ee_2011"
+        },
+        {
+          "label": "Oracle Certified Professional, Java SE 6 Programmer (2007)",
+          "source_id": "cert_ocjp_2007"
+        }
+      ]
+    }
+  ],
+  "project_scores": {
+    "insurance-policy-core-2005": 18.0,
+    "telco-billing-integration-2008": 29.0,
+    "logistics-order-platform-2012": 26.0,
+    "bank-lending-suite-2015": 22.0,
+    "manufacturing-integration-hub-2019": 32.0,
+    "energy-trading-api-2023": 42.0,
+    "ecommerce-order-modernization-2025": 29.0
+  },
+  "certification_scores": {
+    "cert_ocjp_2007": 4.0,
+    "cert_java_ee_2011": 4.0,
+    "cert_spring_professional_2018": 8.0,
+    "cert_aws_developer_2022": 0.0
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "frontmatter": {
+    "document_type": "learning_path",
+    "language": "de",
+    "validated": true,
+    "person_id": "john-smith",
+    "full_name": "John Smith",
+    "job_title": "Senior Java Developer",
+    "variant": "",
+    "advisory": true
+  },
+  "body": {
+    "title": "Learning Path",
+    "sections": [
+      {
+        "title": "Naechster sinnvoller Schritt",
+        "body": "Der naechste logische Schritt ist eine Position in Richtung **Principal Java Developer**. Die staerksten Hebel dafuer liegen in Software Architecture, Distributed Systems, Technical Leadership, Modernization."
+      },
+      {
+        "title": "Wie Sie dorthin kommen",
+        "body": "Bauen Sie gezielt sichtbare Referenzen auf, die fachliche Tiefe und Wirkung kombinieren: ein belastbares Projektbeispiel, ein klarer fachlicher Schwerpunkt und eine sichtbare Rolle in Standards, Coaching oder Automatisierung."
+      },
+      {
+        "title": "Hilfreiche Zertifizierungen",
+        "body": "Priorisieren Sie Zertifizierungen oder Lernpfade wie AWS Certified Developer, Oracle Java SE 17 Developer, Spring Professional, Spring Professional Certification. Wichtig ist, dass jede Weiterbildung direkt in Projektpraxis oder Positionierung ueberfuehrt wird."
+      }
+    ]
+  }
+}

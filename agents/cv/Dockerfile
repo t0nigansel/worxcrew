@@ -22,6 +22,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # ── Python dependencies ──────────────────────────────────────
 COPY requirements-ci.txt /tmp/requirements-ci.txt
 RUN pip install --no-cache-dir -r /tmp/requirements-ci.txt \
+    && python -m playwright install --with-deps chromium \
     && rm /tmp/requirements-ci.txt
 
 WORKDIR /builds

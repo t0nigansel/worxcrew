@@ -1,0 +1,102 @@
+{
+  "source_bundle": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/john-smith/20260320-085216/source_bundle.json",
+  "metadata": {
+    "llm": {
+      "enabled": false
+    },
+    "person_id": "john-smith",
+    "run_id": "20260320-085216",
+    "variant": "",
+    "layout": "reference",
+    "language": "de",
+    "requested_outputs": {
+      "cv": true,
+      "project_history": false,
+      "cover_letter": true,
+      "interview_prep": false,
+      "style_guide": false,
+      "learning_path": true
+    }
+  },
+  "artifacts": {
+    "source_bundle": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/john-smith/20260320-085216/source_bundle.json",
+    "job_analysis": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/john-smith/20260320-085216/job_analysis.json",
+    "selection": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/john-smith/20260320-085216/selection.json",
+    "cv_content": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/john-smith/20260320-085216/cv_content.json",
+    "cv_markdown": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/john-smith/20260320-085216/cv.md",
+    "validation_report": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/john-smith/20260320-085216/validation_report.json",
+    "cv_html": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/john-smith/20260320-085216/cv.html",
+    "cover_letter_content": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/john-smith/20260320-085216/cover_letter_content.json",
+    "cover_letter_markdown": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/john-smith/20260320-085216/cover_letter.md",
+    "cover_letter_validation_report": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/john-smith/20260320-085216/cover_letter_validation_report.json",
+    "learning_path_content": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/john-smith/20260320-085216/learning_path_content.json",
+    "learning_path_markdown": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/john-smith/20260320-085216/learning_path.md"
+  },
+  "stages": [
+    {
+      "agent": "job_analyzer",
+      "warnings": [],
+      "artifacts": {
+        "job_analysis": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/john-smith/20260320-085216/job_analysis.json"
+      }
+    },
+    {
+      "agent": "evidence_selector",
+      "warnings": [],
+      "artifacts": {
+        "selection": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/john-smith/20260320-085216/selection.json"
+      }
+    },
+    {
+      "agent": "cv_writer",
+      "warnings": [],
+      "artifacts": {
+        "cv_content": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/john-smith/20260320-085216/cv_content.json",
+        "cv_markdown": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/john-smith/20260320-085216/cv.md"
+      }
+    },
+    {
+      "agent": "fact_checker",
+      "warnings": [],
+      "artifacts": {
+        "cv_content": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/john-smith/20260320-085216/cv_content.json",
+        "cv_markdown": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/john-smith/20260320-085216/cv.md",
+        "validation_report": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/john-smith/20260320-085216/validation_report.json"
+      }
+    },
+    {
+      "agent": "pdf_renderer",
+      "warnings": [
+        "Playwright is not installed. Install it with: 'pip install playwright' and 'python -m playwright install chromium'."
+      ],
+      "artifacts": {
+        "cv_html": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/john-smith/20260320-085216/cv.html"
+      }
+    },
+    {
+      "agent": "cover_letter_writer",
+      "warnings": [],
+      "artifacts": {
+        "cover_letter_content": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/john-smith/20260320-085216/cover_letter_content.json",
+        "cover_letter_markdown": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/john-smith/20260320-085216/cover_letter.md"
+      }
+    },
+    {
+      "agent": "cover_letter_validator",
+      "warnings": [],
+      "artifacts": {
+        "cover_letter_content": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/john-smith/20260320-085216/cover_letter_content.json",
+        "cover_letter_markdown": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/john-smith/20260320-085216/cover_letter.md",
+        "cover_letter_validation_report": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/john-smith/20260320-085216/cover_letter_validation_report.json"
+      }
+    },
+    {
+      "agent": "learning_path_writer",
+      "warnings": [],
+      "artifacts": {
+        "learning_path_content": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/john-smith/20260320-085216/learning_path_content.json",
+        "learning_path_markdown": "/Users/tonigansel/workspace/worxcrew/agents/cv/result/john-smith/20260320-085216/learning_path.md"
+      }
+    }
+  ]
+}

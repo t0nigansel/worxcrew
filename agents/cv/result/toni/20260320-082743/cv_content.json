@@ -1,0 +1,465 @@
+{
+  "frontmatter": {
+    "document_type": "cv",
+    "language": "de",
+    "validated": true,
+    "full_name": "Toni Gansel",
+    "headline": "Senior QA / Test Engineer",
+    "job_title": "Senior QA / Test Engineer",
+    "variant": "",
+    "layout": "reference",
+    "selected_project_ids": [
+      "ti-portal-2024-02",
+      "elektronische-patientenakte-2024-07",
+      "school-sh-2018-04",
+      "tms-2024-04",
+      "businessunit-ai-2017-07"
+    ],
+    "selected_certification_ids": [
+      "red_teaming_llm2025_10",
+      "cert_applied_chatgpt_cybersecurity_infosec_2024_05",
+      "real_world_ai_2026_01",
+      "cert_ai_for_everyone_dlai_2022_12",
+      "cert_genai_for_everyone_dlai_2023_11",
+      "cert_agentic_ai_dlai_2025_10",
+      "ai_leader__2025_10"
+    ],
+    "selected_experience_ids": [
+      "exp_rise_2024",
+      "exp_freelance_2018",
+      "exp_sogeti_2013"
+    ]
+  },
+  "body": {
+    "layout": "reference",
+    "full_name": "Toni Gansel",
+    "headline": "Senior QA / Test Engineer",
+    "contact_line": "Am Kirchbrunnen 18, 38446, Wolfsburg | +49 156 797 434 06 | toni.gansel@gmail.com",
+    "links": [
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/toni-gansel-814813245/"
+      },
+      {
+        "label": "GitHub",
+        "url": "https://github.com/tonileet"
+      }
+    ],
+    "profile": {
+      "summary": "Testingenieur mit rund 22+ Jahren Erfahrung in Softwareentwicklung, Qualitaetssicherung und Security Testing. Fokus fuer die Zielrolle: Security, AI, R, Application Security / Security Testing. Relevante Referenzen: TI-Portal,...",
+      "strengths": [
+        "Security",
+        "AI",
+        "R",
+        "Application Security / Security Testing"
+      ],
+      "goal": "Zielsetzung: Senior QA / Test Engineer mit Schwerpunkt auf Security, AI, R.",
+      "industries": [
+        "RISE",
+        "Dataport",
+        "Sogeti"
+      ],
+      "work_preferences": "100% Remote | Keine Reisebereitschaft",
+      "variant_focus": ""
+    },
+    "featured_projects": [
+      {
+        "project_id": "ti-portal-2024-02",
+        "name": "TI-Portal",
+        "client": "RISE",
+        "role": "Test Automation Engineer",
+        "period": "02/2024 - 05/2024",
+        "summary": "Mentoring und Einarbeitung mehrerer Junior Tester; Aufbau einer automatisierten Testpipeline mit GitLab CI/CD",
+        "context": "TI-Portal ist eine E-Commerce-Plattform innerhalb der RISE-Telematikinfrastruktur, auf der verschiedene Anbieter ihre Produkte und Services anbieten können....",
+        "detail_points": [
+          "Mentoring und Einarbeitung mehrerer Junior Tester",
+          "Aufbau einer automatisierten Testpipeline mit GitLab CI/CD",
+          "Integration der Tests in Testpipeline und Zephyr Scale"
+        ],
+        "tools": "Selenium, Cypress, Cucumber, GitLab",
+        "badges": [
+          {
+            "label": "Test automation",
+            "tone": "badge-automation"
+          },
+          {
+            "label": "Test management",
+            "tone": "badge-neutral"
+          },
+          {
+            "label": "Programming",
+            "tone": "badge-neutral"
+          },
+          {
+            "label": "CI/CD",
+            "tone": "badge-automation"
+          },
+          {
+            "label": "Mentoring/Leadership",
+            "tone": "badge-neutral"
+          }
+        ],
+        "badge_label": "Test automation",
+        "badge_tone": "badge-automation"
+      },
+      {
+        "project_id": "elektronische-patientenakte-2024-07",
+        "name": "Elektronische Patientenakte (EPA)",
+        "client": "RISE",
+        "role": "Performance Tester",
+        "period": "01/2024 - 01/2026",
+        "summary": "Planung der Entwicklung eines Lasttests mit Jira; Automatisierte Erstellung von Lasttestberichten mit R",
+        "context": "Im Rahmen der Einführung der Elektronischen Patientenakte (EPA) war ich als Performance Tester verantwortlich für die Planung, Entwicklung und Auswertung...",
+        "detail_points": [
+          "Planung der Entwicklung eines Lasttests mit Jira",
+          "Automatisierte Erstellung von Lasttestberichten mit R",
+          "Entwicklung eines JMeter Testplans mit Zugriff auf eine selbstentwickelte Java Bibliothek via Groovy"
+        ],
+        "tools": "JMeter, Groovy, Kubernetes, GitLab",
+        "badges": [
+          {
+            "label": "Load tests",
+            "tone": "badge-performance"
+          },
+          {
+            "label": "Test management",
+            "tone": "badge-neutral"
+          },
+          {
+            "label": "AI",
+            "tone": "badge-ai"
+          },
+          {
+            "label": "Programming",
+            "tone": "badge-neutral"
+          },
+          {
+            "label": "CI/CD",
+            "tone": "badge-automation"
+          }
+        ],
+        "badge_label": "Load tests",
+        "badge_tone": "badge-performance"
+      },
+      {
+        "project_id": "school-sh-2018-04",
+        "name": "school-SH",
+        "client": "Dataport",
+        "role": "Security Tester / Test Manager",
+        "period": "07/2019 - 06/2022",
+        "summary": "Projektbegleitende Schulungen zu Security und Testing; Aufbau einer automatisierten Testpipeline in Jenkins",
+        "context": "School-SH ist eine landesweit eingesetzte Schulverwaltungssoftware des Landes Schleswig-Holstein zur Verwaltung zentraler schulischer Daten. Die Webanwendung...",
+        "detail_points": [
+          "Projektbegleitende Schulungen zu Security und Testing",
+          "Aufbau einer automatisierten Testpipeline in Jenkins",
+          "Sicherheits-, Last- und Regressionstests mit OWASP ZAP, JMeter und Selenium"
+        ],
+        "tools": "Jira, Jenkins, SonarQube, Tomcat",
+        "badges": [
+          {
+            "label": "Security",
+            "tone": "badge-security"
+          },
+          {
+            "label": "Load tests",
+            "tone": "badge-performance"
+          },
+          {
+            "label": "Test automation",
+            "tone": "badge-automation"
+          },
+          {
+            "label": "Test management",
+            "tone": "badge-neutral"
+          },
+          {
+            "label": "CI/CD",
+            "tone": "badge-automation"
+          }
+        ],
+        "badge_label": "Security",
+        "badge_tone": "badge-security"
+      }
+    ],
+    "experiences": [
+      {
+        "experience_id": "exp_rise_2024",
+        "role": "Test Engineer",
+        "company": "RISE GmbH",
+        "period": "02/2024 - 02/2026",
+        "roles_held": [
+          "Test Automation Engineer",
+          "Test Manager"
+        ],
+        "project_names": [
+          "TI-Portal",
+          "TMS",
+          "Elektronische Patientenakte (EPA)",
+          "EMMA"
+        ],
+        "focus_text": "Performance- und E2E-Tests verteilter Systeme · Lasttest-Frameworks auf Kubernetes · Mentoring und Testautomatisierung",
+        "source_ids": [
+          "exp_rise_2024",
+          "ti-portal-2024-02",
+          "tms-2024-04",
+          "elektronische-patientenakte-2024-07",
+          "emma-2024-06"
+        ],
+        "highlights": []
+      },
+      {
+        "experience_id": "exp_freelance_2018",
+        "role": "Test Engineer",
+        "company": "Freiberufler",
+        "period": "04/2018 - 02/2024",
+        "roles_held": [
+          "Security Tester",
+          "Test Manager"
+        ],
+        "project_names": [
+          "school-SH",
+          "DiViS",
+          "HSK API Tests",
+          "Login, Checkout"
+        ],
+        "focus_text": "Risikobasierte Teststrategien · Security- und Lasttests · CI/CD-nahe Qualitätssicherung",
+        "source_ids": [
+          "exp_freelance_2018",
+          "school-sh-2018-04",
+          "divis-2018-04",
+          "hsk-api-tests-2023-05",
+          "logout-checkout-2019-01"
+        ],
+        "highlights": []
+      },
+      {
+        "experience_id": "exp_sogeti_2013",
+        "role": "Test Engineer",
+        "company": "Sogeti Deutschland",
+        "period": "05/2013 - 02/2018",
+        "roles_held": [
+          "Test Manager",
+          "Security Tester"
+        ],
+        "project_names": [
+          "BusinessUnit Security",
+          "Pentest",
+          "SAST Integration",
+          "HSMS"
+        ],
+        "focus_text": "Penetrationstests und Regressionstests · Koordination von Testteams · Fachpublikationen",
+        "source_ids": [
+          "exp_sogeti_2013",
+          "businessunit-ai-2017-07",
+          "pentest-2015-02",
+          "sast-integration-2015-01",
+          "hsms-2015-06"
+        ],
+        "highlights": []
+      },
+      {
+        "experience_id": "exp_itc_2012",
+        "role": "Softwareentwickler",
+        "company": "ITC Automotive",
+        "period": "06/2012 - 05/2013",
+        "roles_held": [],
+        "project_names": [],
+        "focus_text": "JEE-Entwicklung · Performance-Optimierung",
+        "source_ids": [
+          "exp_itc_2012"
+        ],
+        "highlights": []
+      },
+      {
+        "experience_id": "exp_corporate_planning_2011",
+        "role": "Test Engineer",
+        "company": "Corporate Planning",
+        "period": "04/2011 - 05/2012",
+        "roles_held": [],
+        "project_names": [],
+        "focus_text": "Keyword-basierte Tests · Manuelle Tests",
+        "source_ids": [
+          "exp_corporate_planning_2011"
+        ],
+        "highlights": []
+      },
+      {
+        "experience_id": "exp_logica_2004",
+        "role": "Softwareentwickler",
+        "company": "Logica CMG",
+        "period": "07/2004 - 12/2006",
+        "roles_held": [],
+        "project_names": [],
+        "focus_text": "JEE-Entwicklung · Build-Automatisierung · Serveradministration",
+        "source_ids": [
+          "exp_logica_2004"
+        ],
+        "highlights": []
+      }
+    ],
+    "sidebar": {
+      "focus_areas": [
+        "Application Security Testing",
+        "Performance & Load Testing",
+        "Testmanagement & Teststrategie",
+        "Risikobasiertes Testen"
+      ],
+      "standards": [
+        "ISTQB",
+        "OWASP",
+        "BSI"
+      ],
+      "work_preferences": "100% Remote | Keine Reisebereitschaft",
+      "technology_groups": [
+        {
+          "name": "Testtools",
+          "items": [
+            "JMeter",
+            "Selenium",
+            "OWASP ZAP",
+            "Burp Suite",
+            "Ranorex",
+            "SonarQube",
+            "JUnit",
+            "Cypress"
+          ]
+        },
+        {
+          "name": "Security",
+          "items": [
+            "Nmap",
+            "Kali Linux",
+            "Nessus"
+          ]
+        },
+        {
+          "name": "AI & LLM Security",
+          "items": [
+            "AI Security",
+            "AI Agents",
+            "Red Teaming",
+            "LLM-gestuetzte Testplanung"
+          ]
+        },
+        {
+          "name": "Programmierung",
+          "items": [
+            "Java",
+            "Python",
+            "SQL",
+            "JavaScript",
+            "Groovy",
+            "XML"
+          ]
+        },
+        {
+          "name": "Infrastruktur & CI/CD",
+          "items": [
+            "Git",
+            "SVN",
+            "Jenkins",
+            "Docker",
+            "Kubernetes",
+            "Maven",
+            "ANT"
+          ]
+        },
+        {
+          "name": "Datenbanken",
+          "items": [
+            "MySQL",
+            "DB2",
+            "Oracle",
+            "PostgreSQL"
+          ]
+        },
+        {
+          "name": "Methoden",
+          "items": [
+            "Agile (Scrum)",
+            "DevSecOps",
+            "Risikobasiertes Testen",
+            "ISTQB",
+            "OWASP"
+          ]
+        },
+        {
+          "name": "Testmanagement",
+          "items": [
+            "Jira",
+            "Microsoft Teams",
+            "Team Foundation Server",
+            "Visio"
+          ]
+        }
+      ],
+      "certification_groups": [
+        {
+          "name": "AI Security & AI Testing",
+          "items": [
+            {
+              "label": "Red Teaming LLM Applications (2025)",
+              "source_id": "red_teaming_llm2025_10"
+            },
+            {
+              "label": "Applied ChatGPT for Cybersecurity (2024)",
+              "source_id": "cert_applied_chatgpt_cybersecurity_infosec_2024_05"
+            },
+            {
+              "label": "Real-World AI for Everyone (2026)",
+              "source_id": "real_world_ai_2026_01"
+            }
+          ]
+        }
+      ],
+      "education": [
+        {
+          "institution": "Universität Hamburg",
+          "program": "Studium der Sozialökonomie",
+          "period": "2007 - 2012",
+          "source_id": "edu_uni_hamburg_soziooekonomie"
+        },
+        {
+          "institution": "Logica CMG",
+          "program": "Ausbildung zum Fachinformatiker AE",
+          "period": "2001 - 2004",
+          "source_id": "edu_logica_fiae"
+        }
+      ],
+      "languages": [
+        {
+          "name": "Deutsch",
+          "level": "Muttersprache"
+        },
+        {
+          "name": "Englisch",
+          "level": "Verhandlungssicher"
+        }
+      ],
+      "clients": [
+        "RISE",
+        "Dataport",
+        "Sogeti"
+      ],
+      "availability": "April 2026"
+    },
+    "portrait_path": "/Users/tonigansel/workspace/worxcrew/agents/cv/people/toni/portrait.jpeg",
+    "footer_keywords": [
+      "#Security",
+      "#AI",
+      "#R",
+      "#Application Security / Security Testing",
+      "#Senior QA / Test Engineer",
+      "#Test Automation Engineer",
+      "#JMeter",
+      "#Selenium",
+      "#OWASP ZAP",
+      "#Burp Suite",
+      "#Ranorex",
+      "#SonarQube",
+      "#JUnit",
+      "#Cypress",
+      "#Nmap"
+    ]
+  }
+}

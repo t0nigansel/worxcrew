@@ -1,0 +1,275 @@
+{
+  "schema_version": "1.0",
+  "person": {
+    "name": {
+      "first": "John",
+      "last": "Smith",
+      "full": "John Smith"
+    },
+    "birth_date": "1981-09-12",
+    "nationality": "DE",
+    "locations": [
+      {
+        "city": "Frankfurt am Main",
+        "country": "DE",
+        "type": "base",
+        "address": {
+          "street": "Mainzer Landstrasse 120",
+          "postal_code": "60327",
+          "city": "Frankfurt am Main",
+          "country": "DE"
+        }
+      }
+    ],
+    "contact": {
+      "emails": [
+        "john.smith.dev@example.com"
+      ],
+      "phones": [
+        "+49 69 1234 5678"
+      ]
+    },
+    "links": {
+      "linkedin": "https://www.linkedin.com/in/john-smith-java-architect",
+      "github": "https://github.com/johnsmith-java"
+    }
+  },
+  "branding": {
+    "headline": "Senior Java Softwareentwickler mit Fokus auf Backend-Systeme, Integration und stabile Plattformen",
+    "tagline": "Long-term Java engineering for critical business systems",
+    "summary": [
+      "Ich entwickle seit 22 Jahren Java-Backends fuer unterschiedliche Branchen und komplexe Fachprozesse.",
+      "Ich kombiniere solide Softwarearchitektur mit pragmatischer Lieferfaehigkeit in Kundenprojekten.",
+      "Ich uebernehme Verantwortung fuer technische Entscheidungen, Codequalitaet und Teamfuehrung."
+    ],
+    "focus_areas": [
+      "Java Backend-Entwicklung",
+      "Spring-basierte Unternehmensanwendungen",
+      "API-Design und Systemintegration",
+      "Modernisierung von Altsystemen",
+      "Technische Teamfuehrung",
+      "Performante transaktionale Systeme"
+    ],
+    "standards_and_frameworks": [
+      "Java EE",
+      "Spring Boot",
+      "REST"
+    ]
+  },
+  "experience": [
+    {
+      "id": "exp_consulting_2003",
+      "company": "Pioneer Consulting GmbH",
+      "role": "Java Developer",
+      "start": "2003-02",
+      "end": "2009-06",
+      "summary": [
+        "Java-Entwicklung in Kundenprojekten fuer Versicherung und Telekommunikation",
+        "Technische Umsetzung von Backend-Fachlogik und Integrationen",
+        "Wartung und Erweiterung grosser Unternehmensanwendungen"
+      ]
+    },
+    {
+      "id": "exp_lead_dev_2009",
+      "company": "Hanse Digital Solutions GmbH",
+      "role": "Lead Java Developer",
+      "start": "2009-07",
+      "end": "2016-12",
+      "summary": [
+        "Lead Developer fuer produktionskritische Java-Plattformen",
+        "Technische Steuerung kleiner Entwicklungsteams",
+        "Modernisierung von Legacy-Systemen und Aufbau stabiler CI-Prozesse"
+      ]
+    },
+    {
+      "id": "exp_platform_2017",
+      "company": "Nordkraft Systeme AG",
+      "role": "Lead Software Developer",
+      "start": "2017-01",
+      "end": "2020-12",
+      "summary": [
+        "Leitung der Backend-Entwicklung fuer integrierte Unternehmensplattformen",
+        "Architekturentscheidungen fuer Java- und Integrationslandschaften",
+        "Coaching von Entwicklern und Abstimmung mit Fachbereichen"
+      ]
+    },
+    {
+      "id": "exp_freelance_2021",
+      "company": "Smith Software Consulting",
+      "role": "Freelance Senior Java Developer",
+      "start": "2021-01",
+      "end": "2026-03",
+      "summary": [
+        "Freiberufliche Java-Entwicklung fuer unterschiedliche Endkunden",
+        "Technische Beratung, API-Design und Modernisierung bestehender Systeme",
+        "Umsetzung komplexer Anforderungen mit Fokus auf Wartbarkeit und Lieferfaehigkeit"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "id": "edu_fh_darmstadt_cs",
+      "institution": "Hochschule Darmstadt",
+      "program": "Informatik",
+      "start": "2000-10",
+      "end": "2003-01"
+    }
+  ],
+  "availability": {
+    "available_from": "2026-05-01"
+  },
+  "languages": [
+    {
+      "name": "Deutsch",
+      "level": "Muttersprache"
+    },
+    {
+      "name": "Englisch",
+      "level": "Verhandlungssicher"
+    }
+  ],
+  "work_preferences": {
+    "remote_only": false,
+    "travel_willingness": "gelegentlich innerhalb Deutschlands"
+  },
+  "presentation_preferences": {
+    "preferred_colors": [
+      "Navy",
+      "White",
+      "Charcoal"
+    ],
+    "avoid": [
+      "bold prints",
+      "too casual hoodies"
+    ],
+    "wardrobe_notes": [
+      "A clean technical-professional look fits best.",
+      "Structured jackets and classic shirts work well in conservative environments."
+    ]
+  },
+  "career_preferences": {
+    "target_roles": [
+      "Principal Java Developer",
+      "Software Architect",
+      "Lead Backend Engineer"
+    ],
+    "priority_focus": [
+      "Software Architecture",
+      "Distributed Systems",
+      "Technical Leadership",
+      "Modernization"
+    ],
+    "certification_interests": [
+      "AWS Certified Developer",
+      "Oracle Java SE 17 Developer",
+      "Spring Professional"
+    ]
+  },
+  "skills": {
+    "testing_tools": [
+      "JUnit",
+      "Mockito",
+      "Testcontainers",
+      "Postman"
+    ],
+    "security_tools": [
+      "SonarQube",
+      "OWASP Dependency-Check"
+    ],
+    "programming_languages": [
+      "Java",
+      "SQL",
+      "XML",
+      "Bash"
+    ],
+    "databases": [
+      "Oracle",
+      "PostgreSQL",
+      "MySQL",
+      "DB2"
+    ],
+    "platforms_and_infra": [
+      "Git",
+      "Maven",
+      "Gradle",
+      "Jenkins",
+      "Docker",
+      "Kubernetes",
+      "Tomcat",
+      "Kafka"
+    ],
+    "methods": [
+      "Agile (Scrum)",
+      "Domain-driven Design",
+      "Continuous Delivery"
+    ],
+    "test_management_tools": [
+      "Jira",
+      "Confluence",
+      "Azure DevOps"
+    ]
+  },
+  "references": {
+    "certifications_file": "./cert.json",
+    "projects_file": "./projekte.json"
+  },
+  "notes_for_cv_generation": {
+    "preferred_roles": [
+      "Senior Java Developer",
+      "Lead Backend Developer",
+      "Software Architect",
+      "Principal Software Engineer"
+    ],
+    "positioning_keywords": [
+      "Java",
+      "Backend",
+      "Spring",
+      "Integration",
+      "Architecture",
+      "Lead Developer",
+      "Modernization"
+    ],
+    "cv_variants": {
+      "backend_architecture": {
+        "title": "Lead Java Backend Developer",
+        "headline": "Java Backend Engineering mit Fokus auf Architektur, Integration und stabile Lieferfaehigkeit",
+        "summary_focus": "Enterprise Java, API-Design, Systemintegration und Modernisierung langlebiger Plattformen",
+        "keywords": [
+          "Java",
+          "Spring Boot",
+          "REST APIs",
+          "Architecture",
+          "Integration",
+          "Modernization"
+        ],
+        "preferred_roles": [
+          "Lead Backend Developer",
+          "Senior Java Developer",
+          "Software Architect"
+        ],
+        "preferred_project_ids": [
+          "insurance-policy-core-2005",
+          "telco-billing-integration-2008",
+          "logistics-order-platform-2012",
+          "bank-lending-suite-2015",
+          "manufacturing-integration-hub-2019",
+          "energy-trading-api-2023"
+        ],
+        "preferred_certification_ids": [
+          "cert_ocjp_2007",
+          "cert_spring_professional_2018",
+          "cert_aws_developer_2022"
+        ],
+        "technology_group_priority": [
+          "programming_languages",
+          "platforms_and_infra",
+          "databases",
+          "methods",
+          "testing_tools",
+          "security_tools",
+          "test_management_tools"
+        ]
+      }
+    }
+  }
+}

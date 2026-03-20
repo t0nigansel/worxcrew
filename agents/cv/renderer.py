@@ -1,13 +1,13 @@
 from __future__ import annotations
 
-import subprocess
+import traceback
 from pathlib import Path
 from typing import Any, Dict
 
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 from .models import CVContent
-from .utils import latex_escape, split_frontmatter, write_text
+from .utils import split_frontmatter, write_text
 
 
 DEFAULT_LAYOUT = "reference"
@@ -20,23 +20,6 @@ def _html_environment(template_dir: Path) -> Environment:
         trim_blocks=True,
         lstrip_blocks=True,
     )
-    return environment
-
-
-def _latex_environment(template_dir: Path) -> Environment:
-    environment = Environment(
-        loader=FileSystemLoader(str(template_dir)),
-        autoescape=False,
-        trim_blocks=True,
-        lstrip_blocks=True,
-        block_start_string="[%",
-        block_end_string="%]",
-        variable_start_string="[[",
-        variable_end_string="]]",
-        comment_start_string="[#",
-        comment_end_string="#]",
-    )
-    environment.filters["latex_escape"] = latex_escape
     return environment
 
 
@@ -66,40 +49,63 @@ def render_html(content: CVContent, template_dir: Path, output_path: Path) -> Pa
     return write_text(output_path, html)
 
 
+def _render_pdf_with_playwright(html_path: Path, pdf_path: Path, log_path: Path) -> Dict[str, str]:
+    try:
+        from playwright.sync_api import sync_playwright
+    except ImportError as error:
+        raise RuntimeError(
+            "Playwright is not installed. Install it with: "
+            "'pip install playwright' and 'python -m playwright install chromium'."
+        ) from error
+
+    try:
+        with sync_playwright() as playwright:
+            browser = playwright.chromium.launch()
+            page = browser.new_page(viewport={"width": 1240, "height": 1754})
+            page.goto(html_path.resolve().as_uri(), wait_until="networkidle")
+            page.emulate_media(media="screen")
+            page.pdf(
+                path=str(pdf_path),
+                width="210mm",
+                height="297mm",
+                print_background=True,
+                display_header_footer=False,
+                margin={
+                    "top": "0mm",
+                    "right": "0mm",
+                    "bottom": "0mm",
+                    "left": "0mm",
+                },
+                prefer_css_page_size=True,
+            )
+            browser.close()
+    except Exception as error:
+        log_path.write_text(traceback.format_exc(), encoding="utf-8")
+        raise RuntimeError(f"Playwright PDF rendering failed. See {log_path}") from error
+
+    log_path.write_text(
+        "PDF engine: playwright/chromium\n"
+        "Source: HTML\n"
+        "Headers/footers: disabled\n"
+        "Backgrounds: enabled\n",
+        encoding="utf-8",
+    )
+    return {
+        "pdf": str(pdf_path),
+        "log": str(log_path),
+    }
+
+
 def render_pdf(content: CVContent, markdown_path: Path, template_dir: Path, output_dir: Path) -> Dict[str, str]:
     output_dir.mkdir(parents=True, exist_ok=True)
     frontmatter, _ = split_frontmatter(markdown_path.read_text(encoding="utf-8"))
     if not frontmatter.get("validated"):
         raise RuntimeError("PDF rendering requires a validated markdown file.")
 
-    environment = _latex_environment(template_dir)
-    assets = _layout_assets(content.frontmatter.get("layout"))
-    template = environment.get_template(assets["pdf_template"])
-    tex_path = output_dir / "cv.tex"
     pdf_path = output_dir / "cv.pdf"
-    log_path = output_dir / "cv.xelatex.log"
+    log_path = output_dir / "cv.playwright.log"
+    html_path = output_dir / "cv.html"
+    if not html_path.exists():
+        render_html(content, template_dir, html_path)
 
-    tex_path.write_text(
-        template.render(content=content.body, frontmatter=content.frontmatter),
-        encoding="utf-8",
-    )
-
-    command = [
-        "xelatex",
-        "-interaction=nonstopmode",
-        "-halt-on-error",
-        "-output-directory",
-        str(output_dir),
-        str(tex_path),
-    ]
-
-    process = subprocess.run(command, capture_output=True, text=True)
-    log_path.write_text(process.stdout + "\n\nSTDERR\n\n" + process.stderr, encoding="utf-8")
-    if process.returncode != 0 or not pdf_path.exists():
-        raise RuntimeError(f"xelatex failed. See {log_path}")
-
-    return {
-        "tex": str(tex_path),
-        "pdf": str(pdf_path),
-        "log": str(log_path),
-    }
+    return _render_pdf_with_playwright(html_path, pdf_path, log_path)

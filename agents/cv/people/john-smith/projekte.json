@@ -1,0 +1,308 @@
+[
+  {
+    "id": "insurance-policy-core-2005",
+    "name": "Policy Administration Core",
+    "role": "Java Developer",
+    "period": {
+      "start": "2004-03",
+      "end": "2006-11"
+    },
+    "client": "NordVersicherung AG",
+    "employer": "Pioneer Consulting GmbH",
+    "related_experience_id": "exp_consulting_2003",
+    "methodology": "Klassische Enterprise-Entwicklung mit iterativen Releases",
+    "description": "Weiterentwicklung eines Java-basierten Policenverwaltungssystems fuer Vertragsverwaltung, Tarifierung und Bestandspflege.",
+    "responsibilities": [
+      {
+        "title": "Implementierung fachlicher Backend-Logik",
+        "description": "Ich entwickelte fachliche Services fuer Tarifierung, Vertragsaenderungen und Bestandspruefungen in einer grossen Java-EE-Anwendung."
+      },
+      {
+        "title": "Integration mit Host- und Drucksystemen",
+        "description": "Ich band externe Systeme fuer Dokumentenerzeugung und Bestandsdaten ueber definierte Schnittstellen und Batch-Prozesse an."
+      },
+      {
+        "title": "Fehleranalyse im Produktivbetrieb",
+        "description": "Ich analysierte produktionsnahe Fehlerbilder, reproduzierte Probleme anhand von Logs und lieferte belastbare Korrekturen aus."
+      }
+    ],
+    "tools": [
+      "Java",
+      "EJB",
+      "Oracle",
+      "JSP",
+      "Maven",
+      "JUnit",
+      "Tomcat"
+    ],
+    "system_purpose": "Zentrales Versicherungssystem fuer Policenverwaltung, Tariflogik und Vertragsaenderungen in einer Fachanwendung mit hohem Transaktionsvolumen.",
+    "badges": [
+      "Programming",
+      "API testing",
+      "Delivery"
+    ]
+  },
+  {
+    "id": "telco-billing-integration-2008",
+    "name": "Billing Integration Platform",
+    "role": "Senior Java Developer",
+    "period": {
+      "start": "2007-01",
+      "end": "2009-06"
+    },
+    "client": "TeleCom Nord",
+    "employer": "Pioneer Consulting GmbH",
+    "related_experience_id": "exp_consulting_2003",
+    "methodology": "Agile Delivery mit kurzen Integrationszyklen",
+    "description": "Backend-Entwicklung fuer eine Integrationsplattform zwischen CRM, Auftragsverwaltung und Billing.",
+    "responsibilities": [
+      {
+        "title": "Entwicklung robuster Integrationsservices",
+        "description": "Ich implementierte Java-Services fuer Auftragsdaten, Statusrueckmeldungen und Billing-Events zwischen mehreren Kernsystemen."
+      },
+      {
+        "title": "Optimierung von Batch-Verarbeitung",
+        "description": "Ich reduzierte Laufzeiten bestehender Batch-Prozesse durch gezielte Refactorings und Datenbankoptimierungen."
+      },
+      {
+        "title": "Technische Abstimmung mit Kundenteams",
+        "description": "Ich klaerte Schnittstellenfragen mit CRM-, Billing- und Betriebsteams und uebersetzte diese in umsetzbare technische Arbeitspakete."
+      }
+    ],
+    "tools": [
+      "Java",
+      "Spring",
+      "Oracle",
+      "JMS",
+      "JUnit",
+      "Jenkins",
+      "Git"
+    ],
+    "system_purpose": "Sicherstellung konsistenter Datenfluesse zwischen Vertriebs-, Kunden- und Abrechnungssystemen in einer Telekommunikationslandschaft.",
+    "badges": [
+      "Automation",
+      "Programming",
+      "CI/CD"
+    ]
+  },
+  {
+    "id": "logistics-order-platform-2012",
+    "name": "Logistics Order Platform",
+    "role": "Lead Java Developer",
+    "period": {
+      "start": "2010-02",
+      "end": "2013-08"
+    },
+    "client": "CargoFlow GmbH",
+    "employer": "Hanse Digital Solutions GmbH",
+    "related_experience_id": "exp_lead_dev_2009",
+    "methodology": "Scrum mit kontinuierlicher Auslieferung",
+    "description": "Modernisierung einer Auftragsplattform fuer Transportauftraege, Statusmeldungen und Partneranbindungen.",
+    "responsibilities": [
+      {
+        "title": "Technische Leitung des Backend-Teams",
+        "description": "Ich priorisierte technische Arbeitspakete, reviewte Loesungen und stellte eine saubere Architektur im Team sicher."
+      },
+      {
+        "title": "Einfuehrung von Spring-basierter Modulstruktur",
+        "description": "Ich fuehrte eine klarere Service- und Integrationsstruktur ein, um Wartbarkeit und Liefergeschwindigkeit zu verbessern."
+      },
+      {
+        "title": "API-Design fuer Partneranbindungen",
+        "description": "Ich spezifizierte und implementierte REST- und Messaging-Schnittstellen fuer Logistikpartner und interne Systeme."
+      }
+    ],
+    "tools": [
+      "Java",
+      "Spring",
+      "REST",
+      "PostgreSQL",
+      "Jenkins",
+      "JUnit",
+      "Mockito",
+      "Git"
+    ],
+    "system_purpose": "Plattform fuer die Bearbeitung und Nachverfolgung logistischer Auftraege mit mehreren internen und externen Integrationen.",
+    "badges": [
+      "Programming",
+      "Automation",
+      "CI/CD"
+    ]
+  },
+  {
+    "id": "bank-lending-suite-2015",
+    "name": "Digital Lending Suite",
+    "role": "Lead Java Developer",
+    "period": {
+      "start": "2013-09",
+      "end": "2016-12"
+    },
+    "client": "Mainbank AG",
+    "employer": "Hanse Digital Solutions GmbH",
+    "related_experience_id": "exp_lead_dev_2009",
+    "methodology": "Regulatorisch gepruefte Enterprise-Entwicklung",
+    "description": "Weiterentwicklung einer digitalen Kreditplattform fuer Antrag, Pruefung, Entscheidung und Vertragsabschluss.",
+    "responsibilities": [
+      {
+        "title": "Architektur fuer fachliche Kernservices",
+        "description": "Ich verantwortete die technische Struktur zentraler Java-Services fuer Kreditpruefung, Dokumente und Entscheidungsprozesse."
+      },
+      {
+        "title": "Qualitaetssicherung im Entwicklungsprozess",
+        "description": "Ich etablierte Standards fuer Reviews, Tests und Deployments, um stabile Releases in einem regulierten Umfeld zu sichern."
+      },
+      {
+        "title": "Enge Zusammenarbeit mit Fachbereich und Betrieb",
+        "description": "Ich uebersetzte fachliche Anforderungen in technische Designs und begleitete Rollouts gemeinsam mit Infrastruktur- und Fachteams."
+      }
+    ],
+    "tools": [
+      "Java",
+      "Spring Boot",
+      "Oracle",
+      "Docker",
+      "Jenkins",
+      "SonarQube",
+      "JUnit",
+      "Git"
+    ],
+    "system_purpose": "Bankfachliche Plattform fuer digitale Kreditprozesse mit hohen Anforderungen an Stabilitaet, Nachvollziehbarkeit und Integration.",
+    "badges": [
+      "Programming",
+      "Security",
+      "Delivery"
+    ]
+  },
+  {
+    "id": "manufacturing-integration-hub-2019",
+    "name": "Manufacturing Integration Hub",
+    "role": "Lead Software Developer",
+    "period": {
+      "start": "2017-02",
+      "end": "2020-12"
+    },
+    "client": "Nordkraft Industrie AG",
+    "employer": "Nordkraft Systeme AG",
+    "related_experience_id": "exp_platform_2017",
+    "methodology": "Agile Plattformentwicklung mit starkem Integrationsfokus",
+    "description": "Zentrale Java-Plattform fuer Datenaustausch zwischen ERP, Produktionssteuerung und Reporting.",
+    "responsibilities": [
+      {
+        "title": "Aufbau einer Integrationsarchitektur",
+        "description": "Ich definierte eine wartbare Java- und Messaging-Architektur fuer die Anbindung heterogener Produktions- und Fachsysteme."
+      },
+      {
+        "title": "Coaching von Entwicklern",
+        "description": "Ich unterstuetzte ein Team bei Architekturentscheidungen, Refactoring und Codequalitaet in einer langfristigen Plattformentwicklung."
+      },
+      {
+        "title": "Modernisierung bestehender Module",
+        "description": "Ich loeste kritische Altsystemteile schrittweise in moderne Spring-Boot-Services auf, ohne den Betrieb zu gefaehrden."
+      }
+    ],
+    "tools": [
+      "Java",
+      "Spring Boot",
+      "Kafka",
+      "PostgreSQL",
+      "Docker",
+      "Kubernetes",
+      "Testcontainers",
+      "GitLab"
+    ],
+    "system_purpose": "Integrationsplattform fuer stabile Daten- und Prozessfluesse zwischen Produktionssystemen und kaufmaennischen Kernanwendungen.",
+    "badges": [
+      "Programming",
+      "Automation",
+      "Performance"
+    ]
+  },
+  {
+    "id": "energy-trading-api-2023",
+    "name": "Energy Trading API Platform",
+    "role": "Freelance Senior Java Developer",
+    "period": {
+      "start": "2021-03",
+      "end": "2023-12"
+    },
+    "client": "EnerTrade Systems",
+    "employer": "Smith Software Consulting",
+    "related_experience_id": "exp_freelance_2021",
+    "methodology": "Iterative API- und Plattformentwicklung",
+    "description": "Freiberufliche Entwicklung einer Java-API-Plattform fuer Handel, Reporting und Partnerintegration im Energiesektor.",
+    "responsibilities": [
+      {
+        "title": "Implementierung performanter REST-Services",
+        "description": "Ich entwickelte robuste Spring-Boot-Services fuer Handelsdaten, Reporting-Workflows und Partneranbindungen."
+      },
+      {
+        "title": "Einbindung externer Handelspartner",
+        "description": "Ich implementierte Schnittstellen und Validierungslogik fuer den sicheren Datenaustausch mit externen Partnern."
+      },
+      {
+        "title": "Technische Beratung des Kunden",
+        "description": "Ich beriet den Kunden zu Architekturentscheidungen, API-Schnittzuschnitten und schrittweiser Modernisierung des Bestands."
+      }
+    ],
+    "tools": [
+      "Java",
+      "Spring Boot",
+      "REST",
+      "PostgreSQL",
+      "Docker",
+      "Kubernetes",
+      "JUnit",
+      "Mockito"
+    ],
+    "system_purpose": "API- und Backend-Plattform fuer Handelsdaten, Partnerintegration und Auswertung in einem dynamischen Energiemarkt.",
+    "badges": [
+      "Programming",
+      "API testing",
+      "Automation"
+    ]
+  },
+  {
+    "id": "ecommerce-order-modernization-2025",
+    "name": "Order Management Modernization",
+    "role": "Freelance Lead Java Developer",
+    "period": {
+      "start": "2024-01",
+      "end": "2026-03"
+    },
+    "client": "RetailScale Commerce",
+    "employer": "Smith Software Consulting",
+    "related_experience_id": "exp_freelance_2021",
+    "methodology": "Schrittweise Modernisierung im laufenden Betrieb",
+    "description": "Modernisierung eines Bestands-Order-Management-Systems mit Fokus auf Java-Backends, APIs und Betriebssicherheit.",
+    "responsibilities": [
+      {
+        "title": "Refactoring kritischer Order-Services",
+        "description": "Ich zerlegte schwer wartbare Legacy-Komponenten in klarere Java-Services mit besserer Testbarkeit und Nachvollziehbarkeit."
+      },
+      {
+        "title": "Einfuehrung technischer Leitplanken",
+        "description": "Ich definierte Standards fuer Codequalitaet, Branching, Build-Pipelines und API-Verhalten fuer ein verteiltes Team."
+      },
+      {
+        "title": "Begleitung fachlicher Migrationen",
+        "description": "Ich plante gemeinsam mit Fachbereichen und Entwicklung die technische Migration kritischer Auftragsprozesse ohne Unterbrechung des Tagesgeschaefts."
+      }
+    ],
+    "tools": [
+      "Java",
+      "Spring Boot",
+      "MySQL",
+      "Docker",
+      "Jenkins",
+      "SonarQube",
+      "Testcontainers",
+      "Git"
+    ],
+    "system_purpose": "Bestandsplattform fuer Auftragsverwaltung und Fulfillment, die unter laufendem Geschaeft modernisiert und technisch stabilisiert wurde.",
+    "badges": [
+      "Programming",
+      "CI/CD",
+      "Delivery"
+    ]
+  }
+]

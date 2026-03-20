@@ -7,6 +7,11 @@ on:
         description: "Full job description text (optional). Leave empty for generic CV."
         required: false
         type: string
+      person_id:
+        description: "Person bundle id under agents/cv/people/"
+        required: true
+        default: toni
+        type: string
       language:
         description: "Output language"
         required: true
@@ -17,6 +22,26 @@ on:
           - en
       include_project_history:
         description: "Generate project history attachment"
+        required: true
+        default: false
+        type: boolean
+      include_cover_letter:
+        description: "Generate source-bound cover letter"
+        required: true
+        default: false
+        type: boolean
+      include_interview_prep:
+        description: "Generate interview prep notes"
+        required: true
+        default: false
+        type: boolean
+      include_style_guide:
+        description: "Generate interview style guide"
+        required: true
+        default: false
+        type: boolean
+      include_learning_path:
+        description: "Generate learning path guidance"
         required: true
         default: false
         type: boolean
@@ -49,8 +74,13 @@ jobs:
       CV_LLM_MODEL: ${{ vars.CV_LLM_MODEL }}
       CV_LLM_BASE_URL: ${{ vars.CV_LLM_BASE_URL }}
       JOB_DESCRIPTION: ${{ inputs.job_description }}
+      PERSON_ID: ${{ inputs.person_id }}
       LANGUAGE: ${{ inputs.language }}
       INCLUDE_PROJECT_HISTORY: ${{ inputs.include_project_history }}
+      INCLUDE_COVER_LETTER: ${{ inputs.include_cover_letter }}
+      INCLUDE_INTERVIEW_PREP: ${{ inputs.include_interview_prep }}
+      INCLUDE_STYLE_GUIDE: ${{ inputs.include_style_guide }}
+      INCLUDE_LEARNING_PATH: ${{ inputs.include_learning_path }}
       VARIANT: ${{ inputs.variant }}
       LAYOUT: ${{ inputs.layout }}
     steps:
@@ -78,14 +108,30 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r agents/cv/requirements-ci.txt
 
+      - name: Install Playwright Chromium
+        run: |
+          python -m playwright install --with-deps chromium
+
       - name: Run CV pipeline
         run: |
-          cmd=(python3 -m agents.cv.run --base-dir "$GITHUB_WORKSPACE/agents/cv" --layout "$LAYOUT" --language "$LANGUAGE")
+          cmd=(python3 -m agents.cv.run --base-dir "$GITHUB_WORKSPACE/agents/cv" --person "$PERSON_ID" --layout "$LAYOUT" --language "$LANGUAGE")
           if [[ -n "$VARIANT" ]]; then
             cmd+=(--variant "$VARIANT")
           fi
           if [[ "$INCLUDE_PROJECT_HISTORY" == "true" ]]; then
             cmd+=(--project-history)
+          fi
+          if [[ "$INCLUDE_COVER_LETTER" == "true" ]]; then
+            cmd+=(--cover-letter)
+          fi
+          if [[ "$INCLUDE_INTERVIEW_PREP" == "true" ]]; then
+            cmd+=(--interview-prep)
+          fi
+          if [[ "$INCLUDE_STYLE_GUIDE" == "true" ]]; then
+            cmd+=(--style-guide)
+          fi
+          if [[ "$INCLUDE_LEARNING_PATH" == "true" ]]; then
+            cmd+=(--learning-path)
           fi
           if [[ -n "$JOB_DESCRIPTION" ]]; then
             cmd+=(--job-text "$JOB_DESCRIPTION")
@@ -99,11 +145,5 @@ jobs:
         with:
           name: cv-artifacts
           path: |
-            agents/cv/result/cv.md
-            agents/cv/result/cv.html
-            agents/cv/result/cv.pdf
-            agents/cv/result/project_history.md
-            agents/cv/result/project_history.html
-            agents/cv/result/project_history.pdf
-            agents/cv/result/manifest.json
+            agents/cv/result/${{ inputs.person_id }}/**
           if-no-files-found: warn

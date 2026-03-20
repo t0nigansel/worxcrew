@@ -1,0 +1,65 @@
+[
+  {
+    "id": "cert_ocjp_2007",
+    "name": "Oracle Certified Professional, Java SE 6 Programmer",
+    "issuer": [
+      "Oracle"
+    ],
+    "issued": "2007-06",
+    "valid_until": null,
+    "credential_id": "OCP-JAVA-2007-7712",
+    "skills": [
+      "Java",
+      "Object-Oriented Programming"
+    ],
+    "category": "Java"
+  },
+  {
+    "id": "cert_java_ee_2011",
+    "name": "Oracle Certified Expert, Java EE 5 Web Component Developer",
+    "issuer": [
+      "Oracle"
+    ],
+    "issued": "2011-04",
+    "valid_until": null,
+    "credential_id": "OCE-JEE5-2011-4420",
+    "skills": [
+      "Java EE",
+      "Web Components",
+      "Enterprise Java"
+    ],
+    "category": "Java"
+  },
+  {
+    "id": "cert_spring_professional_2018",
+    "name": "Spring Professional Certification",
+    "issuer": [
+      "VMware"
+    ],
+    "issued": "2018-09",
+    "valid_until": null,
+    "credential_id": "SPRING-2018-9981",
+    "skills": [
+      "Spring Framework",
+      "Spring Boot",
+      "Dependency Injection"
+    ],
+    "category": "Framework"
+  },
+  {
+    "id": "cert_aws_developer_2022",
+    "name": "AWS Certified Developer - Associate",
+    "issuer": [
+      "Amazon Web Services"
+    ],
+    "issued": "2022-11",
+    "valid_until": "2025-11",
+    "credential_id": "AWS-DEV-2022-5411",
+    "skills": [
+      "AWS",
+      "Cloud Development",
+      "Deployment"
+    ],
+    "category": "Cloud"
+  }
+]

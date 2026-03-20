@@ -5,6 +5,7 @@ import json
 import re
 import unicodedata
 from datetime import date
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, Iterable, List
 
@@ -153,3 +154,8 @@ def truncate_text(value: str, limit: int) -> str:
         return value
     trimmed = value[: limit - 1].rsplit(" ", 1)[0]
     return f"{trimmed}..."
+
+
+def make_run_id(now: datetime | None = None) -> str:
+    current = now or datetime.now(timezone.utc)
+    return current.strftime("%Y%m%d-%H%M%S")

@@ -5,8 +5,8 @@ from __future__ import annotations
 from typing import Any, Dict, List
 
 from .models import CVContent, EvidenceSelection, JobAnalysis, SourceBundle
-from .utils import dump_frontmatter, month_label, normalize_text, truncate_text, unique
-from .writer import _contact_line, _headline, _link_items, _project_badge
+from .utils import dump_frontmatter, month_label
+from .writer import _contact_line, _headline, _link_items
 
 
 def _sort_projects_reverse_chronological(projects: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
@@ -24,7 +24,6 @@ def _sort_projects_reverse_chronological(projects: List[Dict[str, Any]]) -> List
 
 def _compose_project_entry(
     project: Dict[str, Any],
-    analysis: JobAnalysis,
 ) -> Dict[str, Any]:
     """Build a single project entry with full detail for the history attachment."""
     period = project.get("period", {}) or {}
@@ -45,8 +44,6 @@ def _compose_project_entry(
 
     tools = project.get("tools", []) or []
 
-    badge_label, badge_tone = _project_badge(project, analysis)
-
     return {
         "project_id": str(project.get("id", "")),
         "name": str(project.get("name", "")),
@@ -59,8 +56,6 @@ def _compose_project_entry(
         "responsibilities": responsibilities,
         "tools": tools,
         "tools_line": ", ".join(tools),
-        "badge_label": badge_label,
-        "badge_tone": badge_tone,
     }
 
 
@@ -73,7 +68,7 @@ def compose_project_history(
     person = bundle.profile.get("person", {})
     sorted_projects = _sort_projects_reverse_chronological(bundle.projects)
 
-    entries = [_compose_project_entry(project, analysis) for project in sorted_projects]
+    entries = [_compose_project_entry(project) for project in sorted_projects]
 
     return {
         "full_name": person.get("name", {}).get("full", ""),

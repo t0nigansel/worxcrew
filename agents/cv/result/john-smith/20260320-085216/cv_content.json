@@ -1,0 +1,390 @@
+{
+  "frontmatter": {
+    "document_type": "cv",
+    "language": "de",
+    "validated": true,
+    "full_name": "John Smith",
+    "headline": "Senior Java Developer",
+    "job_title": "Senior Java Developer",
+    "variant": "",
+    "layout": "reference",
+    "selected_project_ids": [
+      "energy-trading-api-2023",
+      "manufacturing-integration-hub-2019",
+      "telco-billing-integration-2008",
+      "ecommerce-order-modernization-2025",
+      "logistics-order-platform-2012"
+    ],
+    "selected_certification_ids": [
+      "cert_spring_professional_2018",
+      "cert_java_ee_2011",
+      "cert_ocjp_2007",
+      "cert_aws_developer_2022"
+    ],
+    "selected_experience_ids": [
+      "exp_freelance_2021",
+      "exp_platform_2017",
+      "exp_consulting_2003",
+      "exp_lead_dev_2009"
+    ]
+  },
+  "body": {
+    "layout": "reference",
+    "full_name": "John Smith",
+    "headline": "Senior Java Developer",
+    "contact_line": "Mainzer Landstrasse 120, 60327, Frankfurt am Main | +49 69 1234 5678 | john.smith.dev@example.com",
+    "links": [
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/john-smith-java-architect"
+      },
+      {
+        "label": "GitHub",
+        "url": "https://github.com/johnsmith-java"
+      }
+    ],
+    "profile": {
+      "summary": "Testingenieur mit rund 5+ Jahren Erfahrung in Softwareentwicklung, Qualitaetssicherung und Security Testing. Fokus fuer die Zielrolle: Spring Boot, Backend, Integration, Java. Relevante Referenzen: Energy Trading API Platform,...",
+      "strengths": [
+        "Spring Boot",
+        "Backend",
+        "Integration",
+        "Java"
+      ],
+      "goal": "Zielsetzung: Senior Java Developer mit Schwerpunkt auf Spring Boot, Backend, Integration.",
+      "industries": [
+        "EnerTrade Systems",
+        "Nordkraft Industrie AG",
+        "TeleCom Nord",
+        "RetailScale Commerce",
+        "CargoFlow GmbH"
+      ],
+      "work_preferences": "gelegentlich innerhalb Deutschlands",
+      "variant_focus": ""
+    },
+    "featured_projects": [
+      {
+        "project_id": "energy-trading-api-2023",
+        "name": "Energy Trading API Platform",
+        "client": "EnerTrade Systems",
+        "role": "Freelance Senior Java Developer",
+        "period": "03/2021 - 12/2023",
+        "summary": "Implementierung performanter REST-Services; Einbindung externer Handelspartner",
+        "context": "API- und Backend-Plattform fuer Handelsdaten, Partnerintegration und Auswertung in einem dynamischen Energiemarkt.",
+        "detail_points": [
+          "Implementierung performanter REST-Services",
+          "Einbindung externer Handelspartner",
+          "Technische Beratung des Kunden"
+        ],
+        "tools": "Java, Spring Boot, REST, PostgreSQL",
+        "badges": [
+          {
+            "label": "Programming",
+            "tone": "badge-neutral"
+          },
+          {
+            "label": "API testing",
+            "tone": "badge-neutral"
+          },
+          {
+            "label": "Automation",
+            "tone": "badge-neutral"
+          }
+        ],
+        "badge_label": "Programming",
+        "badge_tone": "badge-neutral"
+      },
+      {
+        "project_id": "manufacturing-integration-hub-2019",
+        "name": "Manufacturing Integration Hub",
+        "client": "Nordkraft Industrie AG",
+        "role": "Lead Software Developer",
+        "period": "02/2017 - 12/2020",
+        "summary": "Modernisierung bestehender Module; Aufbau einer Integrationsarchitektur",
+        "context": "Integrationsplattform fuer stabile Daten- und Prozessfluesse zwischen Produktionssystemen und kaufmaennischen Kernanwendungen.",
+        "detail_points": [
+          "Modernisierung bestehender Module",
+          "Aufbau einer Integrationsarchitektur",
+          "Coaching von Entwicklern"
+        ],
+        "tools": "Java, Spring Boot, Kafka, PostgreSQL",
+        "badges": [
+          {
+            "label": "Programming",
+            "tone": "badge-neutral"
+          },
+          {
+            "label": "Automation",
+            "tone": "badge-neutral"
+          },
+          {
+            "label": "Performance",
+            "tone": "badge-neutral"
+          }
+        ],
+        "badge_label": "Programming",
+        "badge_tone": "badge-neutral"
+      },
+      {
+        "project_id": "telco-billing-integration-2008",
+        "name": "Billing Integration Platform",
+        "client": "TeleCom Nord",
+        "role": "Senior Java Developer",
+        "period": "01/2007 - 06/2009",
+        "summary": "Entwicklung robuster Integrationsservices; Optimierung von Batch-Verarbeitung",
+        "context": "Sicherstellung konsistenter Datenfluesse zwischen Vertriebs-, Kunden- und Abrechnungssystemen in einer Telekommunikationslandschaft.",
+        "detail_points": [
+          "Entwicklung robuster Integrationsservices",
+          "Optimierung von Batch-Verarbeitung",
+          "Technische Abstimmung mit Kundenteams"
+        ],
+        "tools": "Java, Spring, Oracle, JMS",
+        "badges": [
+          {
+            "label": "Automation",
+            "tone": "badge-neutral"
+          },
+          {
+            "label": "Programming",
+            "tone": "badge-neutral"
+          },
+          {
+            "label": "CI/CD",
+            "tone": "badge-automation"
+          }
+        ],
+        "badge_label": "Automation",
+        "badge_tone": "badge-neutral"
+      }
+    ],
+    "experiences": [
+      {
+        "experience_id": "exp_consulting_2003",
+        "role": "Java Developer",
+        "company": "Pioneer Consulting GmbH",
+        "period": "02/2003 - 06/2009",
+        "roles_held": [
+          "Senior Java Developer",
+          "Java Developer"
+        ],
+        "project_names": [
+          "Billing Integration Platform",
+          "Policy Administration Core"
+        ],
+        "focus_text": "Java-Entwicklung in Kundenprojekten fuer Versicherung und Telekommunikation · Technische Umsetzung von Backend-Fachlogik und...",
+        "source_ids": [
+          "exp_consulting_2003",
+          "telco-billing-integration-2008",
+          "insurance-policy-core-2005"
+        ],
+        "highlights": []
+      },
+      {
+        "experience_id": "exp_lead_dev_2009",
+        "role": "Lead Java Developer",
+        "company": "Hanse Digital Solutions GmbH",
+        "period": "07/2009 - 12/2016",
+        "roles_held": [
+          "Lead Java Developer"
+        ],
+        "project_names": [
+          "Digital Lending Suite",
+          "Logistics Order Platform"
+        ],
+        "focus_text": "Lead Developer fuer produktionskritische Java-Plattformen · Technische Steuerung kleiner Entwicklungsteams · Modernisierung von...",
+        "source_ids": [
+          "exp_lead_dev_2009",
+          "bank-lending-suite-2015",
+          "logistics-order-platform-2012"
+        ],
+        "highlights": []
+      },
+      {
+        "experience_id": "exp_platform_2017",
+        "role": "Lead Software Developer",
+        "company": "Nordkraft Systeme AG",
+        "period": "01/2017 - 12/2020",
+        "roles_held": [
+          "Lead Software Developer"
+        ],
+        "project_names": [
+          "Manufacturing Integration Hub"
+        ],
+        "focus_text": "Leitung der Backend-Entwicklung fuer integrierte Unternehmensplattformen · Architekturentscheidungen fuer Java- und...",
+        "source_ids": [
+          "exp_platform_2017",
+          "manufacturing-integration-hub-2019"
+        ],
+        "highlights": []
+      },
+      {
+        "experience_id": "exp_freelance_2021",
+        "role": "Freelance Senior Java Developer",
+        "company": "Smith Software Consulting",
+        "period": "01/2021 - 03/2026",
+        "roles_held": [
+          "Freelance Senior Java Developer",
+          "Freelance Lead Java Developer"
+        ],
+        "project_names": [
+          "Energy Trading API Platform",
+          "Order Management Modernization"
+        ],
+        "focus_text": "Freiberufliche Java-Entwicklung fuer unterschiedliche Endkunden · Technische Beratung, API-Design und Modernisierung bestehender...",
+        "source_ids": [
+          "exp_freelance_2021",
+          "energy-trading-api-2023",
+          "ecommerce-order-modernization-2025"
+        ],
+        "highlights": []
+      }
+    ],
+    "sidebar": {
+      "focus_areas": [
+        "Java Backend-Entwicklung",
+        "Spring-basierte Unternehmensanwendungen",
+        "API-Design und Systemintegration",
+        "Modernisierung von Altsystemen"
+      ],
+      "standards": [
+        "Java EE",
+        "Spring Boot",
+        "REST"
+      ],
+      "work_preferences": "gelegentlich innerhalb Deutschlands",
+      "technology_groups": [
+        {
+          "name": "Testtools",
+          "items": [
+            "JUnit",
+            "Mockito",
+            "Testcontainers",
+            "Postman",
+            "Java",
+            "Spring Boot",
+            "REST",
+            "PostgreSQL"
+          ]
+        },
+        {
+          "name": "Security",
+          "items": [
+            "SonarQube",
+            "OWASP Dependency-Check"
+          ]
+        },
+        {
+          "name": "Programmierung",
+          "items": [
+            "Java",
+            "SQL",
+            "XML",
+            "Bash"
+          ]
+        },
+        {
+          "name": "Infrastruktur & CI/CD",
+          "items": [
+            "Git",
+            "Maven",
+            "Gradle",
+            "Jenkins",
+            "Docker",
+            "Kubernetes",
+            "Tomcat"
+          ]
+        },
+        {
+          "name": "Datenbanken",
+          "items": [
+            "Oracle",
+            "PostgreSQL",
+            "MySQL",
+            "DB2"
+          ]
+        },
+        {
+          "name": "Methoden",
+          "items": [
+            "Agile (Scrum)",
+            "Domain-driven Design",
+            "Continuous Delivery",
+            "Java EE",
+            "Spring Boot"
+          ]
+        },
+        {
+          "name": "Testmanagement",
+          "items": [
+            "Jira",
+            "Confluence",
+            "Azure DevOps"
+          ]
+        }
+      ],
+      "certification_groups": [
+        {
+          "name": "Testing & Security",
+          "items": [
+            {
+              "label": "Spring Professional Certification (2018)",
+              "source_id": "cert_spring_professional_2018"
+            },
+            {
+              "label": "Oracle Certified Expert, Java EE 5 Web Component Developer (2011)",
+              "source_id": "cert_java_ee_2011"
+            },
+            {
+              "label": "Oracle Certified Professional, Java SE 6 Programmer (2007)",
+              "source_id": "cert_ocjp_2007"
+            }
+          ]
+        }
+      ],
+      "education": [
+        {
+          "institution": "Hochschule Darmstadt",
+          "program": "Informatik",
+          "period": "2000 - 2003",
+          "source_id": "edu_fh_darmstadt_cs"
+        }
+      ],
+      "languages": [
+        {
+          "name": "Deutsch",
+          "level": "Muttersprache"
+        },
+        {
+          "name": "Englisch",
+          "level": "Verhandlungssicher"
+        }
+      ],
+      "clients": [
+        "EnerTrade Systems",
+        "Nordkraft Industrie AG",
+        "TeleCom Nord",
+        "RetailScale Commerce",
+        "CargoFlow GmbH"
+      ],
+      "availability": "Mai 2026"
+    },
+    "portrait_path": "/Users/tonigansel/workspace/worxcrew/agents/cv/people/john-smith/portrait.png",
+    "footer_keywords": [
+      "#Spring Boot",
+      "#Backend",
+      "#Integration",
+      "#Java",
+      "#Spring",
+      "#Freelance Senior Java Developer",
+      "#JUnit",
+      "#Mockito",
+      "#Testcontainers",
+      "#Postman",
+      "#REST",
+      "#PostgreSQL",
+      "#SonarQube",
+      "#OWASP Dependency-Check",
+      "#SQL"
+    ]
+  }
+}
