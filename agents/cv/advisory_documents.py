@@ -176,27 +176,34 @@ def build_learning_path_content(
         ]
     )[:4]
     cert_line = ", ".join(item for item in suggested_certs if item) or "zielgerichtete Security- und AI-Zertifizierungen"
+    priority_line = ", ".join(priorities) or "Ihren Kernkompetenzen"
 
     sections = [
         {
-            "title": "Naechster sinnvoller Schritt",
+            "title": "Route 1 - Tech-Expert Track",
             "body": (
-                f"Der naechste logische Schritt ist eine Position in Richtung **{selected_role}**. "
-                f"Die staerksten Hebel dafuer liegen in {', '.join(priorities) or 'Ihren Kernkompetenzen'}."
+                f"**Naechste Rolle:** Principal Engineer / Staff Engineer in Richtung **{selected_role}**.\n\n"
+                f"**Wie Sie dorthin kommen:** Positionieren Sie sich als tiefes technisches Rueckgrat mit Fokus auf {priority_line}. "
+                "Uebernehmen Sie Architekturverantwortung, technische Leitplanken und schwierige Delivery-Entscheidungen.\n\n"
+                f"**Hilfreiche Zertifizierungen:** {cert_line} (mit Schwerpunkt auf Architektur, Cloud und Security)."
             ),
         },
         {
-            "title": "Wie Sie dorthin kommen",
+            "title": "Route 2 - Management Track",
             "body": (
-                "Bauen Sie gezielt sichtbare Referenzen auf, die fachliche Tiefe und Wirkung kombinieren: "
-                "ein belastbares Projektbeispiel, ein klarer fachlicher Schwerpunkt und eine sichtbare Rolle in Standards, Coaching oder Automatisierung."
+                f"**Naechste Rolle:** Engineering Manager / Team Lead mit Bruecke zwischen Technik und Business.\n\n"
+                "**Wie Sie dorthin kommen:** Verstaerken Sie People- und Stakeholder-Fuehrung: Roadmaps priorisieren, "
+                "Team-Entwicklung steuern, Hiring/Coaching sichtbar uebernehmen und Delivery-Risiken frueh moderieren.\n\n"
+                "**Hilfreiche Zertifizierungen:** Scrum.org, PRINCE2/PMP, ITIL oder Leadership-Programme (komplementaer zu Ihrer Technik-Story)."
             ),
         },
         {
-            "title": "Hilfreiche Zertifizierungen",
+            "title": "Route 3 - Specialization Track",
             "body": (
-                f"Priorisieren Sie Zertifizierungen oder Lernpfade wie {cert_line}. "
-                "Wichtig ist, dass jede Weiterbildung direkt in Projektpraxis oder Positionierung ueberfuehrt wird."
+                f"**Naechste Rolle:** Spezialist in einem klaren Vertikalthema (z. B. AppSec, AI Security, Platform Automation oder Performance Engineering).\n\n"
+                f"**Wie Sie dorthin kommen:** Waehlen Sie ein Thema aus {priority_line} als klare Nische und bauen Sie dort eine sichtbare Referenzspur "
+                "(Best Practices, interne Standards, Fachbeitraege, wiederholbare Projekt-Blueprints).\n\n"
+                f"**Hilfreiche Zertifizierungen:** {cert_line}; priorisieren Sie nur Zertifikate mit direktem Transfer in reale Projektwirkung."
             ),
         },
     ]

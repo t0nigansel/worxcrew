@@ -56,6 +56,12 @@ def build_parser() -> argparse.ArgumentParser:
         help="Output language: 'de' (German, default) or 'en' (English).",
     )
     parser.add_argument(
+        "--cv",
+        action=argparse.BooleanOptionalAction,
+        default=True,
+        help="Generate CV output (use --no-cv to disable).",
+    )
+    parser.add_argument(
         "--project-history",
         action="store_true",
         default=False,
@@ -81,9 +87,11 @@ def build_parser() -> argparse.ArgumentParser:
     )
     parser.add_argument(
         "--learning-path",
+        "--career-path",
+        dest="learning_path",
         action="store_true",
         default=False,
-        help="Generate learning path guidance.",
+        help="Generate career path guidance.",
     )
     parser.add_argument(
         "--list-people",
@@ -109,7 +117,7 @@ def main() -> int:
         job_offer_text = args.job_file.read_text(encoding="utf-8")
 
     requested_outputs = RequestedOutputs(
-        cv=True,
+        cv=args.cv,
         project_history=args.project_history,
         cover_letter=args.cover_letter,
         interview_prep=args.interview_prep,

@@ -20,6 +20,11 @@ on:
         options:
           - de
           - en
+      include_cv:
+        description: "Generate CV"
+        required: true
+        default: true
+        type: boolean
       include_project_history:
         description: "Generate project history attachment"
         required: true
@@ -41,7 +46,7 @@ on:
         default: false
         type: boolean
       include_learning_path:
-        description: "Generate learning path guidance"
+        description: "Generate career path guidance"
         required: true
         default: false
         type: boolean
@@ -73,9 +78,11 @@ jobs:
       CV_LLM_API_KEY: ${{ secrets.CV_LLM_API_KEY }}
       CV_LLM_MODEL: ${{ vars.CV_LLM_MODEL }}
       CV_LLM_BASE_URL: ${{ vars.CV_LLM_BASE_URL }}
+      CV_REQUIRE_PDF: "true"
       JOB_DESCRIPTION: ${{ inputs.job_description }}
       PERSON_ID: ${{ inputs.person_id }}
       LANGUAGE: ${{ inputs.language }}
+      INCLUDE_CV: ${{ inputs.include_cv }}
       INCLUDE_PROJECT_HISTORY: ${{ inputs.include_project_history }}
       INCLUDE_COVER_LETTER: ${{ inputs.include_cover_letter }}
       INCLUDE_INTERVIEW_PREP: ${{ inputs.include_interview_prep }}
@@ -115,6 +122,9 @@ jobs:
       - name: Run CV pipeline
         run: |
           cmd=(python3 -m agents.cv.run --base-dir "$GITHUB_WORKSPACE/agents/cv" --person "$PERSON_ID" --layout "$LAYOUT" --language "$LANGUAGE")
+          if [[ "$INCLUDE_CV" == "false" ]]; then
+            cmd+=(--no-cv)
+          fi
           if [[ -n "$VARIANT" ]]; then
             cmd+=(--variant "$VARIANT")
           fi

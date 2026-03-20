@@ -4,6 +4,7 @@ import shutil
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 from agents.cv.models import RequestedOutputs
 from agents.cv.pipeline import run_pipeline
@@ -34,10 +35,11 @@ class PipelineTests(unittest.TestCase):
 
     def test_parser_supports_new_flags(self) -> None:
         parser = build_parser()
-        args = parser.parse_args(["--person", "toni", "--cover-letter", "--learning-path"])
+        args = parser.parse_args(["--person", "toni", "--cover-letter", "--career-path", "--no-cv"])
         self.assertEqual(args.person, "toni")
         self.assertTrue(args.cover_letter)
         self.assertTrue(args.learning_path)
+        self.assertFalse(args.cv)
 
     def test_job_bound_outputs_require_job_text(self) -> None:
         with self.assertRaises(ValueError):
@@ -111,6 +113,54 @@ class PipelineTests(unittest.TestCase):
             requested_outputs=RequestedOutputs(project_history=True),
         )
         self.assertIn("project_history_markdown", result.payload["artifacts"])
+
+    def test_run_pipeline_supports_disabling_cv(self) -> None:
+        result = run_pipeline(
+            self.temp_dir,
+            job_offer_text=self.job_text,
+            person_id="toni",
+            run_id="no-cv",
+            requested_outputs=RequestedOutputs(cv=False, project_history=True),
+        )
+        artifacts = result.payload["artifacts"]
+        self.assertNotIn("cv_markdown", artifacts)
+        self.assertIn("project_history_markdown", artifacts)
+
+    def test_no_enabled_outputs_raises(self) -> None:
+        with self.assertRaises(ValueError):
+            run_pipeline(
+                self.temp_dir,
+                job_offer_text=self.job_text,
+                person_id="toni",
+                run_id="no-outputs",
+                requested_outputs=RequestedOutputs(cv=False),
+            )
+
+    @patch.dict("os.environ", {"CV_REQUIRE_PDF": "true"})
+    @patch("agents.cv.pipeline.render_pdf", side_effect=RuntimeError("renderer unavailable"))
+    def test_require_pdf_fails_pipeline_when_pdf_rendering_breaks(self, _render_pdf_mock) -> None:
+        with self.assertRaises(RuntimeError):
+            run_pipeline(
+                self.temp_dir,
+                job_offer_text=self.job_text,
+                person_id="toni",
+                run_id="require-pdf-failure",
+                requested_outputs=RequestedOutputs(),
+            )
+
+    def test_learning_path_contains_three_routes(self) -> None:
+        run_pipeline(
+            self.temp_dir,
+            job_offer_text=self.job_text,
+            person_id="toni",
+            run_id="learning-routes",
+            requested_outputs=RequestedOutputs(learning_path=True),
+        )
+        markdown_path = self.temp_dir / "result" / "toni" / "learning-routes" / "learning_path.md"
+        markdown = markdown_path.read_text(encoding="utf-8")
+        self.assertIn("## Route 1 - Tech-Expert Track", markdown)
+        self.assertIn("## Route 2 - Management Track", markdown)
+        self.assertIn("## Route 3 - Specialization Track", markdown)
 
 
 if __name__ == "__main__":

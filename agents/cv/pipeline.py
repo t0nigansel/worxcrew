@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import os
 from dataclasses import asdict
 from pathlib import Path
 from typing import Dict, List
@@ -244,10 +245,13 @@ class PdfRendererAgent(BaseAgent):
         content: CVContent = context.data["cv_content"]
         markdown_path = context.artifacts["cv_markdown"]
         validation_report = context.data.get("validation_report")
+        require_pdf = bool(context.data.get("require_pdf", False))
 
         if validation_report and not validation_report.passed:
-            warning = "PDF rendering skipped because validation did not pass."
-            return AgentResult(name=self.name, warnings=[warning], payload={}, artifacts={})
+            message = "PDF rendering skipped because validation did not pass."
+            if require_pdf:
+                raise RuntimeError(message)
+            return AgentResult(name=self.name, warnings=[message], payload={}, artifacts={})
 
         html_path = context.record_artifact(
             "cv_html",
@@ -261,7 +265,10 @@ class PdfRendererAgent(BaseAgent):
                 artifacts[f"cv_{name}"] = path
                 context.record_artifact(f"cv_{name}", Path(path))
         except Exception as error:
-            warnings.append(str(error))
+            message = f"CV PDF rendering failed: {error}"
+            if require_pdf:
+                raise RuntimeError(message) from error
+            warnings.append(message)
         return AgentResult(name=self.name, payload=artifacts, warnings=warnings, artifacts=artifacts)
 
 
@@ -357,11 +364,13 @@ class ApplicationOrchestrator(BaseAgent):
             JobAnalyzerAgent(),
             EvidenceSelectorAgent(),
         ]
-        self.document_agents: List[BaseAgent] = [
-            CVWriterAgent(),
-            FactCheckerAgent(),
-            PdfRendererAgent(),
-        ]
+        self.document_agents: List[BaseAgent] = []
+        if requested_outputs.cv:
+            self.document_agents.extend([
+                CVWriterAgent(),
+                FactCheckerAgent(),
+                PdfRendererAgent(),
+            ])
         if requested_outputs.cover_letter:
             self.document_agents.extend([CoverLetterWriterAgent(), CoverLetterValidatorAgent()])
         if requested_outputs.project_history:
@@ -416,6 +425,9 @@ class ApplicationOrchestrator(BaseAgent):
 
 
 def _validate_requested_outputs(job_offer_text: str, requested_outputs: RequestedOutputs) -> None:
+    if not any(requested_outputs.as_dict().values()):
+        raise ValueError("At least one output must be enabled (for example --cv or --project-history).")
+
     missing_job_outputs = [
         label
         for field, label in JOB_BOUND_OUTPUTS.items()
@@ -439,6 +451,7 @@ def run_pipeline(
 ) -> AgentResult:
     outputs = requested_outputs or RequestedOutputs()
     _validate_requested_outputs(job_offer_text, outputs)
+    require_pdf = os.getenv("CV_REQUIRE_PDF", "").strip().lower() in {"1", "true", "yes", "on"}
 
     resolved_run_id = run_id or make_run_id()
     result_dir = base_dir / "result" / person_id / resolved_run_id
@@ -454,6 +467,7 @@ def run_pipeline(
             "layout_name": layout_name,
             "language": language,
             "llm_client": OpenAICompatibleClient(llm_settings) if llm_settings else None,
+            "require_pdf": require_pdf,
             "requested_outputs": outputs.as_dict(),
         },
         metadata={
@@ -463,6 +477,7 @@ def run_pipeline(
             "variant": variant_name,
             "layout": layout_name,
             "language": language,
+            "require_pdf": require_pdf,
             "requested_outputs": outputs.as_dict(),
         },
     )
